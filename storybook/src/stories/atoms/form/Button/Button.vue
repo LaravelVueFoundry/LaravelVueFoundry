@@ -42,11 +42,11 @@ const bgColor = computed(() => {
 const padding = computed(() => {
   switch (props.size) {
     case 'lg':
-      return 'px-10 py-6 rounded-xl'
+      return 'px-8 py-4 rounded-xl'
     case 'sm':
       return 'px-4 py-2 rounded-lg'
     default:
-      return 'px-6 py-4 rounded-lg'
+      return 'px-6 py-3 rounded-lg'
   }
 })
 </script>
@@ -55,13 +55,13 @@ const padding = computed(() => {
   <component
     :is="buttonType"
     :class="twMerge(
-      'text-white inline-block font-semibold transition-all leading-none border',
+      'text-white disabled:opacity-50 disabled:pointer-events-none inline-block font-semibold border hover:shadow-md active:shadow-none',
       'focus:outline-primary-500 outline-offset-4',
+      'transition-[background,border,box-shadow,opacity]',
       bgColor,
       padding,
-      props.class,
-      (props.disabled) ? 'opacity-50' : undefined,
       (props.loading) ? 'opacity-75 animate-pulse' : undefined,
+      props.class,
     )"
     :disabled="props.loading || props.disabled"
     :href="to"

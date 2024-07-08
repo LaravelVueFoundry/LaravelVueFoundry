@@ -21,6 +21,16 @@ type Story = StoryObj<Props>
 
 export const Default: Story = {
   args: {
+    disabled: false,
+    placeholder: 'Placeholder...',
+    required: false,
+    type: 'text',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
     placeholder: 'Placeholder...',
     required: false,
     type: 'text',
