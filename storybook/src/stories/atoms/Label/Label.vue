@@ -1,12 +1,21 @@
 <script setup lang="ts">
+import { twMerge } from 'tailwind-merge'
+import type { HTMLAttributes } from 'vue'
+
 const props = withDefaults(defineProps<{
+  class?: HTMLAttributes['class']
   required?: boolean
 }>(), {
 })
 </script>
 
 <template>
-  <label class="block text-sm font-medium dark:text-white">
+  <label
+    :class="twMerge(
+      'block font-semibold text-gray-800 dark:text-gray-200',
+      props.class,
+    )"
+  >
     <slot />
 
     <span

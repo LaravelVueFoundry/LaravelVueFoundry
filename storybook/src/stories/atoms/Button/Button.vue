@@ -4,11 +4,11 @@ import type { HTMLAttributes } from 'vue'
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{
+  class?: HTMLAttributes['class']
   type?: 'button' | 'submit'
   variant?: 'primary' | 'warning' | 'danger' | 'ghost'
   size: 'lg' | 'md' | 'sm'
   to?: string
-  class?: HTMLAttributes['class']
   disabled?: boolean
   loading?: boolean
 }>(), {
