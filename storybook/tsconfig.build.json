@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowImportingTsExtensions": false,
+    "allowJs": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "noEmit": false,
+    "outDir": "dist"
+  },
+  "include": [
+    "./src/**/*.vue",
+    "./src/**/*.ts",
+    "./src/**/*.d.ts",
+    "./main.ts"
+  ],
+  "exclude": [
+    "./src/**/*.stories.ts"
+  ]
+}
