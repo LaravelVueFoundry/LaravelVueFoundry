@@ -1,4 +1,5 @@
 import process from 'node:process'
+import path from 'node:path'
 import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
@@ -7,6 +8,11 @@ const port = 5173
 const origin = `${process.env.DDEV_PRIMARY_URL}:${port}`
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      'ziggy-js': path.resolve('vendor/tightenco/ziggy'),
+    },
+  },
   plugins: [
     laravel({
       input: 'resources/js/app.ts',

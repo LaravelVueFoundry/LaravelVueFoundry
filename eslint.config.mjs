@@ -12,6 +12,7 @@ export default antfu(
       '**/composer.json',
       '**/composer.lock',
       '**/.ddev',
+      '**/.github',
       '**/storybook-static',
       '**/public/build',
       '**/storage',

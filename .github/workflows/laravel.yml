@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: shivammathur/setup-php@ubuntu-latest
+    - uses: shivammathur/setup-php@2.31.0
       with:
         php-version: '8.3'
     - uses: actions/checkout@v4
@@ -28,7 +28,17 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
+    - name: Display NodeJS Version
+      run: node --version
+    - name: Enable Corepack
+      run: corepack enable
+    - name: Install NodeJS Dependencies
+      run: pnpm i
+    - name: Lint Frontend
+      run: pnpm lint
+    - name: Build Frontend
+      run: pnpm build
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
