@@ -3,7 +3,6 @@ import { useForm } from '@inertiajs/vue3'
 import { nextTick, ref } from 'vue'
 import { Button } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
-import InputLabel from '@/Components/InputLabel.vue'
 import Modal from '@/Components/Modal.vue'
 import TextInput from '@/Components/TextInput.vue'
 
@@ -67,7 +66,7 @@ function closeModal() {
         </p>
 
         <div>
-          <InputLabel for="password" value="Password" />
+          <Label for="password">Password</Label>
 
           <TextInput
             id="password"

@@ -6,7 +6,7 @@ import Button from './Button.vue'
 type Props = ComponentProps<typeof Button> & { default: string }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Button',
+  title: 'Atoms/Form/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {

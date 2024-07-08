@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { Link, useForm, usePage } from '@inertiajs/vue3'
-import { Button } from '@local/ui'
+import { Button, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
-import InputLabel from '@/Components/InputLabel.vue'
 import TextInput from '@/Components/TextInput.vue'
 
 defineProps<{
@@ -32,7 +31,7 @@ const form = useForm({
 
     <form @submit.prevent="form.patch(route('profile.update'))">
       <div>
-        <InputLabel for="name" value="Name" />
+        <Label for="name">Name</Label>
 
         <TextInput
           id="name"
@@ -47,7 +46,7 @@ const form = useForm({
       </div>
 
       <div>
-        <InputLabel for="email" value="Email" />
+        <Label for="email">Email</Label>
 
         <TextInput
           id="email"

@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { ref } from 'vue'
-import { Button } from '@local/ui'
+import { Button, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
-import InputLabel from '@/Components/InputLabel.vue'
 import TextInput from '@/Components/TextInput.vue'
 
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -49,7 +48,7 @@ function updatePassword() {
 
     <form @submit.prevent="updatePassword">
       <div>
-        <InputLabel for="current_password" value="Current Password" />
+        <Label for="current_password">Current Password</Label>
 
         <TextInput
           id="current_password"
@@ -63,7 +62,7 @@ function updatePassword() {
       </div>
 
       <div>
-        <InputLabel for="password" value="New Password" />
+        <Label for="password">New Password</Label>
 
         <TextInput
           id="password"
@@ -77,7 +76,7 @@ function updatePassword() {
       </div>
 
       <div>
-        <InputLabel for="password_confirmation" value="Confirm Password" />
+        <Label for="password_confirmation">Confirm Password</Label>
 
         <TextInput
           id="password_confirmation"

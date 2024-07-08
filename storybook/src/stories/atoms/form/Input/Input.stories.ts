@@ -1,21 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import type { ComponentProps } from 'vue-component-type-helpers'
-import Label from './Label.vue'
+import Input from './Input.vue'
 
-type Props = ComponentProps<typeof Label> & { default: string }
+type Props = ComponentProps<typeof Input>
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Label',
-  component: Label,
+  title: 'Atoms/Form/Input',
+  component: Input,
   tags: ['autodocs'],
-  args: {
-    default: 'Label',
-  },
-  parameters: {
-    slots: {
-      default: {},
+  argTypes: {
+    type: {
+      options: ['email', 'number', 'password', 'search', 'tel', 'text', 'url', 'textarea'],
     },
   },
+  args: {},
 }
 
 export default meta
@@ -23,12 +21,8 @@ type Story = StoryObj<Props>
 
 export const Default: Story = {
   args: {
+    placeholder: 'Placeholder...',
     required: false,
-  },
-}
-
-export const Required: Story = {
-  args: {
-    required: true,
+    type: 'text',
   },
 }

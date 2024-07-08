@@ -56,6 +56,7 @@ const padding = computed(() => {
     :is="buttonType"
     :class="twMerge(
       'text-white inline-block font-semibold transition-all leading-none border',
+      'focus:outline-primary-500 outline-offset-4',
       bgColor,
       padding,
       props.class,

@@ -19,7 +19,7 @@ export default {
       danger: colors.rose,
 
       black: colors.black,
-      gray: colors.slate,
+      gray: colors.neutral,
       white: colors.white,
 
       success: colors.green,

@@ -4,6 +4,7 @@ import type { HTMLAttributes } from 'vue'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
+  for?: string
   required?: boolean
 }>(), {
 })
@@ -15,6 +16,7 @@ const props = withDefaults(defineProps<{
       'block font-semibold text-gray-800 dark:text-gray-200',
       props.class,
     )"
+    :for="props.for"
   >
     <slot />
 
