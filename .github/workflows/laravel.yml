@@ -32,6 +32,10 @@ jobs:
       run: node --version
     - name: Enable Corepack
       run: corepack enable
+    - name: Install Component Library
+      run: cd storybook ; pnpm i ; cd ..
+    - name: Build Component Library
+      run: cd storybook ; pnpm build ; cd ..
     - name: Install NodeJS Dependencies
       run: pnpm i
     - name: Lint Frontend
