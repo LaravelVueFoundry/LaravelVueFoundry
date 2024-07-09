@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3'
-import { Button, Label } from '@local/ui'
+import { Button, Input, Label } from '@local/ui'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import InputError from '@/Components/InputError.vue'
-import TextInput from '@/Components/TextInput.vue'
 
 const form = useForm({
   name: '',
@@ -29,11 +28,12 @@ function submit() {
       <div>
         <Label for="name">Name</Label>
 
-        <TextInput
+        <Input
           id="name"
           v-model="form.name"
           autocomplete="name"
           autofocus
+          name="name"
           required
           type="text"
         />
@@ -44,10 +44,11 @@ function submit() {
       <div>
         <Label for="email">Email</Label>
 
-        <TextInput
+        <Input
           id="email"
           v-model="form.email"
-          autocomplete="username"
+          autocomplete="email"
+          name="email"
           required
           type="email"
         />
@@ -58,10 +59,11 @@ function submit() {
       <div>
         <Label for="password">Password</Label>
 
-        <TextInput
+        <Input
           id="password"
           v-model="form.password"
           autocomplete="new-password"
+          name="password"
           required
           type="password"
         />
@@ -72,10 +74,11 @@ function submit() {
       <div>
         <Label for="password_confirmation">Confirm Password</Label>
 
-        <TextInput
+        <Input
           id="password_confirmation"
           v-model="form.password_confirmation"
           autocomplete="new-password"
+          name="new-password"
           required
           type="password"
         />

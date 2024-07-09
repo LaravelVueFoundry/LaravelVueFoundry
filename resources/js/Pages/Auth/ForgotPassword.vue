@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3'
-import { Button, Label } from '@local/ui'
+import { Button, Input, Label } from '@local/ui'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import InputError from '@/Components/InputError.vue'
-import TextInput from '@/Components/TextInput.vue'
 
 defineProps<{
   status?: string
@@ -35,11 +34,12 @@ function submit() {
       <div>
         <Label for="email">Email</Label>
 
-        <TextInput
+        <Input
           id="email"
           v-model="form.email"
-          autocomplete="username"
+          autocomplete="email"
           autofocus
+          name="email"
           required
           type="email"
         />

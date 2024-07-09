@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { Link, useForm, usePage } from '@inertiajs/vue3'
-import { Button, Label } from '@local/ui'
+import { Button, Input, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
-import TextInput from '@/Components/TextInput.vue'
 
 defineProps<{
   mustVerifyEmail?: boolean
@@ -33,11 +32,12 @@ const form = useForm({
       <div>
         <Label for="name">Name</Label>
 
-        <TextInput
+        <Input
           id="name"
           v-model="form.name"
           autocomplete="name"
           autofocus
+          name="name"
           required
           type="text"
         />
@@ -48,10 +48,11 @@ const form = useForm({
       <div>
         <Label for="email">Email</Label>
 
-        <TextInput
+        <Input
           id="email"
           v-model="form.email"
           autocomplete="username"
+          name="email"
           required
           type="email"
         />

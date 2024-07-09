@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { nextTick, ref } from 'vue'
-import { Button } from '@local/ui'
+import { Button, Input, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 import Modal from '@/Components/Modal.vue'
-import TextInput from '@/Components/TextInput.vue'
 
 const confirmingUserDeletion = ref(false)
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -68,10 +67,11 @@ function closeModal() {
         <div>
           <Label for="password">Password</Label>
 
-          <TextInput
+          <Input
             id="password"
             ref="passwordInput"
             v-model="form.password"
+            name="password"
             placeholder="Password"
             type="password"
             @keyup.enter="deleteUser"

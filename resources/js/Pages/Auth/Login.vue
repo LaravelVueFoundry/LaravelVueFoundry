@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3'
-import { Button, Label } from '@local/ui'
+import { Button, Input, Label } from '@local/ui'
 import Checkbox from '@/Components/Checkbox.vue'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import InputError from '@/Components/InputError.vue'
-import TextInput from '@/Components/TextInput.vue'
 
 defineProps<{
   canResetPassword?: boolean
@@ -38,11 +37,12 @@ function submit() {
       <div>
         <Label for="email">Email</Label>
 
-        <TextInput
+        <Input
           id="email"
           v-model="form.email"
-          autocomplete="username"
+          autocomplete="email"
           autofocus
+          name="email"
           required
           type="email"
         />
@@ -53,10 +53,11 @@ function submit() {
       <div>
         <Label for="password">Password</Label>
 
-        <TextInput
+        <Input
           id="password"
           v-model="form.password"
           autocomplete="current-password"
+          name="password"
           required
           type="password"
         />

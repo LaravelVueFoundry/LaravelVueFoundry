@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { ref } from 'vue'
-import { Button, Label } from '@local/ui'
+import { Button, Input, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
-import TextInput from '@/Components/TextInput.vue'
 
 const passwordInput = ref<HTMLInputElement | null>(null)
 const currentPasswordInput = ref<HTMLInputElement | null>(null)
@@ -50,11 +49,12 @@ function updatePassword() {
       <div>
         <Label for="current_password">Current Password</Label>
 
-        <TextInput
+        <Input
           id="current_password"
           ref="currentPasswordInput"
           v-model="form.current_password"
           autocomplete="current-password"
+          name="password"
           type="password"
         />
 
@@ -64,11 +64,12 @@ function updatePassword() {
       <div>
         <Label for="password">New Password</Label>
 
-        <TextInput
+        <Input
           id="password"
           ref="passwordInput"
           v-model="form.password"
           autocomplete="new-password"
+          name="new-password"
           type="password"
         />
 
@@ -78,10 +79,11 @@ function updatePassword() {
       <div>
         <Label for="password_confirmation">Confirm Password</Label>
 
-        <TextInput
+        <Input
           id="password_confirmation"
           v-model="form.password_confirmation"
           autocomplete="new-password"
+          name="new-password"
           type="password"
         />
 

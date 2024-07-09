@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3'
-import { Button, Label } from '@local/ui'
+import { Button, Input, Label } from '@local/ui'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import InputError from '@/Components/InputError.vue'
-import TextInput from '@/Components/TextInput.vue'
 
 const form = useForm({
   password: '',
@@ -29,11 +28,12 @@ function submit() {
     <form @submit.prevent="submit">
       <div>
         <Label for="password">Password</Label>
-        <TextInput
+        <Input
           id="password"
           v-model="form.password"
           autocomplete="current-password"
           autofocus
+          name="password"
           required
           type="password"
         />
