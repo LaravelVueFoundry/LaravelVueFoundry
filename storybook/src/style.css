@@ -10,6 +10,7 @@ html.dark {
   color-scheme: dark;
 }
 
-html.dark .sbdocs-preview {
-  background: #121212;
+html .sb-show-main,
+html .sbdocs-preview {
+  @apply dark:bg-gray-950;
 }
