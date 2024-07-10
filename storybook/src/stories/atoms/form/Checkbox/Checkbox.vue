@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits(['update:modelValue'])
 const modelValue = defineModel<number[]>()
 
-const options = reactive(Array.from({ length: props.options.length }).fill(false))
+const options = reactive(Array.from({ length: props.options.length }).fill(false) as boolean[])
 
 onMounted(() => {
   options.forEach((_entry, index) => {
@@ -26,7 +26,7 @@ onMounted(() => {
 })
 
 function updateOptions(element: HTMLInputElement) {
-  options[element.value] = element.checked ?? false
+  options[+element.value] = element.checked ?? false
   const selectedIndices: number[] = []
 
   options.forEach((option, index) => {
