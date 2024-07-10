@@ -29,6 +29,9 @@ export default {
       fontFamily: {
         sans: [...defaultTheme.fontFamily.sans],
       },
+      transitionTimingFunction: {
+        exaggerate: 'cubic-bezier(0, 1.25, 1, 1.25)',
+      },
     },
   },
 

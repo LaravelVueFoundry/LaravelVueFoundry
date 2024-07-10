@@ -5,7 +5,6 @@ import Label from '../Label/Label.vue'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
-  defaultOption?: number
   wrapperClass?: HTMLAttributes['class']
   name: string
   options: {
@@ -14,6 +13,10 @@ const props = withDefaults(defineProps<{
   required?: boolean
 }>(), {
 })
+
+const emit = defineEmits(['update:modelValue'])
+
+const modelValue = defineModel()
 </script>
 
 <template>
@@ -29,11 +32,11 @@ const props = withDefaults(defineProps<{
       )"
     >
       <div
-        class="relative size-6"
+        class="relative size-6 shrink-0"
       >
         <input
           :id="`${option.label.toLocaleLowerCase()}-${index}`"
-          :checked="index === props.defaultOption"
+          :checked="index === modelValue"
           :class="twMerge(
             'absolute peer opacity-0 size-full',
             props.class,
@@ -41,14 +44,18 @@ const props = withDefaults(defineProps<{
           :name="props.name"
           :required="props.required"
           type="radio"
+          :value="index"
+          @input="(e) => emit('update:modelValue', (e.target as HTMLInputElement)?.value)"
         >
+
         <div
           :class="twMerge(
-            'pointer-events-none absolute size-full rounded-full transition-[box-shadow]',
+            'pointer-events-none absolute size-full rounded-full transition-[border-color,box-shadow]',
             'bg-white shadow peer-hover:shadow-md border-2 border-gray-300 peer-checked:border-primary-600',
             'peer-focus-visible:outline-primary-500 outline-offset-2 peer-focus-visible:outline outline-2',
           )"
         />
+
         <div
           class="absolute inset-1/2 rounded-full shadow-inner transition-[background-color,inset] peer-checked:inset-1/3 peer-checked:bg-primary-600"
         />

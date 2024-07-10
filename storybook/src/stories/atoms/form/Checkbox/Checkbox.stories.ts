@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import type { ComponentProps } from 'vue-component-type-helpers'
 import { ref } from 'vue'
-import Component from './Radio.vue'
+import Component from './Checkbox.vue'
 
 type Props = ComponentProps<typeof Component>
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Form/Radio',
+  title: 'Atoms/Form/Checkbox',
   component: Component,
   tags: ['autodocs'],
   args: {},
@@ -42,7 +42,7 @@ export const Default: Story = {
     return {
       components: { Component },
       setup() {
-        const selected = ref(0)
+        const selected = ref([0, 2])
         return { args, selected }
       },
       template: `<Component v-model="selected" v-bind="args" />`,
@@ -60,7 +60,7 @@ export const VModel: Story = {
     return {
       components: { Component },
       setup() {
-        const selected = ref(0)
+        const selected = ref([0, 2])
         return { args, selected }
       },
       template: `<Component v-model="selected" v-bind="args" /><br /><p>{{ selected }}</p>`,

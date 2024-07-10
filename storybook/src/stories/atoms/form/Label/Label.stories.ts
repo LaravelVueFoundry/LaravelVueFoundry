@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import type { ComponentProps } from 'vue-component-type-helpers'
-import Label from './Label.vue'
+import Component from './Label.vue'
 
-type Props = ComponentProps<typeof Label> & { default: string }
+type Props = ComponentProps<typeof Component> & { default: string }
 
 const meta: Meta<Props> = {
   title: 'Atoms/Form/Label',
-  component: Label,
+  component: Component,
   tags: ['autodocs'],
   args: {
     default: 'Label',
