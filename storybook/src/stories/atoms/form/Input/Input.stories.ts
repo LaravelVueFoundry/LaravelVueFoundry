@@ -12,9 +12,6 @@ const meta: Meta<Props> = {
     type: {
       options: ['email', 'number', 'password', 'search', 'tel', 'text', 'url', 'textarea'],
     },
-    formnovalidate: {
-      control: 'boolean',
-    },
   },
   args: {},
 }
