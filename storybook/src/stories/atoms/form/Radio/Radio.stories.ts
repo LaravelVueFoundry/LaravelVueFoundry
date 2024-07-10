@@ -33,6 +33,7 @@ type Story = StoryObj<Props>
 
 export const Default: Story = {
   args: {
+    defaultOption: 0,
     name: 'default',
     options: getOptions(3),
     required: false,
