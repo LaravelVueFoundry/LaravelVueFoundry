@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { nextTick, ref } from 'vue'
-import { Button, Input, Label } from '@local/ui'
+import { Button, Heading, Input, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 import Modal from '@/Components/Modal.vue'
 
@@ -39,9 +39,9 @@ function closeModal() {
 <template>
   <section>
     <header>
-      <h2>
+      <Heading type="h2">
         Delete Account
-      </h2>
+      </Heading>
 
       <p>
         Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
@@ -55,9 +55,9 @@ function closeModal() {
 
     <Modal :show="confirmingUserDeletion" @close="closeModal">
       <div>
-        <h2>
+        <Heading type="h2">
           Are you sure you want to delete your account?
-        </h2>
+        </Heading>
 
         <p>
           Once your account is deleted, all of its resources and data will be permanently deleted. Please

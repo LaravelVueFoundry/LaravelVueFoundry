@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { ref } from 'vue'
-import { Button, Input, Label } from '@local/ui'
+import { Button, Heading, Input, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -36,9 +36,9 @@ function updatePassword() {
 <template>
   <section>
     <header>
-      <h2>
+      <Heading type="h2">
         Update Password
-      </h2>
+      </Heading>
 
       <p>
         Ensure your account is using a long, random password to stay secure.

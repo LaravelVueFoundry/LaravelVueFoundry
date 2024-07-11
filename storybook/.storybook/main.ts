@@ -6,12 +6,12 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
   addons: [
-    '@storybook/addon-links',
+    '@storybook/addon-controls',
+    '@storybook/addon-a11y',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/addon-a11y',
+    '@storybook/addon-links',
     '@storybook/addon-themes',
-    '@storybook/addon-controls',
     'storybook-addon-vue-slots',
   ],
   framework: {

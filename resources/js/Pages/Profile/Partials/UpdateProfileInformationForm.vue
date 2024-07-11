@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, useForm, usePage } from '@inertiajs/vue3'
-import { Button, Input, Label } from '@local/ui'
+import { Button, Heading, Input, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 
 defineProps<{
@@ -19,9 +19,9 @@ const form = useForm({
 <template>
   <section>
     <header>
-      <h2>
+      <Heading type="h2">
         Profile Information
-      </h2>
+      </Heading>
 
       <p>
         Update your account's profile information and email address.
