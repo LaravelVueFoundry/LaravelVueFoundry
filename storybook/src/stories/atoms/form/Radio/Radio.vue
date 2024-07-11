@@ -49,15 +49,11 @@ const modelValue = defineModel()
         >
 
         <div
-          :class="twMerge(
-            'pointer-events-none absolute size-full rounded-full transition-[border-color,box-shadow]',
-            'bg-white shadow peer-hover:shadow-md border-2 border-gray-300 peer-checked:border-primary-600',
-            'peer-focus-visible:outline-primary-500 outline-offset-2 peer-focus-visible:outline outline-2',
-          )"
+          class="pointer-events-none absolute size-full rounded-full border-2 border-gray-300 bg-white shadow outline-2 outline-offset-2 transition-[border-color,box-shadow] peer-checked:border-primary-600 peer-hover:shadow-md peer-focus-visible:outline peer-focus-visible:outline-primary-500 dark:border-gray-600 dark:bg-gray-800 dark:shadow-inner dark:peer-checked:border-primary-500"
         />
 
         <div
-          class="absolute inset-1/2 rounded-full shadow-inner transition-[background-color,inset] peer-checked:inset-1/3 peer-checked:bg-primary-600"
+          class="absolute inset-1/2 rounded-full shadow-inner transition-[background-color,inset] peer-checked:inset-1/3 peer-checked:bg-primary-600 dark:peer-checked:bg-primary-500"
         />
       </div>
 
