@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3'
-import { Button, Input, Label } from '@local/ui'
-import Checkbox from '@/Components/Checkbox.vue'
+import { Button, Checkbox, Input, Label } from '@local/ui'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import InputError from '@/Components/InputError.vue'
 
@@ -65,12 +64,7 @@ function submit() {
         <InputError :message="form.errors.password" />
       </div>
 
-      <div>
-        <label>
-          <Checkbox v-model:checked="form.remember" name="remember" />
-          <span>Remember me</span>
-        </label>
-      </div>
+      <Checkbox v-model="form.remember" label="Remember me" name="remember" />
 
       <div>
         <Link
