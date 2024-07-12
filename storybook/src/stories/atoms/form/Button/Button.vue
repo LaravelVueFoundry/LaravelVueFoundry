@@ -55,12 +55,12 @@ const padding = computed(() => {
   <component
     :is="buttonType"
     :class="twMerge(
-      'text-white disabled:opacity-50 disabled:pointer-events-none inline-block font-semibold border hover:shadow-md active:shadow-none',
-      'focus:outline-primary-500 outline-offset-4',
+      'inline-block border font-semibold text-white shadow hover:shadow-md active:shadow-none disabled:pointer-events-none disabled:opacity-50',
+      'outline-offset-4 focus:outline-primary-500',
       'transition-[background,border,box-shadow,opacity]',
       bgColor,
       padding,
-      (props.loading) ? 'opacity-75 animate-pulse' : undefined,
+      (props.loading) ? 'animate-pulse opacity-75' : undefined,
       props.class,
     )"
     :disabled="props.loading || props.disabled"

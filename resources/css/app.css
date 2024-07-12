@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply antialiased dark:bg-gray-950;
+    @apply antialiased bg-gray-100 dark:bg-gray-950;
     color-scheme: light dark;
   }
 }

@@ -32,7 +32,7 @@ function updateValue(e: Event) {
         :id="`${label.toLocaleLowerCase()}`"
         :checked="modelValue"
         :class="twMerge(
-          'absolute peer opacity-0 size-full',
+          'peer absolute size-full opacity-0',
           props.class,
         )"
         :name="props.name"

@@ -1,0 +1,100 @@
+<script setup lang="ts">
+import { twMerge } from 'tailwind-merge'
+import { type HTMLAttributes, computed, useSlots } from 'vue'
+
+const props = withDefaults(defineProps<{
+  align: 'start' | 'middle' | 'end'
+  class?: HTMLAttributes['class']
+  size: 'lg' | 'md' | 'sm'
+}>(), {
+  size: 'md',
+})
+
+const slots = useSlots()
+
+const align = computed(() => {
+  switch (props.align) {
+    case 'middle':
+      return 'text-center'
+    case 'end':
+      return 'text-end'
+    default:
+      return 'text-start'
+  }
+})
+
+const borderRadius = computed(() => {
+  switch (props.size) {
+    case 'lg':
+      return 'rounded-xl'
+    case 'sm':
+      return 'rounded-lg'
+    default:
+      return 'rounded-lg'
+  }
+})
+
+const padding = computed(() => {
+  switch (props.size) {
+    case 'lg':
+      return 'px-7 py-7'
+    case 'sm':
+      return 'px-4 py-4'
+    default:
+      return 'px-6 py-6'
+  }
+})
+
+const paddingFooterHeader = computed(() => {
+  switch (props.size) {
+    case 'lg':
+      return 'py-5'
+    case 'sm':
+      return 'py-3'
+    default:
+      return 'py-4'
+  }
+})
+</script>
+
+<template>
+  <div
+    :class="twMerge(
+      'inline-block overflow-hidden border border-gray-200 bg-white shadow dark:border-gray-800 dark:bg-gray-900',
+      align,
+      borderRadius,
+      props.class,
+    )"
+  >
+    <div
+      v-if="slots.header"
+      :class="twMerge(
+        'border-b border-b-gray-200 bg-gray-100 text-gray-600 dark:border-b-gray-800 dark:bg-gray-800 dark:text-gray-300',
+        padding,
+        paddingFooterHeader,
+      )"
+    >
+      <slot name="header" />
+    </div>
+
+    <div
+      v-if="slots.default"
+      :class="twMerge(
+        padding,
+      )"
+    >
+      <slot />
+    </div>
+
+    <div
+      v-if="slots.footer"
+      :class="twMerge(
+        'border-t border-t-gray-200 bg-gray-100 text-gray-600 dark:border-t-gray-800 dark:bg-gray-800 dark:text-gray-300',
+        padding,
+        paddingFooterHeader,
+      )"
+    >
+      <slot name="footer" />
+    </div>
+  </div>
+</template>

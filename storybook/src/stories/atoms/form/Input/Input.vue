@@ -47,8 +47,8 @@ const componentType = computed(() => {
     :autocomplete="props.autocomplete"
     :autofocus="props.autofocus"
     :class="twMerge(
-      'border-2 px-4 py-3 rounded-lg shadow-inner focus:shadow-md',
-      'bg-white dark:bg-gray-900 disabled:bg-gray-100 dark:disabled:bg-gray-700 border-gray-300 dark:border-gray-700',
+      'rounded-lg border-2 px-4 py-3 shadow-inner focus:shadow-md',
+      'border-gray-300 bg-white disabled:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:disabled:bg-gray-700',
       'placeholder:text-gray-500 disabled:placeholder:text-gray-400 dark:placeholder:text-gray-500 dark:disabled:placeholder:text-gray-500',
       'transition-[background,border,box-shadow,color,opacity,outline]',
       props.class,

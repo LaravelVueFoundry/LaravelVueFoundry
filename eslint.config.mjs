@@ -23,6 +23,12 @@ export default antfu(
   {
     rules: {
       'tailwindcss/no-custom-classname': ['off'],
+      'tailwindcss/classnames-order': [
+        'error',
+        {
+          callees: ['classnames', 'clsx', 'ctl', 'cva', 'tv', 'twMerge'],
+        },
+      ],
       'vue/attributes-order': [
         'error',
         {

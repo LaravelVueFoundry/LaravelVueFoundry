@@ -38,7 +38,7 @@ const modelValue = defineModel()
           :id="`${option.label.toLocaleLowerCase()}-${index}`"
           :checked="index === modelValue"
           :class="twMerge(
-            'absolute peer opacity-0 size-full',
+            'peer absolute size-full opacity-0',
             props.class,
           )"
           :name="props.name"

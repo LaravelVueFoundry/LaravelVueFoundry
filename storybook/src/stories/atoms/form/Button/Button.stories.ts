@@ -17,7 +17,8 @@ const meta: Meta<Props> = {
       options: [undefined, 'primary', 'warning', 'danger', 'ghost'],
     },
     size: {
-      options: ['md', 'lg', 'sm'],
+      control: 'inline-radio',
+      options: ['sm', 'md', 'lg'],
     },
   },
   args: {

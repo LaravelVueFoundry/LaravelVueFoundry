@@ -12,7 +12,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-links',
     '@storybook/addon-themes',
-    'storybook-addon-vue-slots',
+    'storybook-addon-rtl',
   ],
   framework: {
     name: '@storybook/vue3-vite',
