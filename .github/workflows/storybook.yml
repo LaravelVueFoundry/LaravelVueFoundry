@@ -25,6 +25,8 @@ jobs:
     - name: Enable Corepack
       run: corepack enable
     - name: Install NodeJS Dependencies
+      run: cd .. ; pnpm i ; cd storybook
+    - name: Install Storybook Dependencies
       run: pnpm i
     - name: Test Component Library
       run: pnpm test
