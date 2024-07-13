@@ -1,4 +1,5 @@
 import { resolve } from 'node:path'
+import process from 'node:process'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
@@ -45,11 +46,15 @@ export default defineConfig({
 })
 
 function removeDataTestAttrs(node: RootNode | TemplateChildNode) {
-  if (node.type === 1 /* NodeTypes.ELEMENT */) {
-    node.props = node.props.filter(prop =>
-      prop.type === 6 /* NodeTypes.ATTRIBUTE */
-        ? prop.name !== 'data-test-id'
-        : true,
-    )
-  }
+  if (process.env.NODE_ENV !== 'production')
+    return
+
+  if (node.type !== 1 /* NodeTypes.ELEMENT */)
+    return
+
+  node.props = node.props.filter(prop =>
+    prop.type === 6 /* NodeTypes.ATTRIBUTE */
+      ? prop.name !== 'data-test-id'
+      : true,
+  )
 }

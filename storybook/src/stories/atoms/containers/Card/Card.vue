@@ -6,6 +6,7 @@ const props = withDefaults(defineProps<{
   align?: 'start' | 'middle' | 'end'
   class?: HTMLAttributes['class']
   size?: 'lg' | 'md' | 'sm'
+  wrapperClass?: HTMLAttributes['class']
 }>(), {
   size: 'md',
 })
@@ -63,8 +64,9 @@ const paddingFooterHeader = computed(() => {
       'inline-block overflow-hidden border border-gray-200 bg-white shadow dark:border-gray-800 dark:bg-gray-900',
       align,
       borderRadius,
-      props.class,
+      props.wrapperClass,
     )"
+    data-test-id="wrapper"
   >
     <div
       v-if="slots.header"
@@ -82,6 +84,7 @@ const paddingFooterHeader = computed(() => {
       v-if="slots.default"
       :class="twMerge(
         padding,
+        props.class,
       )"
       data-test-id="body"
     >

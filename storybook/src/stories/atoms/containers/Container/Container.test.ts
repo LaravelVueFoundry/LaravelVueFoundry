@@ -59,7 +59,7 @@ describe('container', () => {
       },
     })
 
-    expect(wrapper.classes()).toContain('max-w-5xl')
+    expect(wrapper.classes()).toContain('max-w-2xl')
   })
 
   it('can be full-sized', () => {

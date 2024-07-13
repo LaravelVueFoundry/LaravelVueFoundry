@@ -14,7 +14,7 @@ const width = computed(() => {
     case 'wide':
       return 'max-w-7xl'
     case 'narrow':
-      return 'max-w-5xl'
+      return 'max-w-2xl'
     case 'full':
       return ''
     default:

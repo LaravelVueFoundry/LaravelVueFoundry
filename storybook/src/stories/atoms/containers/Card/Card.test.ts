@@ -17,10 +17,15 @@ describe('card', () => {
     const wrapper = mount(Component, {
       props: {
         class: 'bogus-class',
+        wrapperClass: 'bogus-wrapper-class',
+      },
+      slots: {
+        default: 'test',
       },
     })
 
-    expect(wrapper.classes()).toContain('bogus-class')
+    expect(wrapper.get('[data-test-id="body"]').classes()).toContain('bogus-class')
+    expect(wrapper.get('[data-test-id="wrapper"]').classes()).toContain('bogus-wrapper-class')
   })
 
   it('can align at the start', () => {
