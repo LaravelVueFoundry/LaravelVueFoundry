@@ -3,9 +3,9 @@ import { twMerge } from 'tailwind-merge'
 import { type HTMLAttributes, computed, useSlots } from 'vue'
 
 const props = withDefaults(defineProps<{
-  align: 'start' | 'middle' | 'end'
+  align?: 'start' | 'middle' | 'end'
   class?: HTMLAttributes['class']
-  size: 'lg' | 'md' | 'sm'
+  size?: 'lg' | 'md' | 'sm'
 }>(), {
   size: 'md',
 })
@@ -73,6 +73,7 @@ const paddingFooterHeader = computed(() => {
         padding,
         paddingFooterHeader,
       )"
+      data-test-id="header"
     >
       <slot name="header" />
     </div>
@@ -82,6 +83,7 @@ const paddingFooterHeader = computed(() => {
       :class="twMerge(
         padding,
       )"
+      data-test-id="body"
     >
       <slot />
     </div>
@@ -93,6 +95,7 @@ const paddingFooterHeader = computed(() => {
         padding,
         paddingFooterHeader,
       )"
+      data-test-id="footer"
     >
       <slot name="footer" />
     </div>

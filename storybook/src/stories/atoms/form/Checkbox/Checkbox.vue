@@ -35,6 +35,7 @@ function updateValue(e: Event) {
           'peer absolute size-full opacity-0',
           props.class,
         )"
+        data-test-id="checkbox-input"
         :name="props.name"
         :required="props.required"
         type="checkbox"

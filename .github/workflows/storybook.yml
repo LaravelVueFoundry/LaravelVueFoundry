@@ -1,0 +1,30 @@
+name: Storybook
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  storybook-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: shivammathur/setup-php@2.31.0
+      with:
+        php-version: '8.3'
+    - uses: actions/checkout@v4
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    - name: Enable Corepack
+      run: corepack enable
+    - name: Navigate to Storybook directory
+      run: cd storybook
+    - name: Install NodeJS Dependencies
+      run: pnpm i
+    - name: Test Component Library
+      run: pnpm test
+    - name: Build Component Library
+      run: pnpm build

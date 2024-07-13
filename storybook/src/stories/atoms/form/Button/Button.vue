@@ -7,7 +7,7 @@ const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
   type?: 'button' | 'submit'
   variant?: 'primary' | 'warning' | 'danger' | 'ghost'
-  size: 'lg' | 'md' | 'sm'
+  size?: 'lg' | 'md' | 'sm'
   to?: string
   disabled?: boolean
   loading?: boolean

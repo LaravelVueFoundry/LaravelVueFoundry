@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<{
     <span
       v-if="props.required"
       class="text-danger-500"
+      data-test-id="label-required"
     >
       *
     </span>

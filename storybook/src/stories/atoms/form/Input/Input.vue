@@ -14,8 +14,9 @@ const props = withDefaults(defineProps<{
   name: string
   placeholder?: string
   required?: boolean
-  type: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'textarea'
+  type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'textarea'
 }>(), {
+  type: 'text',
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -47,10 +48,7 @@ const componentType = computed(() => {
     :autocomplete="props.autocomplete"
     :autofocus="props.autofocus"
     :class="twMerge(
-      'rounded-lg border-2 px-4 py-3 shadow-inner focus:shadow-md',
-      'border-gray-300 bg-white disabled:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:disabled:bg-gray-700',
-      'placeholder:text-gray-500 disabled:placeholder:text-gray-400 dark:placeholder:text-gray-500 dark:disabled:placeholder:text-gray-500',
-      'transition-[background,border,box-shadow,color,opacity,outline]',
+      'rounded-lg border-2 border-gray-300 bg-white px-4 py-3 shadow-inner transition-[background,border,box-shadow,color,opacity,outline] placeholder:text-gray-500 focus:shadow-md disabled:bg-gray-100 disabled:placeholder:text-gray-400 dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-gray-500 dark:disabled:bg-gray-700 dark:disabled:placeholder:text-gray-500',
       props.class,
     )"
     :disabled="props.disabled"

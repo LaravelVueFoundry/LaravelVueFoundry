@@ -28,8 +28,6 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: Display NodeJS Version
-      run: node --version
     - name: Enable Corepack
       run: corepack enable
     - name: Install NodeJS Dependencies

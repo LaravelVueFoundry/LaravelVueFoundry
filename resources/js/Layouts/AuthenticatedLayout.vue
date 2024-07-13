@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3'
+import { Container } from '@local/ui'
 </script>
 
 <template>
@@ -15,7 +16,9 @@ import { Link } from '@inertiajs/vue3'
     </Link>
 
     <main>
-      <slot />
+      <Container>
+        <slot />
+      </Container>
     </main>
   </div>
 </template>

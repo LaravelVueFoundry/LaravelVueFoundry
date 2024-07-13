@@ -15,7 +15,6 @@ const props = withDefaults(defineProps<{
 })
 
 const emit = defineEmits(['update:modelValue'])
-
 const modelValue = defineModel()
 </script>
 
@@ -30,6 +29,7 @@ const modelValue = defineModel()
         'flex items-center gap-2',
         props.wrapperClass,
       )"
+      data-test-id="radio-wrapper"
     >
       <div
         class="relative size-6 shrink-0"
@@ -41,6 +41,7 @@ const modelValue = defineModel()
             'peer absolute size-full opacity-0',
             props.class,
           )"
+          data-test-id="radio-input"
           :name="props.name"
           :required="props.required"
           type="radio"

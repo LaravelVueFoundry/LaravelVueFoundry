@@ -16,7 +16,7 @@ const meta: Meta<Props> = {
   argTypes: {
     type: {
       control: 'inline-radio',
-      options: ['regular', 'wide', 'small', 'full'],
+      options: ['regular', 'wide', 'narrow', 'full'],
     },
   },
   parameters: {
@@ -39,9 +39,9 @@ export const Wide: Story = {
   },
 }
 
-export const Small: Story = {
+export const Narrow: Story = {
   args: {
-    type: 'small',
+    type: 'narrow',
   },
 }
 

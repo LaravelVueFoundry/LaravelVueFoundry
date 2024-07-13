@@ -24,7 +24,7 @@ props.options.forEach((_entry, index) => {
 })
 
 function updateOptions(element: HTMLInputElement) {
-  options[+element.value].value = element.checked ?? false
+  options[+element.value].value = element.checked
   const selectedIndices: number[] = []
 
   options.forEach((option, index) => {
@@ -38,7 +38,11 @@ function updateOptions(element: HTMLInputElement) {
 
 <template>
   <div
-    class="flex flex-col gap-2"
+    :class="twMerge(
+      'flex flex-col gap-2',
+      props.wrapperClass,
+    )"
+    data-test-id="checkbox-wrapper"
   >
     <Checkbox
       v-for="(option, index) of props.options"
@@ -46,10 +50,11 @@ function updateOptions(element: HTMLInputElement) {
       v-model="options[index].value"
       :class="twMerge(
         'flex items-center gap-2',
-        props.wrapperClass,
+        props.class,
       )"
       :label="option.label"
       :name="props.name"
+      :required="props.required"
       :value="`${index}`"
       @change="(e: Event) => updateOptions(e.target as HTMLInputElement)"
     />

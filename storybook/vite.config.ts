@@ -2,11 +2,20 @@ import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
+import type { RootNode, TemplateChildNode } from '@vue/compiler-core'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          nodeTransforms: [
+            removeDataTestAttrs,
+          ],
+        },
+      },
+    }),
     dts({ tsconfigPath: 'tsconfig.build.json' }),
   ],
   resolve: {
@@ -34,3 +43,13 @@ export default defineConfig({
     },
   },
 })
+
+function removeDataTestAttrs(node: RootNode | TemplateChildNode) {
+  if (node.type === 1 /* NodeTypes.ELEMENT */) {
+    node.props = node.props.filter(prop =>
+      prop.type === 6 /* NodeTypes.ATTRIBUTE */
+        ? prop.name !== 'data-test-id'
+        : true,
+    )
+  }
+}

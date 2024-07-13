@@ -4,7 +4,7 @@ import { type HTMLAttributes, computed } from 'vue'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
-  type: 'regular' | 'wide' | 'small' | 'full'
+  type?: 'regular' | 'wide' | 'narrow' | 'full'
 }>(), {
   type: 'regular',
 })
@@ -13,7 +13,7 @@ const width = computed(() => {
   switch (props.type) {
     case 'wide':
       return 'max-w-7xl'
-    case 'small':
+    case 'narrow':
       return 'max-w-5xl'
     case 'full':
       return ''

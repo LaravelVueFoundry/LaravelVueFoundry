@@ -4,7 +4,7 @@ import { type HTMLAttributes, computed } from 'vue'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
-  size: 'lg' | 'md' | 'sm'
+  size?: 'lg' | 'md' | 'sm'
 }>(), {
   size: 'md',
 })
