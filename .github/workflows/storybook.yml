@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+defaults:
+  run:
+    working-directory: ./storybook
+
 jobs:
   storybook-tests:
 
@@ -20,8 +24,6 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Enable Corepack
       run: corepack enable
-    - name: Navigate to Storybook directory
-      run: cd storybook
     - name: Install NodeJS Dependencies
       run: pnpm i
     - name: Test Component Library
