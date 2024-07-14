@@ -18,6 +18,12 @@ export default defineConfig({
       reporter: ['text', 'text-summary', 'json', 'json-summary', 'html'],
       reportsDirectory: 'coverage/unit',
       reportOnFailure: true,
+      thresholds: {
+        lines: 100,
+        branches: 100,
+        functions: 100,
+        statements: 100,
+      },
     },
     environment: 'happy-dom',
   },
