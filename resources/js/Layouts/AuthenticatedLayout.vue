@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3'
-import { Container } from '@local/ui'
 </script>
 
 <template>
@@ -15,10 +14,8 @@ import { Container } from '@local/ui'
       Log Out
     </Link>
 
-    <main>
-      <Container>
-        <slot />
-      </Container>
+    <main id="main-content">
+      <slot />
     </main>
   </div>
 </template>

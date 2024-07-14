@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { nextTick, ref } from 'vue'
-import { Button, Heading, Input, Label, Modal } from '@local/ui'
+import { Button, Card, Heading, Input, Label, Modal } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 
 const modalRef = ref<typeof Modal | null>(null)
@@ -35,21 +35,30 @@ function closeModal() {
 </script>
 
 <template>
-  <section>
-    <header>
-      <Heading type="h2">
+  <Card
+    class="flex flex-col gap-8"
+    wrapper-class="block"
+  >
+    <template #header>
+      <Heading type="h4">
         Delete Account
       </Heading>
+    </template>
 
-      <p>
-        Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
-        your account, please download any data or information that you wish to retain.
-      </p>
-    </header>
+    <p>
+      Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
+      your account, please download any data or information that you wish to retain.
+    </p>
 
-    <Button variant="danger" @click="confirmUserDeletion">
-      Delete Account
-    </Button>
+    <template #footer>
+      <Button
+        class="me-auto"
+        variant="danger"
+        @click="confirmUserDeletion"
+      >
+        Delete Account
+      </Button>
+    </template>
 
     <Modal
       ref="modalRef"
@@ -108,5 +117,5 @@ function closeModal() {
         </div>
       </template>
     </Modal>
-  </section>
+  </Card>
 </template>

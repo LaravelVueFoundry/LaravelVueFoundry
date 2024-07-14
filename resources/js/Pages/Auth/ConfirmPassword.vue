@@ -19,7 +19,10 @@ function submit() {
 
 <template>
   <GuestLayout>
-    <Head title="Confirm Password" />
+    <Head>
+      <title>Confirm Password</title>
+      <meta content="Confirm your password to continue" name="description">
+    </Head>
 
     <div>
       This is a secure area of the application. Please confirm your password before continuing.

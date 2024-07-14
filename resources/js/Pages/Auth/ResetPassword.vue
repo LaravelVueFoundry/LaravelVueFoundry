@@ -27,7 +27,10 @@ function submit() {
 
 <template>
   <GuestLayout>
-    <Head title="Reset Password" />
+    <Head>
+      <title>Reset Password</title>
+      <meta content="Reset your password" name="description">
+    </Head>
 
     <form @submit.prevent="submit">
       <div>

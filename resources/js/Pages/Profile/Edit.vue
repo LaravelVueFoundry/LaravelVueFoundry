@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3'
+import { Container } from '@local/ui'
 import DeleteUserForm from './Partials/DeleteUserForm.vue'
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue'
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue'
@@ -12,26 +13,24 @@ defineProps<{
 </script>
 
 <template>
-  <Head title="Profile" />
+  <Head>
+    <title>Profile</title>
+    <meta content="Edit your user profile" name="description">
+  </Head>
 
   <AuthenticatedLayout>
-    <div>
-      <div>
-        <div>
-          <UpdateProfileInformationForm
-            :must-verify-email="mustVerifyEmail"
-            :status="status"
-          />
-        </div>
+    <Container
+      class="flex flex-col gap-8"
+      type="narrow"
+    >
+      <UpdateProfileInformationForm
+        :must-verify-email="mustVerifyEmail"
+        :status="status"
+      />
 
-        <div>
-          <UpdatePasswordForm />
-        </div>
+      <UpdatePasswordForm />
 
-        <div>
-          <DeleteUserForm />
-        </div>
-      </div>
-    </div>
+      <DeleteUserForm />
+    </Container>
   </AuthenticatedLayout>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, useForm, usePage } from '@inertiajs/vue3'
-import { Button, Heading, Input, Label } from '@local/ui'
+import { Button, Card, Heading, Input, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 
 defineProps<{
@@ -17,19 +17,22 @@ const form = useForm({
 </script>
 
 <template>
-  <section>
-    <header>
-      <Heading type="h2">
-        Profile Information
-      </Heading>
+  <form @submit.prevent="form.patch(route('profile.update'))">
+    <Card
+      class="flex flex-col gap-8"
+      wrapper-class="block"
+    >
+      <template #header>
+        <Heading type="h4">
+          Profile Information
+        </Heading>
+      </template>
 
       <p>
         Update your account's profile information and email address.
       </p>
-    </header>
 
-    <form @submit.prevent="form.patch(route('profile.update'))">
-      <div>
+      <div class="flex flex-col">
         <Label for="name">Name</Label>
 
         <Input
@@ -45,7 +48,7 @@ const form = useForm({
         <InputError :message="form.errors.name" />
       </div>
 
-      <div>
+      <div class="flex flex-col">
         <Label for="email">Email</Label>
 
         <Input
@@ -79,15 +82,22 @@ const form = useForm({
         </div>
       </div>
 
-      <div>
-        <Button :disabled="form.processing">
-          Save
-        </Button>
+      <template #footer>
+        <div
+          class="flex items-center justify-between"
+        >
+          <Button
+            :disabled="form.processing"
+            variant="primary"
+          >
+            Save
+          </Button>
 
-        <p v-if="form.recentlySuccessful">
-          Saved.
-        </p>
-      </div>
-    </form>
-  </section>
+          <p v-if="form.recentlySuccessful">
+            Saved.
+          </p>
+        </div>
+      </template>
+    </Card>
+  </form>
 </template>

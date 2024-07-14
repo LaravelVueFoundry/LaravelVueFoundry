@@ -27,7 +27,10 @@ function submit() {
 <template>
   <GuestLayout>
     <Container type="narrow">
-      <Head title="Log in" />
+      <Head>
+        <title>Log in</title>
+        <meta content="Log in to your account" name="description">
+      </Head>
 
       <form @submit.prevent="submit">
         <Card

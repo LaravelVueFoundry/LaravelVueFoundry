@@ -19,7 +19,10 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 
 <template>
   <GuestLayout>
-    <Head title="Email Verification" />
+    <Head>
+      <title>Email Verification</title>
+      <meta content="Verify your email address" name="description">
+    </Head>
 
     <div>
       Thanks for signing up! Before getting started, could you verify your email address by clicking on the link

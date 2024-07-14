@@ -1,14 +1,29 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3'
+import { Card, Container, Heading } from '@local/ui'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 </script>
 
 <template>
-  <Head title="Dashboard" />
+  <Head>
+    <title>Dashboard</title>
+    <meta content="The user dashboard" name="description">
+  </Head>
 
   <AuthenticatedLayout>
-    <div>
-      You're logged in!
-    </div>
+    <Container type="narrow">
+      <Card
+        class="flex flex-col gap-8"
+        wrapper-class="block"
+      >
+        <template #header>
+          <Heading type="h4">
+            Welcome, {{ $page.props.auth.user.name }}!
+          </Heading>
+        </template>
+
+        <p>You're logged in!</p>
+      </Card>
+    </Container>
   </AuthenticatedLayout>
 </template>

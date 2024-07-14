@@ -31,7 +31,7 @@ import { Link } from '@inertiajs/vue3'
       </Link>
     </template>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
   </div>

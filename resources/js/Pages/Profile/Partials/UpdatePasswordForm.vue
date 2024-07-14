@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { ref } from 'vue'
-import { Button, Heading, Input, Label } from '@local/ui'
+import { Button, Card, Heading, Input, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -34,19 +34,24 @@ function updatePassword() {
 </script>
 
 <template>
-  <section>
-    <header>
-      <Heading type="h2">
-        Update Password
-      </Heading>
+  <form
+    @submit.prevent="updatePassword"
+  >
+    <Card
+      class="flex flex-col gap-8"
+      wrapper-class="block"
+    >
+      <template #header>
+        <Heading type="h4">
+          Update Password
+        </Heading>
+      </template>
 
       <p>
         Ensure your account is using a long, random password to stay secure.
       </p>
-    </header>
 
-    <form @submit.prevent="updatePassword">
-      <div>
+      <div class="flex flex-col">
         <Label for="current_password">Current Password</Label>
 
         <Input
@@ -61,7 +66,7 @@ function updatePassword() {
         <InputError :message="form.errors.current_password" />
       </div>
 
-      <div>
+      <div class="flex flex-col">
         <Label for="password">New Password</Label>
 
         <Input
@@ -76,7 +81,7 @@ function updatePassword() {
         <InputError :message="form.errors.password" />
       </div>
 
-      <div>
+      <div class="flex flex-col">
         <Label for="password_confirmation">Confirm Password</Label>
 
         <Input
@@ -90,15 +95,20 @@ function updatePassword() {
         <InputError :message="form.errors.password_confirmation" />
       </div>
 
-      <div>
-        <Button :loading="form.processing">
-          Save
-        </Button>
+      <template #footer>
+        <div>
+          <Button
+            :loading="form.processing"
+            variant="primary"
+          >
+            Save
+          </Button>
 
-        <p v-if="form.recentlySuccessful">
-          Saved.
-        </p>
-      </div>
-    </form>
-  </section>
+          <p v-if="form.recentlySuccessful">
+            Saved.
+          </p>
+        </div>
+      </template>
+    </Card>
+  </form>
 </template>
