@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link, useForm, usePage } from '@inertiajs/vue3'
-import { Button, Card, Heading, Input, Label } from '@local/ui'
+import { Button, Card, Heading, Input, InputGroup, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 
 defineProps<{
@@ -18,10 +18,7 @@ const form = useForm({
 
 <template>
   <form @submit.prevent="form.patch(route('profile.update'))">
-    <Card
-      class="flex flex-col gap-8"
-      wrapper-class="block"
-    >
+    <Card>
       <template #header>
         <Heading type="h4">
           Profile Information
@@ -32,7 +29,7 @@ const form = useForm({
         Update your account's profile information and email address.
       </p>
 
-      <div class="flex flex-col">
+      <InputGroup>
         <Label for="name">Name</Label>
 
         <Input
@@ -46,9 +43,9 @@ const form = useForm({
         />
 
         <InputError :message="form.errors.name" />
-      </div>
+      </InputGroup>
 
-      <div class="flex flex-col">
+      <InputGroup>
         <Label for="email">Email</Label>
 
         <Input
@@ -61,7 +58,7 @@ const form = useForm({
         />
 
         <InputError :message="form.errors.email" />
-      </div>
+      </InputGroup>
 
       <div v-if="mustVerifyEmail && user.email_verified_at === null">
         <p>

@@ -5,7 +5,7 @@ import Component from './Well.vue'
 type Props = ComponentProps<typeof Component> & { default: string }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Containers/Well',
+  title: 'Atoms/Container/Well',
   component: Component,
   tags: ['autodocs'],
   args: {

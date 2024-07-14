@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { ref } from 'vue'
-import { Button, Card, Heading, Input, Label } from '@local/ui'
+import { Button, Card, Heading, Input, InputGroup, Label } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
 
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -37,10 +37,7 @@ function updatePassword() {
   <form
     @submit.prevent="updatePassword"
   >
-    <Card
-      class="flex flex-col gap-8"
-      wrapper-class="block"
-    >
+    <Card>
       <template #header>
         <Heading type="h4">
           Update Password
@@ -51,7 +48,7 @@ function updatePassword() {
         Ensure your account is using a long, random password to stay secure.
       </p>
 
-      <div class="flex flex-col">
+      <InputGroup>
         <Label for="current_password">Current Password</Label>
 
         <Input
@@ -64,9 +61,9 @@ function updatePassword() {
         />
 
         <InputError :message="form.errors.current_password" />
-      </div>
+      </InputGroup>
 
-      <div class="flex flex-col">
+      <InputGroup>
         <Label for="password">New Password</Label>
 
         <Input
@@ -79,9 +76,9 @@ function updatePassword() {
         />
 
         <InputError :message="form.errors.password" />
-      </div>
+      </InputGroup>
 
-      <div class="flex flex-col">
+      <InputGroup>
         <Label for="password_confirmation">Confirm Password</Label>
 
         <Input
@@ -93,7 +90,7 @@ function updatePassword() {
         />
 
         <InputError :message="form.errors.password_confirmation" />
-      </div>
+      </InputGroup>
 
       <template #footer>
         <div>

@@ -3,9 +3,9 @@ import { type HTMLAttributes, nextTick, ref, useSlots } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
 import { onKeyStroke } from '@vueuse/core'
-import Card from '@/stories/atoms/containers/Card/Card.vue'
+import Card from '@/stories/atoms/container/Card/Card.vue'
 
-import Container from '@/stories/atoms/containers/Container/Container.vue'
+import Container from '@/stories/atoms/container/Container/Container.vue'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']

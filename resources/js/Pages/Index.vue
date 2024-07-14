@@ -12,10 +12,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue'
     </Head>
 
     <Container type="narrow">
-      <Card
-        class="flex flex-col gap-8"
-        wrapper-class="block"
-      >
+      <Card>
         <p>INDEX</p>
       </Card>
     </Container>

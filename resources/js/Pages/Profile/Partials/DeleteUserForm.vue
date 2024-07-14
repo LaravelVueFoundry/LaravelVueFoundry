@@ -35,10 +35,7 @@ function closeModal() {
 </script>
 
 <template>
-  <Card
-    class="flex flex-col gap-8"
-    wrapper-class="block"
-  >
+  <Card>
     <template #header>
       <Heading type="h4">
         Delete Account

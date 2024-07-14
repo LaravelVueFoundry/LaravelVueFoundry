@@ -9,7 +9,7 @@ type Props = ComponentProps<typeof Component> & {
 }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Containers/Card',
+  title: 'Atoms/Container/Card',
   component: Component,
   tags: ['autodocs'],
   args: {

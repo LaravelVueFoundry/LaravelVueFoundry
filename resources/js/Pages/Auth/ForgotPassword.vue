@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3'
-import { Button, Card, Container, Heading, Input, Label } from '@local/ui'
+import { Button, Card, Container, Heading, Input, InputGroup, Label } from '@local/ui'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import InputError from '@/Components/InputError.vue'
 
@@ -26,9 +26,7 @@ function submit() {
 
     <Container type="narrow">
       <form @submit.prevent="submit">
-        <Card
-          class="flex flex-col gap-8"
-        >
+        <Card>
           <template #header>
             <Heading type="h4">
               Forgot password
@@ -44,7 +42,7 @@ function submit() {
             {{ status }}
           </div>
 
-          <div class="flex flex-col">
+          <InputGroup>
             <Label for="email">Email</Label>
 
             <Input
@@ -58,7 +56,7 @@ function submit() {
             />
 
             <InputError :message="form.errors.email" />
-          </div>
+          </InputGroup>
 
           <template #footer>
             <Button

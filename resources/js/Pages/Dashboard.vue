@@ -12,10 +12,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 
   <AuthenticatedLayout>
     <Container type="narrow">
-      <Card
-        class="flex flex-col gap-8"
-        wrapper-class="block"
-      >
+      <Card>
         <template #header>
           <Heading type="h4">
             Welcome, {{ $page.props.auth.user.name }}!

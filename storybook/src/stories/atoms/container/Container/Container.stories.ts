@@ -5,7 +5,7 @@ import Component from './Container.vue'
 type Props = ComponentProps<typeof Component> & { default: string }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Containers/Container',
+  title: 'Atoms/Container/Container',
   component: Component,
   tags: ['autodocs'],
   args: {

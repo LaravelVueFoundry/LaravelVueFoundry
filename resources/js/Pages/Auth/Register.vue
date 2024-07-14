@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3'
-import { Button, Card, Container, Heading, Input, Label } from '@local/ui'
+import { Button, Card, Container, Heading, Input, InputGroup, Label } from '@local/ui'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
 import InputError from '@/Components/InputError.vue'
 
@@ -29,17 +29,14 @@ function submit() {
 
     <Container type="narrow">
       <form @submit.prevent="submit">
-        <Card
-          class="flex flex-col gap-8"
-          wrapper-class="block"
-        >
+        <Card>
           <template #header>
             <Heading type="h4">
               Register
             </Heading>
           </template>
 
-          <div class="flex flex-col">
+          <InputGroup>
             <Label for="name">Name</Label>
 
             <Input
@@ -53,9 +50,9 @@ function submit() {
             />
 
             <InputError :message="form.errors.name" />
-          </div>
+          </InputGroup>
 
-          <div class="flex flex-col">
+          <InputGroup>
             <Label for="email">Email</Label>
 
             <Input
@@ -68,9 +65,9 @@ function submit() {
             />
 
             <InputError :message="form.errors.email" />
-          </div>
+          </InputGroup>
 
-          <div class="flex flex-col">
+          <InputGroup>
             <Label for="password">Password</Label>
 
             <Input
@@ -83,9 +80,9 @@ function submit() {
             />
 
             <InputError :message="form.errors.password" />
-          </div>
+          </InputGroup>
 
-          <div class="flex flex-col">
+          <InputGroup>
             <Label for="password_confirmation">Confirm Password</Label>
 
             <Input
@@ -98,7 +95,7 @@ function submit() {
             />
 
             <InputError :message="form.errors.password_confirmation" />
-          </div>
+          </InputGroup>
 
           <template #footer>
             <div

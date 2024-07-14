@@ -61,7 +61,7 @@ const paddingFooterHeader = computed(() => {
 <template>
   <div
     :class="twMerge(
-      'inline-block overflow-hidden border border-gray-200 bg-white shadow dark:border-gray-800 dark:bg-gray-900',
+      'overflow-hidden border border-gray-200 bg-white shadow dark:border-gray-800 dark:bg-gray-900',
       align,
       borderRadius,
       props.wrapperClass,
@@ -83,6 +83,7 @@ const paddingFooterHeader = computed(() => {
     <div
       v-if="slots.default"
       :class="twMerge(
+        'flex flex-col gap-8',
         padding,
         props.class,
       )"
