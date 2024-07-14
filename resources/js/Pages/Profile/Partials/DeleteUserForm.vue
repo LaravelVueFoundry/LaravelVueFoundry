@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { nextTick, ref } from 'vue'
-import { Button, Heading, Input, Label } from '@local/ui'
+import { Button, Heading, Input, Label, Modal } from '@local/ui'
 import InputError from '@/Components/InputError.vue'
-import Modal from '@/Components/Modal.vue'
 
-const confirmingUserDeletion = ref(false)
+const modalRef = ref<typeof Modal | null>(null)
 const passwordInput = ref<HTMLInputElement | null>(null)
 
 const form = useForm({
@@ -13,7 +12,7 @@ const form = useForm({
 })
 
 function confirmUserDeletion() {
-  confirmingUserDeletion.value = true
+  modalRef.value?.open()
 
   nextTick(() => passwordInput.value?.focus())
 }
@@ -30,8 +29,7 @@ function deleteUser() {
 }
 
 function closeModal() {
-  confirmingUserDeletion.value = false
-
+  modalRef.value?.close()
   form.reset()
 }
 </script>
@@ -53,8 +51,19 @@ function closeModal() {
       Delete Account
     </Button>
 
-    <Modal :show="confirmingUserDeletion" @close="closeModal">
-      <div>
+    <Modal
+      ref="modalRef"
+      @on-close="closeModal"
+    >
+      <template #title>
+        <Heading type="h4">
+          Delete your account?
+        </Heading>
+      </template>
+
+      <div
+        class="flex flex-col gap-4"
+      >
         <Heading type="h2">
           Are you sure you want to delete your account?
         </Heading>
@@ -79,8 +88,12 @@ function closeModal() {
 
           <InputError :message="form.errors.password" />
         </div>
+      </div>
 
-        <div>
+      <template #actions>
+        <div
+          class="flex items-center justify-between"
+        >
           <Button @click="closeModal">
             Cancel
           </Button>
@@ -93,7 +106,7 @@ function closeModal() {
             Delete Account
           </Button>
         </div>
-      </div>
+      </template>
     </Modal>
   </section>
 </template>

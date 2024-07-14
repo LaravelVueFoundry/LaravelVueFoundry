@@ -26,7 +26,15 @@ export default antfu(
       'tailwindcss/classnames-order': [
         'error',
         {
-          callees: ['classnames', 'clsx', 'ctl', 'cva', 'tv', 'twMerge'],
+          callees: [
+            'classnames',
+            'clsx',
+            'ctl',
+            'cva',
+            'tv',
+            'twMerge',
+          ],
+          classRegex: '^(class(Name)?|.+-class)$',
         },
       ],
       'vue/attributes-order': [

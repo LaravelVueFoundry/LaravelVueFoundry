@@ -16,9 +16,11 @@ import Heading from '@/stories/atoms/typography/Heading/Heading.vue'
       class="flex flex-col gap-8"
       wrapper-class="block"
     >
-      <Heading type="h2">
-        Login form
-      </Heading>
+      <template #header>
+        <Heading type="h2">
+          Login form
+        </Heading>
+      </template>
 
       <div class="flex flex-col">
         <Label for="username">Username</Label>
@@ -32,12 +34,16 @@ import Heading from '@/stories/atoms/typography/Heading/Heading.vue'
 
       <Checkbox label="Remember me" name="remember" />
 
-      <div
-        class="flex items-center justify-between gap-8"
-      >
-        <a href="#">Forget password?</a>
-        <Button>Login</Button>
-      </div>
+      <template #footer>
+        <div
+          class="flex items-center justify-between gap-8"
+        >
+          <a href="#">Forgot your password?</a>
+          <Button variant="primary">
+            Log in
+          </Button>
+        </div>
+      </template>
     </Card>
   </Container>
 </template>

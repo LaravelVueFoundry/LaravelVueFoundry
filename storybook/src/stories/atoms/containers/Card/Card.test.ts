@@ -28,6 +28,12 @@ describe('card', () => {
     expect(wrapper.get('[data-test-id="wrapper"]').classes()).toContain('bogus-wrapper-class')
   })
 
+  it('can be empty', () => {
+    const wrapper = mount(Component)
+
+    expect(wrapper.html()).toBeTruthy()
+  })
+
   it('can align at the start', () => {
     const wrapper = mount(Component, {
       props: {

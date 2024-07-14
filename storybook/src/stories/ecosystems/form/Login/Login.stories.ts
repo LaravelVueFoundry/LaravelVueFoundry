@@ -17,4 +17,4 @@ const meta: Meta<Props> = {
 export default meta
 type Story = StoryObj<Props>
 
-export const Form: Story = {}
+export const Default: Story = {}

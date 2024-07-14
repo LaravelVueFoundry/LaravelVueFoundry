@@ -9,3 +9,5 @@ export { default as Heading } from './src/stories/atoms/typography/Heading/Headi
 export { default as Card } from './src/stories/atoms/containers/Card/Card.vue'
 export { default as Container } from './src/stories/atoms/containers/Container/Container.vue'
 export { default as Well } from './src/stories/atoms/containers/Well/Well.vue'
+
+export { default as Modal } from './src/stories/molecules/off-canvas/Modal/Modal.vue'

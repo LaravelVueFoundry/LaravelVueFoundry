@@ -26,6 +26,12 @@ describe('heading', () => {
     expect(wrapper.classes()).toContain('bogus-class')
   })
 
+  it('can be empty', () => {
+    const wrapper = mount(Component)
+
+    expect(wrapper.html()).toBeTruthy()
+  })
+
   it('can be a link', () => {
     const wrapper = mount(Component, {
       props: {

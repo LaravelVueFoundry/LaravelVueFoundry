@@ -23,6 +23,12 @@ describe('well', () => {
     expect(wrapper.classes()).toContain('bogus-class')
   })
 
+  it('can be empty', () => {
+    const wrapper = mount(Component)
+
+    expect(wrapper.html()).toBeTruthy()
+  })
+
   it('can be a medium size', () => {
     const wrapper = mount(Component, {
       props: {

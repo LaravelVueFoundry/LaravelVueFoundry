@@ -5,7 +5,6 @@ import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import type { RootNode, TemplateChildNode } from '@vue/compiler-core'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue({

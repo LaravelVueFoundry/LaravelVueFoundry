@@ -34,9 +34,11 @@ function submit() {
           class="flex flex-col gap-8"
           wrapper-class="block"
         >
-          <Heading type="h2">
-            Log in
-          </Heading>
+          <template #header>
+            <Heading type="h2">
+              Log in
+            </Heading>
+          </template>
 
           <div v-if="status">
             {{ status }}
@@ -75,18 +77,20 @@ function submit() {
 
           <Checkbox v-model="form.remember" label="Remember me" name="remember" />
 
-          <div class="flex items-center justify-between">
-            <Link
-              v-if="canResetPassword"
-              :href="route('password.request')"
-            >
-              Forgot your password?
-            </Link>
+          <template #footer>
+            <div class="flex items-center justify-between">
+              <Link
+                v-if="canResetPassword"
+                :href="route('password.request')"
+              >
+                Forgot your password?
+              </Link>
 
-            <Button :loading="form.processing">
-              Log in
-            </Button>
-          </div>
+              <Button :loading="form.processing" type="submit" variant="primary">
+                Log in
+              </Button>
+            </div>
+          </template>
         </Card>
       </form>
     </Container>
