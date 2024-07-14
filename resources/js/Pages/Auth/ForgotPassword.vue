@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3'
-import { Button, Card, Container, Heading, Input, InputGroup, Label } from '@local/ui'
+import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
 import GuestLayout from '@/Layouts/GuestLayout.vue'
-import InputError from '@/Components/InputError.vue'
 
 defineProps<{
   status?: string

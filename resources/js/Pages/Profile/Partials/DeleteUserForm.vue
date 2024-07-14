@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { nextTick, ref } from 'vue'
-import { Button, Card, Heading, Input, Label, Modal } from '@local/ui'
-import InputError from '@/Components/InputError.vue'
+import { Button, Card, Heading, Input, InputError, Label, Modal } from '@local/ui'
 
 const modalRef = ref<typeof Modal | null>(null)
 const passwordInput = ref<HTMLInputElement | null>(null)
