@@ -29,6 +29,11 @@ jobs:
     - name: Install Storybook Dependencies
       run: pnpm i
     - name: Test Component Library
+      run: pnpm test -- --reporter=github-actions
+    - name: Get Component Library Coverage
       run: pnpm coverage
+    - name: 'Report Coverage'
+      if: always()
+      uses:  davelosert/vitest-coverage-report-action@v2
     - name: Build Component Library
       run: pnpm build

@@ -17,6 +17,7 @@ export default defineConfig({
       exclude: ['src/stories/**/*.stories.{ts,tsx}', 'src/stories/**/*.test.{ts,tsx}'],
       reporter: ['text', 'text-summary', 'json', 'json-summary', 'html'],
       reportsDirectory: 'coverage/unit',
+      reportOnFailure: true,
     },
     environment: 'happy-dom',
   },

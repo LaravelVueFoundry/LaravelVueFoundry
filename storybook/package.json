@@ -23,9 +23,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "vitest",
+    "test": "vitest run",
     "test-ui": "vitest --ui --coverage",
-    "coverage": "vitest --coverage"
+    "coverage": "vitest run --coverage"
   },
   "peerDependencies": {
     "@vueuse/core": "^10.11.0",
