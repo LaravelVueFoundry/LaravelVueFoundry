@@ -39,6 +39,6 @@ jobs:
       if: always()
       uses:  davelosert/vitest-coverage-report-action@v2
       with:
-        json-summary-path: "${working-directory}/coverage/unit/coverage-summary.json"
+        json-summary-path: "./coverage/unit/coverage-summary.json"
     - name: Build Component Library
       run: pnpm build
