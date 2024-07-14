@@ -14,11 +14,13 @@ import tailwindConfig from '../../../tailwind.config.js'
       return
 
     return (
-      <div>
+      <div
+        key={name}
+      >
         <h3>{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
+
         <div
           className="flex max-sm:block shadow-md border rounded-lg overflow-hidden"
-          key={name}
         >
           {Object.entries(shades).map(([shade, color]) => (
             <div
