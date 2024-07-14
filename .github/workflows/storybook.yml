@@ -29,6 +29,6 @@ jobs:
     - name: Install Storybook Dependencies
       run: pnpm i
     - name: Test Component Library
-      run: pnpm test
+      run: pnpm coverage
     - name: Build Component Library
       run: pnpm build
