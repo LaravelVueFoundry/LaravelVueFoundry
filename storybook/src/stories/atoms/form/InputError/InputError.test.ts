@@ -5,8 +5,8 @@ import Component from './InputError.vue'
 describe('inputError', () => {
   it('renders correctly', () => {
     const wrapper = mount(Component, {
-      slots: {
-        default: 'test',
+      attrs: {
+        message: 'test',
       },
     })
 
