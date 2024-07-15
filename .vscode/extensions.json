@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "open-southeners.laravel-pint",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "vue.volar"
   ]
 }
