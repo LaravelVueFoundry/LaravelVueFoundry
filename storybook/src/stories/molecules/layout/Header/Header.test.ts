@@ -25,4 +25,20 @@ describe('header', () => {
 
     expect(wrapper.html()).toBeTruthy()
   })
+
+  it('has a desktop menu variant', () => {
+    globalThis.innerWidth = 1000
+    const wrapper = mount(Component)
+
+    expect(wrapper.find('[data-test-id="menu-desktop"]').exists()).toBe(true)
+    expect(wrapper.find('[data-test-id="menu-mobile"]').exists()).toBe(false)
+  })
+
+  it('has a mobile menu variant', () => {
+    globalThis.innerWidth = 500
+    const wrapper = mount(Component)
+
+    expect(wrapper.find('[data-test-id="menu-desktop"]').exists()).toBe(false)
+    expect(wrapper.find('[data-test-id="menu-mobile"]').exists()).toBe(true)
+  })
 })

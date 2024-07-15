@@ -44,12 +44,14 @@ const isMobile = computed(() => {
       <div
         v-if="isMobile"
         class="flex gap-6"
+        data-test-id="menu-mobile"
       >
         MOBILE MENU
       </div>
       <div
         v-else
         class="flex gap-6"
+        data-test-id="menu-desktop"
       >
         <div
           v-for="link in props.links"
