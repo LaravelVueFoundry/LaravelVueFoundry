@@ -46,5 +46,12 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+
+  // Override formatting rules for PHP files.
+  "[php]": {
+    "editor.defaultFormatter": "open-southeners.laravel-pint",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  }
 }

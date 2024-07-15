@@ -40,6 +40,8 @@ jobs:
       run: pnpm lint
     - name: Build Frontend
       run: pnpm build
+    - name: Lint Frontend
+      run: ./vendor/bin/pint -n --test
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
