@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3'
 import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
-import GuestLayout from '@/Layouts/GuestLayout.vue'
+import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 defineProps<{
   status?: string
@@ -17,7 +17,7 @@ function submit() {
 </script>
 
 <template>
-  <GuestLayout>
+  <BaseLayout>
     <Head>
       <title>Forgot Password</title>
       <meta content="Forgot your password? No problem. You can reset it here." name="description">
@@ -68,5 +68,5 @@ function submit() {
         </Card>
       </form>
     </Container>
-  </GuestLayout>
+  </BaseLayout>
 </template>

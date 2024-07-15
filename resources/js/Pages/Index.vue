@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3'
 import { Card, Container } from '@local/ui'
-import GuestLayout from '@/Layouts/GuestLayout.vue'
+import BaseLayout from '@/Layouts/BaseLayout.vue'
 </script>
 
 <template>
-  <GuestLayout>
+  <BaseLayout>
     <Head>
       <title>Welcome</title>
       <meta content="Homepage" name="description">
@@ -16,5 +16,5 @@ import GuestLayout from '@/Layouts/GuestLayout.vue'
         <p>INDEX</p>
       </Card>
     </Container>
-  </GuestLayout>
+  </BaseLayout>
 </template>

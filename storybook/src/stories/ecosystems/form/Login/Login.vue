@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3'
 import Card from '@/stories/atoms/container/Card/Card.vue'
 import Container from '@/stories/atoms/container/Container/Container.vue'
 import Button from '@/stories/atoms/form/Button/Button.vue'
@@ -36,7 +37,10 @@ import Heading from '@/stories/atoms/typography/Heading/Heading.vue'
         <div
           class="flex items-center justify-between gap-8"
         >
-          <a href="#">Forgot your password?</a>
+          <Link href="#">
+            Forgot your password?
+          </Link>
+
           <Button variant="primary">
             Log in
           </Button>

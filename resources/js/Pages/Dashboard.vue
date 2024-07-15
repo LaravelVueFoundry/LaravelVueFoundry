@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/vue3'
+import { Head, usePage } from '@inertiajs/vue3'
 import { Card, Container, Heading } from '@local/ui'
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
+import BaseLayout from '@/Layouts/BaseLayout.vue'
+
+const page = usePage()
 </script>
 
 <template>
@@ -10,17 +12,17 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
     <meta content="The user dashboard" name="description">
   </Head>
 
-  <AuthenticatedLayout>
+  <BaseLayout>
     <Container type="narrow">
       <Card>
         <template #header>
           <Heading type="h4">
-            Welcome, {{ $page.props.auth.user.name }}!
+            Welcome, {{ page.props.auth.user.name }}!
           </Heading>
         </template>
 
         <p>You're logged in!</p>
       </Card>
     </Container>
-  </AuthenticatedLayout>
+  </BaseLayout>
 </template>

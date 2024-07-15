@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3'
 import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
-import GuestLayout from '@/Layouts/GuestLayout.vue'
+import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 const form = useForm({
   name: '',
@@ -20,7 +20,7 @@ function submit() {
 </script>
 
 <template>
-  <GuestLayout>
+  <BaseLayout>
     <Head>
       <title>Register</title>
       <meta content="Register a new account" name="description">
@@ -117,5 +117,5 @@ function submit() {
         </Card>
       </form>
     </Container>
-  </GuestLayout>
+  </BaseLayout>
 </template>

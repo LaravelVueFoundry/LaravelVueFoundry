@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3'
 import { Button, Input, InputError, Label } from '@local/ui'
-import GuestLayout from '@/Layouts/GuestLayout.vue'
+import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 const form = useForm({
   password: '',
@@ -17,7 +17,7 @@ function submit() {
 </script>
 
 <template>
-  <GuestLayout>
+  <BaseLayout>
     <Head>
       <title>Confirm Password</title>
       <meta content="Confirm your password to continue" name="description">
@@ -48,5 +48,5 @@ function submit() {
         </Button>
       </div>
     </form>
-  </GuestLayout>
+  </BaseLayout>
 </template>

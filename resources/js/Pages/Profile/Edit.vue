@@ -4,7 +4,7 @@ import { Container } from '@local/ui'
 import DeleteUserForm from './Partials/DeleteUserForm.vue'
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue'
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue'
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
+import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 defineProps<{
   mustVerifyEmail?: boolean
@@ -18,7 +18,7 @@ defineProps<{
     <meta content="Edit your user profile" name="description">
   </Head>
 
-  <AuthenticatedLayout>
+  <BaseLayout>
     <Container
       class="flex flex-col gap-8"
       type="narrow"
@@ -32,5 +32,5 @@ defineProps<{
 
       <DeleteUserForm />
     </Container>
-  </AuthenticatedLayout>
+  </BaseLayout>
 </template>

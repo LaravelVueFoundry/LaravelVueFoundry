@@ -28,12 +28,14 @@
     "coverage": "vitest run --coverage"
   },
   "peerDependencies": {
+    "@inertiajs/vue3": "^1.2.0",
     "@vueuse/core": "^10.11.0",
     "@vueuse/integrations": "^10.11.0",
     "focus-trap": "^7.5.4",
     "vue": "^3.4.29"
   },
   "devDependencies": {
+    "@inertiajs/vue3": "^1.2.0",
     "@storybook/addon-a11y": "^8.2.2",
     "@storybook/addon-controls": "^8.2.2",
     "@storybook/addon-essentials": "^8.2.2",

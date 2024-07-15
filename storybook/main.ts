@@ -13,3 +13,4 @@ export { default as Container } from './src/stories/atoms/container/Container/Co
 export { default as Well } from './src/stories/atoms/container/Well/Well.vue'
 
 export { default as Modal } from './src/stories/molecules/off-canvas/Modal/Modal.vue'
+export { default as Header } from './src/stories/molecules/layout/Header/Header.vue'
