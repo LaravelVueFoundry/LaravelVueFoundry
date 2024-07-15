@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import type { ComponentProps } from 'vue-component-type-helpers'
 import Component from './Header.vue'
+import Card from '@/stories/atoms/container/Card/Card.vue'
+import Container from '@/stories/atoms/container/Container/Container.vue'
 
 type Props = ComponentProps<typeof Component>
 
@@ -32,10 +34,17 @@ export const Default: Story = {}
 export const ScrollingPage: Story = {
   render: (args) => {
     return {
-      components: { Component },
+      components: { Component, Container, Card },
       setup() { return { args } },
       template: `
         <Component v-bind="args" />
+        <Container>
+          <Card>
+            <template #header>Card header</template>
+            Card content
+            <template #footer>Card footer</template>
+          </Card>
+        </Container>
         <div class="min-h-screen" />
         <div class="min-h-screen" />
       `,

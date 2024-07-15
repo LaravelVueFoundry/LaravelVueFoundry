@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/blocks'
 import tailwindConfig from '../../../tailwind.config.js'
+import resolveTailwindConfig from 'tailwindcss/resolveConfig'
 
 <Meta title="Colors" />
 
@@ -9,7 +10,7 @@ import tailwindConfig from '../../../tailwind.config.js'
 <div
   className="flex flex-col gap-8"
 >
-  {Object.entries(tailwindConfig.theme.colors).map(([name, shades]) => {
+  {Object.entries(resolveTailwindConfig(tailwindConfig).theme.colors).map(([name, shades]) => {
     if (typeof shades === 'string')
       return
 

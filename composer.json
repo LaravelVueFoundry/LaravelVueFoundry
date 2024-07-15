@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "dobefu/laravel-vue-starter",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": [ "laravel", "framework" ],
+    "description": "Quickly start a Laravel project with a VueJS frontend and Storybook components",
+    "keywords": [ "laravel", "framework", "vuejs", "vue3", "storybook", "inertia", "inertiajs" ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
