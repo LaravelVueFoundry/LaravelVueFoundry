@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
+import { Icon } from '@iconify/vue'
 import { type HTMLAttributes, computed, nextTick, ref } from 'vue'
 import { useElementSize, useWindowScroll, useWindowSize } from '@vueuse/core'
 import { Link } from '@inertiajs/vue3'
@@ -115,9 +116,10 @@ defineExpose({ openMobileMenu, closeMobileMenu })
             isMobileMenuInnerOpen ? closeMobileMenu() : openMobileMenu()
           }"
         >
-          <svg height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-          </svg>
+          <Icon
+            icon="mdi:dots-horizontal"
+            ssr
+          />
         </Button>
       </div>
       <div
@@ -202,16 +204,11 @@ defineExpose({ openMobileMenu, closeMobileMenu })
                 class="ms-auto block p-4"
                 @click="closeMobileMenu"
               >
-                <svg
+                <Icon
                   class="size-6"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.46 12L19 17.54V19h-1.46L12 13.46L6.46 19H5v-1.46L10.54 12L5 6.46V5h1.46L12 10.54L17.54 5H19v1.46z"
-                    fill="currentColor"
-                  />
-                </svg>
+                  icon="mdi:close"
+                  ssr
+                />
               </button>
 
               <div

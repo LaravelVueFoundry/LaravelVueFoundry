@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
 import { twMerge } from 'tailwind-merge'
 import type { HTMLAttributes } from 'vue'
 import { computed } from 'vue'
@@ -57,12 +58,11 @@ const padding = computed(() => {
   <component
     :is="buttonType"
     :class="twMerge(
-      'inline-block border font-semibold text-white shadow hover:shadow-md active:shadow-none disabled:pointer-events-none disabled:opacity-50',
+      'inline-flex items-center gap-2 border font-semibold text-white shadow hover:shadow-md active:shadow-none disabled:pointer-events-none disabled:opacity-50',
       'outline-offset-4 focus:outline-primary-500',
       'transition-[background,border,box-shadow,opacity]',
       bgColor,
       padding,
-      (props.loading) ? 'animate-pulse opacity-75' : undefined,
       props.class,
     )"
     :disabled="props.loading || props.disabled"
@@ -70,6 +70,22 @@ const padding = computed(() => {
     :type="type"
     @click="(e: PointerEvent) => emit('click', e)"
   >
+    <Transition
+      enter-active-class="transition-[margin,transform,width] delay-200"
+      enter-from-class="-me-2 w-0 scale-0"
+      enter-to-class="me-0 w-4 scale-100"
+      leave-active-class="transition-[margin,transform,width]"
+      leave-from-class="me-0 w-4 scale-100"
+      leave-to-class="-me-2 w-0 scale-0"
+    >
+      <span v-if="loading">
+        <Icon
+          class="animate-spin"
+          icon="mdi:loading"
+          ssr
+        />
+      </span>
+    </Transition>
     <slot />
   </component>
 </template>

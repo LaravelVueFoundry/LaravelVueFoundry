@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type HTMLAttributes, nextTick, ref, useSlots } from 'vue'
 import { twMerge } from 'tailwind-merge'
+import { Icon } from '@iconify/vue'
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
 import { onKeyStroke } from '@vueuse/core'
 import Card from '@/stories/atoms/container/Card/Card.vue'
@@ -125,16 +126,11 @@ defineExpose({ open, close })
                     class="-m-2 p-2"
                     @click="close"
                   >
-                    <svg
+                    <Icon
                       class="size-6"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M13.46 12L19 17.54V19h-1.46L12 13.46L6.46 19H5v-1.46L10.54 12L5 6.46V5h1.46L12 10.54L17.54 5H19v1.46z"
-                        fill="currentColor"
-                      />
-                    </svg>
+                      icon="mdi:close"
+                      ssr
+                    />
                   </button>
                 </div>
               </template>
