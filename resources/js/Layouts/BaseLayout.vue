@@ -5,12 +5,10 @@ import { computed } from 'vue'
 
 const page = usePage()
 
-const links = computed(() => {
+const linksPrimary: InstanceType<typeof Header>['$props']['linksPrimary'] = []
+
+const linksSecondary = computed<InstanceType<typeof Header>['$props']['linksSecondary']>(() => {
   const result = []
-  result.push({
-    title: 'Home',
-    href: route('home'),
-  })
 
   if (page.props.auth.user) {
     result.push({
@@ -45,7 +43,7 @@ const links = computed(() => {
 </script>
 
 <template>
-  <Header :links="links" title="Header" />
+  <Header :links-primary="linksPrimary" :links-secondary="linksSecondary" title="Header" />
 
   <main id="main-content">
     <slot />

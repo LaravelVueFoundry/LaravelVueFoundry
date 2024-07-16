@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { fn } from '@storybook/test'
 import type { ComponentProps } from 'vue-component-type-helpers'
 import Component from './Button.vue'
 
@@ -18,14 +17,8 @@ const meta: Meta<Props> = {
     },
     size: {
       control: 'inline-radio',
-      options: ['sm', 'md', 'lg'],
+      options: ['sm', 'md', 'lg', 'square'],
     },
-  },
-  args: {
-    default: 'Button',
-    loading: false,
-    size: 'md',
-    onClick: fn(),
   },
   parameters: {
     slots: {
@@ -39,6 +32,7 @@ type Story = StoryObj<Props>
 
 export const Default: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     onClick: () => {},
@@ -50,6 +44,7 @@ export const Default: Story = {
 
 export const Primary: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     onClick: () => {},
@@ -61,6 +56,7 @@ export const Primary: Story = {
 
 export const Warning: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     onClick: () => {},
@@ -72,6 +68,7 @@ export const Warning: Story = {
 
 export const Danger: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     onClick: () => {},
@@ -83,6 +80,7 @@ export const Danger: Story = {
 
 export const Ghost: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     onClick: () => {},
@@ -94,6 +92,7 @@ export const Ghost: Story = {
 
 export const Large: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     onClick: () => {},
@@ -105,6 +104,7 @@ export const Large: Story = {
 
 export const Small: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     onClick: () => {},
@@ -114,8 +114,31 @@ export const Small: Story = {
   },
 }
 
+export const Square: Story = {
+  args: {
+    disabled: false,
+    loading: false,
+    onClick: () => {},
+    size: 'square',
+    type: undefined,
+    variant: undefined,
+  },
+  render: (args) => {
+    return {
+      components: { Component },
+      setup() { return { args } },
+      template: `
+        <Component v-bind="args">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0m7 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0"/></svg>
+        </Component>
+      `,
+    }
+  },
+}
+
 export const Disabled: Story = {
   args: {
+    default: 'Button',
     disabled: true,
     loading: false,
     onClick: () => {},
@@ -126,6 +149,7 @@ export const Disabled: Story = {
 
 export const ClickEvent: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     // eslint-disable-next-line no-alert
@@ -137,6 +161,7 @@ export const ClickEvent: Story = {
 
 export const LinkButton: Story = {
   args: {
+    default: 'Button',
     disabled: false,
     loading: false,
     onClick: e => e.preventDefault(),

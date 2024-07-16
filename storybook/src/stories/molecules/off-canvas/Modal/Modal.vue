@@ -63,10 +63,6 @@ async function onModalClosed() {
   emit('onClose')
 }
 
-function onModalInnerClosed() {
-  isOpen.value = false
-}
-
 defineExpose({ open, close })
 </script>
 
@@ -107,7 +103,7 @@ defineExpose({ open, close })
             leave-active-class="transition-[opacity,transform]"
             leave-from-class="translate-y-0 opacity-100"
             leave-to-class="-translate-y-2 opacity-0"
-            @after-leave="onModalInnerClosed()"
+            @after-leave="isOpen = false"
           >
             <Card
               v-if="isInnerOpen"

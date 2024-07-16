@@ -7,7 +7,7 @@ const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
   type?: 'button' | 'submit'
   variant?: 'primary' | 'warning' | 'danger' | 'ghost'
-  size?: 'lg' | 'md' | 'sm'
+  size?: 'lg' | 'md' | 'sm' | 'square'
   to?: string
   disabled?: boolean
   loading?: boolean
@@ -33,7 +33,7 @@ const bgColor = computed(() => {
     case 'danger':
       return 'bg-danger-600 hover:bg-danger-500 active:bg-danger-700 border-danger-500 hover:border-danger-400 active:border-danger-600'
     case 'ghost':
-      return 'text-black dark:text-white bg-transparent hover:bg-black/10 dark:hover:bg-white/10 active:bg-black/20 dark:active:bg-white/20'
+      return 'text-black dark:text-white bg-transparent hover:bg-black/10 dark:hover:bg-white/10 active:bg-black/20 dark:active:bg-white/20 dark:border-gray-600'
     default:
       return 'bg-gray-700 hover:bg-gray-600 active:bg-gray-800 border-gray-600 hover:border-gray-500 active:border-gray-700'
   }
@@ -45,6 +45,8 @@ const padding = computed(() => {
       return 'px-8 py-4 rounded-xl'
     case 'sm':
       return 'px-4 py-2 rounded-lg'
+    case 'square':
+      return 'px-3 py-3 rounded-lg'
     default:
       return 'px-6 py-3 rounded-lg'
   }

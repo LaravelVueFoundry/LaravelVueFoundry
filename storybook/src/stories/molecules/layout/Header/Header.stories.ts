@@ -6,21 +6,29 @@ import Container from '@/stories/atoms/container/Container/Container.vue'
 
 type Props = ComponentProps<typeof Component>
 
-document.body.style.padding = '0'
-
 const meta: Meta<Props> = {
   title: 'Molecules/Layout/Header',
   component: Component,
   tags: ['autodocs'],
   args: {
     title: 'Header title',
-    links: [
+    linksPrimary: [
       {
-        title: 'Link 1',
+        title: 'Primary link 1',
         href: '/',
       },
       {
-        title: 'Link 2',
+        title: 'Primary link 2',
+        href: '/',
+      },
+    ],
+    linksSecondary: [
+      {
+        title: 'Secondary link 1',
+        href: '/',
+      },
+      {
+        title: 'Secondary link 2',
         href: '/',
       },
     ],
@@ -30,13 +38,22 @@ const meta: Meta<Props> = {
 export default meta
 type Story = StoryObj<Props>
 
-export const Default: Story = {}
+export const Default: Story = {
+  render: (args) => {
+    return {
+      components: { Component },
+      setup() { return { args } },
+      template: `<div class="-m-4"><Component v-bind="args" /></div>`,
+    }
+  },
+}
 export const ScrollingPage: Story = {
   render: (args) => {
     return {
       components: { Component, Container, Card },
       setup() { return { args } },
       template: `
+      <div class="-m-4">
         <Component v-bind="args" />
         <Container>
           <Card>
@@ -47,6 +64,7 @@ export const ScrollingPage: Story = {
         </Container>
         <div class="min-h-screen" />
         <div class="min-h-screen" />
+      </div>
       `,
     }
   },
