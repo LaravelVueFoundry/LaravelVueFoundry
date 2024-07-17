@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@local/ui": "link:storybook",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.22.3",
@@ -18,17 +18,17 @@
     "@inertiajs/vue3": "^1.2.0",
     "@tailwindcss/forms": "^0.5.7",
     "@vitejs/plugin-vue": "^5.0.5",
-    "@vue/server-renderer": "^3.4.31",
+    "@vue/server-renderer": "^3.4.32",
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
-    "eslint": "^9.6.0",
+    "eslint": "^9.7.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
-    "laravel-vite-plugin": "^1.0.4",
+    "laravel-vite-plugin": "^1.0.5",
     "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.5",
+    "tailwindcss": "^3.4.6",
     "typescript": "^5.5.3",
-    "vite": "^5.3.3",
-    "vue": "^3.4.31",
+    "vite": "^5.3.4",
+    "vue": "^3.4.32",
     "vue-tsc": "^2.0.26"
   }
 }

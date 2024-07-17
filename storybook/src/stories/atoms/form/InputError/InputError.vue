@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<{
   <div
     v-show="props.message"
     :class="twMerge(
-      'flex items-center gap-1 font-semibold text-danger-600',
+      'flex items-center gap-1 font-medium text-danger-600',
       props.class,
     )"
   >

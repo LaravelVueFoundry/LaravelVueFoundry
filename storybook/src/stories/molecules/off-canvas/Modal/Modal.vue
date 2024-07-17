@@ -117,13 +117,13 @@ defineExpose({ open, close })
             >
               <template #header>
                 <div
-                  class="flex items-center justify-between font-semibold"
+                  class="flex items-center justify-between font-medium"
                 >
                   <slot v-if="slots.title" name="title" />
                   <div v-else />
 
                   <button
-                    class="-m-4 p-4 transition-transform hover:scale-125"
+                    class="-m-3 p-3 transition-transform hover:scale-125 rounded-full"
                     @click="close"
                   >
                     <Icon

@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<{
 <template>
   <label
     :class="twMerge(
-      'block font-semibold text-gray-800 dark:text-gray-200',
+      'block font-medium text-gray-800 dark:text-gray-200',
       props.class,
     )"
     :for="props.for"

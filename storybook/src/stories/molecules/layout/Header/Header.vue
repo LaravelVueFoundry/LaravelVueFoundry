@@ -93,7 +93,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
       class="flex items-center justify-between gap-8 py-4 md:py-6"
     >
       <Link
-        class="text-xl font-semibold"
+        class="text-xl font-medium"
         href="/"
       >
         {{ props.title }}

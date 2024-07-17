@@ -58,7 +58,7 @@ const padding = computed(() => {
   <component
     :is="buttonType"
     :class="twMerge(
-      'inline-flex items-center gap-2 border font-semibold text-white shadow hover:shadow-md active:shadow-none disabled:pointer-events-none disabled:opacity-50',
+      'inline-flex items-center gap-2 border font-medium text-white shadow hover:shadow-md active:shadow-none disabled:pointer-events-none disabled:opacity-50',
       'outline-offset-4 focus:outline-primary-500',
       'transition-[background,border,box-shadow,opacity]',
       bgColor,

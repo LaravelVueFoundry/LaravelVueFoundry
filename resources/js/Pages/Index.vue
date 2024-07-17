@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3'
-import { Card, Container } from '@local/ui'
+import { Container, Heading } from '@local/ui'
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 </script>
 
@@ -11,10 +11,11 @@ import BaseLayout from '@/Layouts/BaseLayout.vue'
       <meta content="Homepage" name="description">
     </Head>
 
-    <Container type="narrow">
-      <Card>
-        <p>INDEX</p>
-      </Card>
+    <Container
+      class="gap-4 flex flex-col"
+    >
+      <Heading type="h2">Home</Heading>
+      <p>Homepage</p>
     </Container>
   </BaseLayout>
 </template>

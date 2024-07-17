@@ -27,7 +27,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: [...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       transitionTimingFunction: {
         exaggerate: 'cubic-bezier(0, 1.25, 1, 1.25)',

@@ -22,7 +22,7 @@ const classes = {
   <component
     :is="props.type"
     :class="twMerge(
-      'font-semibold',
+      'font-medium',
       classes[props.type],
       props.class,
     )"
