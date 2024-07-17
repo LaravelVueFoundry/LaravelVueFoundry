@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3'
 import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
+import { Icon } from '@iconify/vue'
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 defineProps<{
@@ -27,7 +28,12 @@ function submit() {
       <form @submit.prevent="submit">
         <Card>
           <template #header>
-            <Heading type="h4">
+            <Heading class="flex items-center gap-4" type="h4">
+              <Icon
+                class="size-6"
+                icon="mdi:key"
+                ssr
+              />
               Forgot password
             </Heading>
           </template>

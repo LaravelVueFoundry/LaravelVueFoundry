@@ -12,27 +12,32 @@ const linksSecondary = computed<InstanceType<typeof Header>['$props']['linksSeco
 
   if (page.props.auth.user) {
     result.push({
+      icon: 'mdi:graph-line',
       title: 'Dashboard',
       href: route('dashboard'),
     })
 
     result.push({
+      icon: 'mdi:account',
       title: 'Profile',
       href: route('profile.edit'),
     })
 
     result.push({
+      icon: 'mdi:logout',
       title: 'Log out',
       href: route('logout'),
     })
   }
   else {
     result.push({
+      icon: 'mdi:login',
       title: 'Log in',
       href: route('login'),
     })
 
     result.push({
+      icon: 'mdi:register',
       title: 'Register',
       href: route('register'),
     })

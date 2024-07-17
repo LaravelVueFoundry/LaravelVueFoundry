@@ -137,7 +137,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
             :key="`${link.title}${link.href}`"
           >
             <Link
-              class="flex items-center gap-1"
+              class="flex items-center gap-1 lg:gap-2"
               :href="link.href"
             >
               <Icon
@@ -159,7 +159,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
             :key="`${link.title}${link.href}`"
           >
             <Link
-              class="flex items-center gap-1"
+              class="flex items-center gap-1 lg:gap-2"
               :href="link.href"
             >
               <Icon

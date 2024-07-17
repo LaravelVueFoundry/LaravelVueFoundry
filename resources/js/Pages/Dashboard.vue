@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, usePage } from '@inertiajs/vue3'
-import { Card, Container, Heading } from '@local/ui'
+import { Container, Heading } from '@local/ui'
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 const page = usePage()
@@ -13,16 +13,14 @@ const page = usePage()
   </Head>
 
   <BaseLayout>
-    <Container type="narrow">
-      <Card>
-        <template #header>
-          <Heading type="h4">
-            Welcome, {{ page.props.auth.user.name }}!
-          </Heading>
-        </template>
+    <Container
+      class="flex flex-col gap-4"
+    >
+      <Heading type="h2">
+        Welcome, {{ page.props.auth.user.name }}!
+      </Heading>
 
-        <p>You're logged in!</p>
-      </Card>
+      <p>You're logged in!</p>
     </Container>
   </BaseLayout>
 </template>
