@@ -12,9 +12,12 @@ import BaseLayout from '@/Layouts/BaseLayout.vue'
     </Head>
 
     <Container
-      class="gap-4 flex flex-col"
+      class="flex flex-col gap-4"
     >
-      <Heading type="h2">Home</Heading>
+      <Heading type="h2">
+        Home
+      </Heading>
+
       <p>Homepage</p>
     </Container>
   </BaseLayout>

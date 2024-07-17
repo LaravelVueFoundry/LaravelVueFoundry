@@ -123,7 +123,7 @@ defineExpose({ open, close })
                   <div v-else />
 
                   <button
-                    class="-m-3 p-3 transition-transform hover:scale-125 rounded-full"
+                    class="-m-3 rounded-full p-3 transition-transform hover:scale-125"
                     @click="close"
                   >
                     <Icon
