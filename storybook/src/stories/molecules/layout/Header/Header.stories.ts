@@ -14,6 +14,7 @@ const meta: Meta<Props> = {
     title: 'Header title',
     linksPrimary: [
       {
+        icon: 'mdi:calendar',
         title: 'Primary link 1',
         href: '/',
       },
@@ -28,6 +29,7 @@ const meta: Meta<Props> = {
         href: '/',
       },
       {
+        icon: 'mdi:account',
         title: 'Secondary link 2',
         href: '/',
       },

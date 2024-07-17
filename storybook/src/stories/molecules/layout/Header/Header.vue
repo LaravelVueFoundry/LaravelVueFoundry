@@ -12,10 +12,12 @@ const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
   title?: string
   linksPrimary?: {
+    icon?: string
     title: string
     href: string
   }[]
   linksSecondary?: {
+    icon?: string
     title: string
     href: string
   }[]
@@ -90,7 +92,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
     )"
   >
     <Container
-      class="flex items-center justify-between gap-8 py-4 md:py-6"
+      class="flex items-center justify-between gap-4 py-4 md:py-6 lg:gap-6"
     >
       <Link
         class="text-xl font-medium"
@@ -124,34 +126,48 @@ defineExpose({ openMobileMenu, closeMobileMenu })
       </div>
       <div
         v-else
-        class="flex flex-1 gap-6"
+        class="flex flex-1 gap-4 lg:gap-6"
         data-test-id="menu-desktop"
       >
         <div
-          class="flex flex-1 items-center gap-6"
+          class="flex flex-1 items-center gap-4 lg:gap-6"
         >
           <div
             v-for="link in props.linksPrimary"
             :key="`${link.title}${link.href}`"
           >
             <Link
+              class="flex items-center gap-1"
               :href="link.href"
             >
+              <Icon
+                v-if="link.icon"
+                class="size-5"
+                :icon="link.icon"
+                ssr
+              />
               {{ link.title }}
             </Link>
           </div>
         </div>
 
         <div
-          class="flex flex-1 items-center justify-end gap-6"
+          class="flex items-center justify-end gap-4 lg:gap-6"
         >
           <div
             v-for="link in props.linksSecondary"
             :key="`${link.title}${link.href}`"
           >
             <Link
+              class="flex items-center gap-1"
               :href="link.href"
             >
+              <Icon
+                v-if="link.icon"
+                class="size-5"
+                :icon="link.icon"
+                ssr
+              />
               {{ link.title }}
             </Link>
           </div>
@@ -219,9 +235,15 @@ defineExpose({ openMobileMenu, closeMobileMenu })
                   :key="`${link.title}${link.href}`"
                 >
                   <Link
-                    class="block py-4"
+                    class="flex items-center gap-2 py-4"
                     :href="link.href"
                   >
+                    <Icon
+                      v-if="link.icon"
+                      class="size-5"
+                      :icon="link.icon"
+                      ssr
+                    />
                     {{ link.title }}
                   </Link>
                 </div>
@@ -231,9 +253,15 @@ defineExpose({ openMobileMenu, closeMobileMenu })
                   :key="`${link.title}${link.href}`"
                 >
                   <Link
-                    class="block py-4"
+                    class="flex items-center gap-2 py-4"
                     :href="link.href"
                   >
+                    <Icon
+                      v-if="link.icon"
+                      class="size-5"
+                      :icon="link.icon"
+                      ssr
+                    />
                     {{ link.title }}
                   </Link>
                 </div>
