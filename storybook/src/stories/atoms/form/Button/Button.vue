@@ -43,13 +43,13 @@ const bgColor = computed(() => {
 const padding = computed(() => {
   switch (props.size) {
     case 'lg':
-      return 'px-8 py-4 rounded-xl'
+      return 'px-8 py-4 rounded-2xl'
     case 'sm':
       return 'px-4 py-2 rounded-lg'
     case 'square':
       return 'px-3 py-3 rounded-lg'
     default:
-      return 'px-6 py-3 rounded-lg'
+      return 'px-6 py-3 rounded-xl'
   }
 })
 </script>

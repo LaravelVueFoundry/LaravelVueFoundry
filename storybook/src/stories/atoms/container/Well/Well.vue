@@ -12,11 +12,11 @@ const props = withDefaults(defineProps<{
 const padding = computed(() => {
   switch (props.size) {
     case 'lg':
-      return 'p-8 rounded-xl'
+      return 'p-8 rounded-2xl'
     case 'sm':
       return 'px-3 py-2 rounded-lg'
     default:
-      return 'p-6 rounded-lg'
+      return 'p-6 rounded-xl'
   }
 })
 </script>

@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<{
 <template>
   <div
     :class="twMerge(
-      'flex flex-col',
+      'flex flex-col gap-2',
       props.class,
     )"
   >

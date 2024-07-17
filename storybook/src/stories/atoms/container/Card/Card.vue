@@ -27,11 +27,11 @@ const align = computed(() => {
 const borderRadius = computed(() => {
   switch (props.size) {
     case 'lg':
-      return 'rounded-xl'
+      return 'rounded-2xl'
     case 'sm':
       return 'rounded-lg'
     default:
-      return 'rounded-lg'
+      return 'rounded-xl'
   }
 })
 
@@ -95,7 +95,7 @@ const paddingFooterHeader = computed(() => {
     <div
       v-if="slots.footer"
       :class="twMerge(
-        'border-t border-t-gray-200 bg-gray-100 text-gray-600 dark:border-t-gray-800 dark:bg-gray-800 dark:text-gray-300',
+        'border-t border-t-gray-200 dark:border-t-gray-800',
         padding,
         paddingFooterHeader,
       )"

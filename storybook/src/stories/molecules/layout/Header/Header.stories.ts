@@ -43,7 +43,7 @@ export const Default: Story = {
     return {
       components: { Component },
       setup() { return { args } },
-      template: `<div class="-m-4"><Component v-bind="args" /></div>`,
+      template: `<div class="-m-4 h-screen"><Component v-bind="args" /></div>`,
     }
   },
 }

@@ -111,7 +111,7 @@ defineExpose({ open, close })
               class="max-h-full flex-1 overflow-auto"
               data-test-id="modal-body"
               :wrapper-class="twMerge(
-                'flex flex-col max-sm:h-full',
+                'flex flex-col rounded-2xl shadow-lg max-sm:h-full',
                 props.class,
               )"
             >
@@ -123,7 +123,7 @@ defineExpose({ open, close })
                   <div v-else />
 
                   <button
-                    class="-m-2 p-2"
+                    class="-m-4 p-4 transition-transform hover:scale-125"
                     @click="close"
                   >
                     <Icon

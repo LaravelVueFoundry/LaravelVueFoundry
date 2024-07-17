@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
 import type { HTMLAttributes } from 'vue'
+import { Icon } from '@iconify/vue'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
@@ -13,10 +14,15 @@ const props = withDefaults(defineProps<{
   <div
     v-show="props.message"
     :class="twMerge(
-      'font-semibold text-danger-600',
+      'flex items-center gap-1 font-semibold text-danger-600',
       props.class,
     )"
   >
+    <Icon
+      class="-mb-0.5 "
+      icon="mdi:error-outline"
+      ssr
+    />
     <p>{{ props.message }}</p>
   </div>
 </template>
