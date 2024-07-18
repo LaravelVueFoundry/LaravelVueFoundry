@@ -30,16 +30,9 @@ function submit() {
     <Container type="narrow">
       <form @submit.prevent="submit">
         <Card>
-          <template #header>
-            <Heading class="flex items-center gap-4" type="h4">
-              <Icon
-                class="size-6"
-                icon="mdi:register"
-                ssr
-              />
-              Register
-            </Heading>
-          </template>
+          <Heading class="pt-4 text-center" type="h2">
+            Register
+          </Heading>
 
           <InputGroup>
             <Label for="name">Name</Label>
@@ -104,9 +97,10 @@ function submit() {
 
           <template #footer>
             <div
-              class="flex items-center justify-between"
+              class="flex items-center justify-between gap-6 max-sm:flex-col-reverse max-sm:items-stretch"
             >
               <Link
+                class="p-2 text-center"
                 :href="route('login')"
               >
                 Already registered?
@@ -116,6 +110,11 @@ function submit() {
                 :loading="form.processing"
                 variant="primary"
               >
+                <Icon
+                  class="size-6"
+                  icon="mdi:register"
+                  ssr
+                />
                 Register
               </Button>
             </div>

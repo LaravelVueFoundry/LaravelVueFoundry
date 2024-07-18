@@ -34,16 +34,9 @@ function submit() {
 
       <form @submit.prevent="submit">
         <Card>
-          <template #header>
-            <Heading class="flex items-center gap-4" type="h4">
-              <Icon
-                class="size-6"
-                icon="mdi:login"
-                ssr
-              />
-              Log in
-            </Heading>
-          </template>
+          <Heading class="pt-4 text-center" type="h2">
+            Log in
+          </Heading>
 
           <div v-if="status">
             {{ status }}
@@ -83,15 +76,27 @@ function submit() {
           <Checkbox v-model="form.remember" label="Remember me" name="remember" />
 
           <template #footer>
-            <div class="flex items-center justify-between">
+            <div
+              class="flex items-center justify-between gap-6 max-sm:flex-col-reverse max-sm:items-stretch"
+            >
               <Link
                 v-if="canResetPassword"
+                class="p-2 text-center"
                 :href="route('password.request')"
               >
                 Forgot your password?
               </Link>
 
-              <Button :loading="form.processing" type="submit" variant="primary">
+              <Button
+                :loading="form.processing"
+                type="submit"
+                variant="primary"
+              >
+                <Icon
+                  class="size-6"
+                  icon="mdi:login"
+                  ssr
+                />
                 Log in
               </Button>
             </div>

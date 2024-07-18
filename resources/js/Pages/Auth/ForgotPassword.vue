@@ -27,18 +27,13 @@ function submit() {
     <Container type="narrow">
       <form @submit.prevent="submit">
         <Card>
-          <template #header>
-            <Heading class="flex items-center gap-4" type="h4">
-              <Icon
-                class="size-6"
-                icon="mdi:key"
-                ssr
-              />
-              Forgot password
-            </Heading>
-          </template>
+          <Heading class="pt-4 text-center" type="h2">
+            Forgot password
+          </Heading>
 
-          <div>
+          <div
+            class="max-sm:text-justify"
+          >
             Forgot your password? No problem. Just let us know your email address and we will email you a password reset
             link that will allow you to choose a new one.
           </div>
@@ -65,10 +60,16 @@ function submit() {
 
           <template #footer>
             <Button
+              class="ms-auto flex max-sm:w-full"
               :loading="form.processing"
               variant="primary"
             >
-              Email Password Reset Link
+              <Icon
+                class="size-6"
+                icon="mdi:key"
+                ssr
+              />
+              Reset password
             </Button>
           </template>
         </Card>
