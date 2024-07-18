@@ -20,6 +20,8 @@ jobs:
           node-version: '20.x'
       - name: Enable Corepack
         run: corepack enable
+      - name: Install Main Project Dependencies
+        run: pnpm i
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
         with:
           install_command: cd storybook && pnpm i
