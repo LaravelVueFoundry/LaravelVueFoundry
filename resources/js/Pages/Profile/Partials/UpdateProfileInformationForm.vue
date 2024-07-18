@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
 import { Link, useForm, usePage } from '@inertiajs/vue3'
 import { Button, Card, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
 
@@ -29,7 +30,7 @@ const form = useForm({
       </p>
 
       <InputGroup>
-        <Label for="name">Name</Label>
+        <Label for="name" required>Name</Label>
 
         <Input
           id="name"
@@ -37,6 +38,7 @@ const form = useForm({
           autocomplete="name"
           autofocus
           name="name"
+          placeholder="John Doe"
           required
           type="text"
         />
@@ -45,13 +47,14 @@ const form = useForm({
       </InputGroup>
 
       <InputGroup>
-        <Label for="email">Email</Label>
+        <Label for="email" required>Email</Label>
 
         <Input
           id="email"
           v-model="form.email"
           autocomplete="username"
           name="email"
+          placeholder="info@example.com"
           required
           type="email"
         />
@@ -83,9 +86,14 @@ const form = useForm({
           class="flex items-center justify-between"
         >
           <Button
-            :disabled="form.processing"
+            :loading="form.processing"
             variant="primary"
           >
+            <Icon
+              class="size-5"
+              icon="mdi:content-save-outline"
+              ssr
+            />
             Save
           </Button>
 

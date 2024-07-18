@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { nextTick, ref } from 'vue'
-import { Button, Card, Heading, Input, InputError, Label, Modal } from '@local/ui'
+import { Icon } from '@iconify/vue'
+import { Button, Card, Heading, Input, InputError, InputGroup, Label, Modal } from '@local/ui'
 
 const modalRef = ref<typeof Modal | null>(null)
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -52,6 +53,11 @@ function closeModal() {
         variant="danger"
         @click="confirmUserDeletion"
       >
+        <Icon
+          class="size-5"
+          icon="mdi:bin-outline"
+          ssr
+        />
         Delete Account
       </Button>
     </template>
@@ -78,21 +84,21 @@ function closeModal() {
           enter your password to confirm you would like to permanently delete your account.
         </p>
 
-        <div>
-          <Label for="password">Password</Label>
+        <InputGroup>
+          <Label for="password" required>Password</Label>
 
           <Input
             id="password"
             ref="passwordInput"
             v-model="form.password"
             name="password"
-            placeholder="Password"
+            required
             type="password"
             @keyup.enter="deleteUser"
           />
 
           <InputError :message="form.errors.password" />
-        </div>
+        </InputGroup>
       </div>
 
       <template #actions>
@@ -108,6 +114,11 @@ function closeModal() {
             variant="danger"
             @click="deleteUser"
           >
+            <Icon
+              class="size-5"
+              icon="mdi:bin-outline"
+              ssr
+            />
             Delete Account
           </Button>
         </div>

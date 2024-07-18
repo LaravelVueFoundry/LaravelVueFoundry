@@ -51,6 +51,7 @@ function submit() {
               autocomplete="email"
               autofocus
               name="email"
+              placeholder="info@example.com"
               required
               type="email"
             />

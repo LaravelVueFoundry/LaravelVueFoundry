@@ -51,6 +51,7 @@ function submit() {
               autocomplete="email"
               autofocus
               name="email"
+              placeholder="info@example.com"
               required
               type="email"
             />
@@ -77,16 +78,8 @@ function submit() {
 
           <template #footer>
             <div
-              class="flex items-center justify-between gap-6 max-sm:flex-col-reverse max-sm:items-stretch"
+              class="flex flex-row-reverse items-center justify-between gap-6 max-sm:flex-col max-sm:items-stretch"
             >
-              <Link
-                v-if="canResetPassword"
-                class="p-2 text-center"
-                :href="route('password.request')"
-              >
-                Forgot your password?
-              </Link>
-
               <Button
                 :loading="form.processing"
                 type="submit"
@@ -99,6 +92,14 @@ function submit() {
                 />
                 Log in
               </Button>
+
+              <Link
+                v-if="canResetPassword"
+                class="p-2 text-center"
+                :href="route('password.request')"
+              >
+                Forgot your password?
+              </Link>
             </div>
           </template>
         </Card>

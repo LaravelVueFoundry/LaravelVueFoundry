@@ -43,6 +43,7 @@ function submit() {
               autocomplete="name"
               autofocus
               name="name"
+              placeholder="John Doe"
               required
               type="text"
             />
@@ -58,6 +59,7 @@ function submit() {
               v-model="form.email"
               autocomplete="email"
               name="email"
+              placeholder="info@example.com"
               required
               type="email"
             />
@@ -97,15 +99,8 @@ function submit() {
 
           <template #footer>
             <div
-              class="flex items-center justify-between gap-6 max-sm:flex-col-reverse max-sm:items-stretch"
+              class="flex flex-row-reverse items-center justify-between gap-6 max-sm:flex-col max-sm:items-stretch"
             >
-              <Link
-                class="p-2 text-center"
-                :href="route('login')"
-              >
-                Already registered?
-              </Link>
-
               <Button
                 :loading="form.processing"
                 variant="primary"
@@ -117,6 +112,13 @@ function submit() {
                 />
                 Register
               </Button>
+
+              <Link
+                class="p-2 text-center"
+                :href="route('login')"
+              >
+                Already registered?
+              </Link>
             </div>
           </template>
         </Card>
