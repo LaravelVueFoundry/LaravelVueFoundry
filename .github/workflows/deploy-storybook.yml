@@ -1,0 +1,34 @@
+name: Build and Publish Storybook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - 'main'
+
+defaults:
+  run:
+    working-directory: ./storybook
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install NodeJS Dependencies
+        run: cd .. ; pnpm i ; cd storybook
+      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+        with:
+          install_command: pnpm i
+          build_command: pnpm build-storybook
+          path: storybook-static
+          checkout: false

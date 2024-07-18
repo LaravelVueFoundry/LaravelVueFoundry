@@ -48,7 +48,7 @@ const linksSecondary = computed<InstanceType<typeof Header>['$props']['linksSeco
 </script>
 
 <template>
-  <Header :links-primary="linksPrimary" :links-secondary="linksSecondary" title="Header" />
+  <Header :links-primary="linksPrimary" :links-secondary="linksSecondary" title="LaravelVueFoundry" />
 
   <main id="main-content">
     <slot />
