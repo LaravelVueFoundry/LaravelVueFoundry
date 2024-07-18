@@ -26,5 +26,5 @@ jobs:
         with:
           install_command: cd storybook && pnpm i
           build_command: pnpm build-storybook
-          path: storybook-static
+          path: storybook/storybook-static
           checkout: false
