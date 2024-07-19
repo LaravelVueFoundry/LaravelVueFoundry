@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3'
 import { Button, Card, Checkbox, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
-import { Icon } from '@iconify/vue'
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 defineProps<{
@@ -81,15 +80,11 @@ function submit() {
               class="flex flex-row-reverse items-center justify-between gap-6 max-sm:flex-col max-sm:items-stretch"
             >
               <Button
+                icon="mdi:login"
                 :loading="form.processing"
                 type="submit"
                 variant="primary"
               >
-                <Icon
-                  class="size-6"
-                  icon="mdi:login"
-                  ssr
-                />
                 Log in
               </Button>
 

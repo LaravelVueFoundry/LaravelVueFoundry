@@ -143,21 +143,10 @@ export const Icon: Story = {
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'square',
+    size: 'md',
     type: undefined,
     variant: undefined,
-  },
-  render: (args) => {
-    return {
-      components: { Component, IconifyIcon },
-      setup() { return { args } },
-      template: `
-        <Component v-bind="args">
-          <IconifyIcon icon="mdi:account" ssr />
-          {{ args.default }}
-        </Component>
-      `,
-    }
+    icon: 'mdi:account',
   },
 }
 

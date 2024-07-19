@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
 import { Link, useForm, usePage } from '@inertiajs/vue3'
 import { Button, Card, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
 
@@ -86,14 +85,10 @@ const form = useForm({
           class="flex items-center justify-between"
         >
           <Button
+            icon="mdi:content-save-outline"
             :loading="form.processing"
             variant="primary"
           >
-            <Icon
-              class="size-5"
-              icon="mdi:content-save-outline"
-              ssr
-            />
             Save
           </Button>
 

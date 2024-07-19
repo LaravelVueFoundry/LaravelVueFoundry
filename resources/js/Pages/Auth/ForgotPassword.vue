@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3'
 import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
-import { Icon } from '@iconify/vue'
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 defineProps<{
@@ -62,14 +61,10 @@ function submit() {
           <template #footer>
             <Button
               class="ms-auto flex max-sm:w-full"
+              icon="mdi:key"
               :loading="form.processing"
               variant="primary"
             >
-              <Icon
-                class="size-6"
-                icon="mdi:key"
-                ssr
-              />
               Reset password
             </Button>
           </template>

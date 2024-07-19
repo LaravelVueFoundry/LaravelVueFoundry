@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<{
   to?: string
   disabled?: boolean
   loading?: boolean
+  icon?: string
 }>(), {
   size: 'md',
 })
@@ -69,7 +70,7 @@ const padding = computed(() => {
     @click="(e: PointerEvent) => emit('click', e)"
   >
     <Transition
-      enter-active-class="transition-[margin,transform,width] delay-200"
+      enter-active-class="transition-[margin,transform,width] delay-100"
       enter-from-class="-me-2 w-0 scale-0"
       enter-to-class="me-0 w-4 scale-100"
       leave-active-class="transition-[margin,transform,width]"
@@ -78,11 +79,18 @@ const padding = computed(() => {
     >
       <span v-if="loading">
         <Icon
-          class="animate-spin"
+          class="size-5 animate-spin"
           icon="mdi:loading"
           ssr
         />
       </span>
+
+      <Icon
+        v-else-if="props.icon"
+        class="size-5"
+        :icon="props.icon"
+        ssr
+      />
     </Transition>
     <slot />
   </component>
