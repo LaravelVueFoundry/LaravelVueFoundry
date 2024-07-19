@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
 import { useForm } from '@inertiajs/vue3'
 import { ref } from 'vue'
 import { Button, Card, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
@@ -95,14 +94,10 @@ function updatePassword() {
       <template #footer>
         <div>
           <Button
+            icon="mdi:content-save-outline"
             :loading="form.processing"
             variant="primary"
           >
-            <Icon
-              class="size-5"
-              icon="mdi:content-save-outline"
-              ssr
-            />
             Save
           </Button>
 

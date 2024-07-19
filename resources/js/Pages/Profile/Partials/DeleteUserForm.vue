@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useForm } from '@inertiajs/vue3'
 import { nextTick, ref } from 'vue'
-import { Icon } from '@iconify/vue'
 import { Button, Card, Heading, Input, InputError, InputGroup, Label, Modal } from '@local/ui'
 
 const modalRef = ref<typeof Modal | null>(null)
@@ -50,14 +49,10 @@ function closeModal() {
     <template #footer>
       <Button
         class="me-auto"
+        icon="mdi:bin-outline"
         variant="danger"
         @click="confirmUserDeletion"
       >
-        <Icon
-          class="size-5"
-          icon="mdi:bin-outline"
-          ssr
-        />
         Delete Account
       </Button>
     </template>
@@ -105,20 +100,18 @@ function closeModal() {
         <div
           class="flex items-center justify-between"
         >
-          <Button @click="closeModal">
+          <Button
+            @click="closeModal"
+          >
             Cancel
           </Button>
 
           <Button
+            icon="mdi:bin-outline"
             :loading="form.processing"
             variant="danger"
             @click="deleteUser"
           >
-            <Icon
-              class="size-5"
-              icon="mdi:bin-outline"
-              ssr
-            />
             Delete Account
           </Button>
         </div>

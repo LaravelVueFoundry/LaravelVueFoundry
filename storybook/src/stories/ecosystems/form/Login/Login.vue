@@ -41,7 +41,9 @@ import Heading from '@/stories/atoms/typography/Heading/Heading.vue'
             Forgot your password?
           </Link>
 
-          <Button variant="primary">
+          <Button
+            variant="primary"
+          >
             Log in
           </Button>
         </div>

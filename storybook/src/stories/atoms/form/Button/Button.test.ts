@@ -137,4 +137,32 @@ describe('heading', () => {
     wrapper.trigger('click')
     expect(wrapper.emitted()).toHaveProperty('click')
   })
+
+  it('can have a loading state', () => {
+    const wrapper = mount(Component, {
+      props: {
+        loading: true,
+      },
+      slots: {
+        default: 'test',
+      },
+    })
+
+    expect(wrapper.find('[data-test-id="button-icon"]').exists()).toBe(false)
+    expect(wrapper.find('[data-test-id="button-loading-icon"]').exists()).toBe(true)
+  })
+
+  it('can have an icon', () => {
+    const wrapper = mount(Component, {
+      props: {
+        icon: 'mdi:account',
+      },
+      slots: {
+        default: 'test',
+      },
+    })
+
+    expect(wrapper.find('[data-test-id="button-icon"]').exists()).toBe(true)
+    expect(wrapper.find('[data-test-id="button-loading-icon"]').exists()).toBe(false)
+  })
 })

@@ -109,6 +109,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
         <Button
           class="shadow-none"
           data-test-id="header-menu-toggle"
+          icon="mdi:dots-horizontal"
           size="square"
           variant="ghost"
           @click.prevent="() => {
@@ -117,12 +118,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
 
             isMobileMenuInnerOpen ? closeMobileMenu() : openMobileMenu()
           }"
-        >
-          <Icon
-            icon="mdi:dots-horizontal"
-            ssr
-          />
-        </Button>
+        />
       </div>
       <div
         v-else
