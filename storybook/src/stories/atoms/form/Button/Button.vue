@@ -80,6 +80,7 @@ const padding = computed(() => {
       <span v-if="loading">
         <Icon
           class="size-5 animate-spin"
+          data-test-id="button-loading-icon"
           icon="mdi:loading"
           ssr
         />
@@ -88,6 +89,7 @@ const padding = computed(() => {
       <Icon
         v-else-if="props.icon"
         class="size-5"
+        data-test-id="button-icon"
         :icon="props.icon"
         ssr
       />
