@@ -25,12 +25,15 @@ function submit() {
 
 <template>
   <BaseLayout>
-    <Container type="narrow">
-      <Head>
-        <title>Log in</title>
-        <meta content="Log in to your account" name="description">
-      </Head>
+    <Head>
+      <title>Log in</title>
+      <meta content="Log in to your account" name="description">
+    </Head>
 
+    <Container
+      class="content-center"
+      type="narrow"
+    >
       <form @submit.prevent="submit">
         <Card>
           <Heading class="pt-4 text-center" type="h2">

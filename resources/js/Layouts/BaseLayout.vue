@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { usePage } from '@inertiajs/vue3'
-import { Header } from '@local/ui'
+import { Footer, Header } from '@local/ui'
 import { computed } from 'vue'
 
+const appName = import.meta.env.VITE_APP_NAME
 const page = usePage()
 
 const linksPrimary: InstanceType<typeof Header>['$props']['linksPrimary'] = []
@@ -48,9 +49,20 @@ const linksSecondary = computed<InstanceType<typeof Header>['$props']['linksSeco
 </script>
 
 <template>
-  <Header :links-primary="linksPrimary" :links-secondary="linksSecondary" title="LaravelVueFoundry" />
+  <Header
+    :links-primary="linksPrimary"
+    :links-secondary="linksSecondary"
+    :title="appName"
+  />
 
-  <main id="main-content">
+  <main
+    id="main-content"
+    class="flex flex-1"
+  >
     <slot />
   </main>
+
+  <Footer
+    :title="appName"
+  />
 </template>

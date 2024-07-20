@@ -17,6 +17,7 @@ export default antfu(
       '**/public/build',
       '**/storage',
       '**/vendor',
+      '**/resources/js/ziggy.js',
     ],
   },
   ...tailwind.configs['flat/recommended'],

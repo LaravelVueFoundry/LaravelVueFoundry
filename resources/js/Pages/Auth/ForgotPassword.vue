@@ -23,7 +23,10 @@ function submit() {
       <meta content="Forgot your password? No problem. You can reset it here." name="description">
     </Head>
 
-    <Container type="narrow">
+    <Container
+      class="content-center"
+      type="narrow"
+    >
       <form @submit.prevent="submit">
         <Card>
           <Heading class="pt-4 text-center" type="h2">

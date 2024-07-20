@@ -6,7 +6,10 @@
 
 @layer base {
   html {
-    @apply antialiased bg-gray-100 dark:bg-gray-950;
     color-scheme: light dark;
+  }
+
+  #app {
+    @apply flex flex-col flex-1;
   }
 }

@@ -26,7 +26,10 @@ function submit() {
       <meta content="Register a new account" name="description">
     </Head>
 
-    <Container type="narrow">
+    <Container
+      class="content-center"
+      type="narrow"
+    >
       <form @submit.prevent="submit">
         <Card>
           <Heading class="pt-4 text-center" type="h2">
@@ -78,7 +81,7 @@ function submit() {
               type="password"
             />
 
-            <PasswordStrength class="-mb-3" :password="form.password" />
+            <PasswordStrength class="-mb-5" :password="form.password" />
 
             <InputError :message="form.errors.password" />
           </InputGroup>
