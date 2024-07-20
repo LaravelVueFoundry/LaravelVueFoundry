@@ -15,14 +15,18 @@ export default {
   theme: {
     colors: {
       primary: colors.indigo,
-      warning: colors.amber,
-      danger: colors.rose,
 
       black: colors.black,
       gray: colors.neutral,
       white: colors.white,
+      lime: colors.lime,
+      orange: colors.orange,
+      yellow: colors.yellow,
 
       success: colors.green,
+      warning: colors.amber,
+      danger: colors.rose,
+
       transparent: colors.transparent,
     },
     extend: {
