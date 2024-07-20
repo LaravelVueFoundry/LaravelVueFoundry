@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3'
-import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
+import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label, PasswordStrength } from '@local/ui'
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 const form = useForm({
@@ -77,6 +77,8 @@ function submit() {
               required
               type="password"
             />
+
+            <PasswordStrength class="-mb-3" :password="form.password" />
 
             <InputError :message="form.errors.password" />
           </InputGroup>
