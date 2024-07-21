@@ -2,18 +2,22 @@
 import { twMerge } from 'tailwind-merge'
 import type { HTMLAttributes } from 'vue'
 import { Link } from '@inertiajs/vue3'
+import { Icon } from '@iconify/vue'
 import Container from '@/stories/atoms/container/Container/Container.vue'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
-  title?: string
-  linksPrimary?: {
-    icon?: string
+  siteName?: string
+  menus?: {
     title: string
-    href: string
+    items: {
+      icon?: string
+      title: string
+      href: string
+    }[]
   }[]
-  linksSecondary?: {
-    icon?: string
+  socials?: {
+    icon: string
     title: string
     href: string
   }[]
@@ -24,17 +28,89 @@ const props = withDefaults(defineProps<{
 <template>
   <footer
     :class="twMerge(
-      'bg-gray-700 text-white dark:bg-gray-800',
+      'py-8',
       props.class,
     )"
   >
     <Container>
-      <Link
-        class="text-xl font-medium"
-        href="/"
+      <div
+        class="flex flex-col gap-8"
       >
-        {{ props.title }}
-      </Link>
+        <div
+          class="flex flex-wrap justify-between gap-8 max-sm:flex-col"
+        >
+          <Link
+            class="text-xl font-medium max-sm:text-center"
+            href="/"
+          >
+            {{ props.siteName }}
+          </Link>
+
+          <div
+            class="flex flex-wrap items-center gap-16 max-sm:justify-evenly"
+          >
+            <div
+              v-for="menu, index of props.menus"
+              :key="index"
+              class="flex flex-col gap-2"
+            >
+              <p
+                class="text-lg font-medium"
+              >
+                {{ menu.title }}
+              </p>
+
+              <Link
+                v-for="item of menu.items"
+                :key="`${index}${item.title}${item.href}`"
+                class="flex items-center gap-1 text-gray-700 dark:text-gray-200"
+                :href="item.href"
+              >
+                <Icon
+                  v-if="item.icon"
+                  class="size-5"
+                  :icon="item.icon"
+                  ssr
+                />
+
+                {{ item.title }}
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <hr
+          class="border-gray-300 dark:border-gray-700"
+        >
+
+        <div
+          class="flex items-center justify-between gap-4 text-gray-700 max-sm:flex-col dark:text-gray-200"
+        >
+          <p
+            class="text-sm"
+          >
+            &copy; {{ new Date().getFullYear() }} {{ props.siteName }}
+          </p>
+
+          <div
+            class="flex items-center gap-4"
+          >
+            <a
+              v-for="social, index of props.socials"
+              :key="`${index}${social.title}${social.href}`"
+              :href="social.href"
+              target="_blank"
+              :title="social.title"
+            >
+              <Icon
+                class="size-6"
+                :icon="social.icon"
+                ssr
+              />
+            </a>
+          </div>
+        </div>
+      </div>
     </Container>
   </footer>
 </template>

@@ -9,27 +9,44 @@ const meta: Meta<Props> = {
   component: Component,
   tags: ['autodocs'],
   args: {
-    title: 'Footer title',
-    linksPrimary: [
+    siteName: 'Site name',
+    menus: [
       {
-        icon: 'mdi:calendar',
-        title: 'Primary link 1',
-        href: '/',
+        title: 'Menu 1',
+        items: [
+          {
+            icon: 'mdi:calendar',
+            title: 'Link 1',
+            href: '/',
+          },
+          {
+            icon: 'mdi:calendar',
+            title: 'Link 2',
+            href: '/',
+          },
+        ],
       },
       {
-        title: 'Primary link 2',
-        href: '/',
+        title: 'Menu 2',
+        items: [
+          {
+            icon: 'mdi:account',
+            title: 'Link 1',
+            href: '/',
+          },
+          {
+            icon: 'mdi:account',
+            title: 'Link 2',
+            href: '/',
+          },
+        ],
       },
     ],
-    linksSecondary: [
+    socials: [
       {
-        title: 'Secondary link 1',
-        href: '/',
-      },
-      {
-        icon: 'mdi:account',
-        title: 'Secondary link 2',
-        href: '/',
+        icon: 'mdi:github',
+        title: 'GitHub',
+        href: 'https://github.com/LaravelVueFoundry/LaravelVueFoundry',
       },
     ],
   },
@@ -43,7 +60,7 @@ export const Default: Story = {
     return {
       components: { Component },
       setup() { return { args } },
-      template: `<div class="-m-4 h-screen"><Component v-bind="args" /></div>`,
+      template: `<div class="-m-4"><Component v-bind="args" /></div>`,
     }
   },
 }

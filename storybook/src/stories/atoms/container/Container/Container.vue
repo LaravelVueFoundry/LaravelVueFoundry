@@ -26,7 +26,7 @@ const width = computed(() => {
 <template>
   <div
     :class="twMerge(
-      'mx-auto w-full p-8',
+      'mx-auto w-full px-8',
       width,
       props.class,
     )"

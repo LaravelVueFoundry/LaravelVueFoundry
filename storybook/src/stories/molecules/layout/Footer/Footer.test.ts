@@ -1,38 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { flushPromises, mount } from '@vue/test-utils'
-import { defineComponent } from 'vue'
+import { mount } from '@vue/test-utils'
 import Component from './Footer.vue'
-
-const TransitionStub = defineComponent({
-  emits: ['afterEnter', 'afterLeave'],
-  template: '<div><slot /></div>',
-  setup(_, { emit }) {
-    return {
-      async emitAfterEnter() {
-        await flushPromises()
-        emit('afterEnter')
-      },
-      async emitAfterLeave() {
-        await flushPromises()
-        emit('afterLeave')
-      },
-    }
-  },
-})
-
-const global = {
-  global: {
-    stubs: {
-      teleport: true,
-      transition: TransitionStub,
-    },
-  },
-}
 
 describe('footer', () => {
   it('renders correctly', () => {
     const wrapper = mount(Component, {
-      ...global,
+      props: {
+        siteName: 'Site name',
+      },
     })
 
     expect(wrapper.element.tagName).toBe('FOOTER')
@@ -43,7 +18,6 @@ describe('footer', () => {
       props: {
         class: 'bogus-class',
       },
-      ...global,
     })
 
     expect(wrapper.classes()).toContain('bogus-class')

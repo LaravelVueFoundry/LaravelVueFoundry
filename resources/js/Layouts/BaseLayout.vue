@@ -46,6 +46,14 @@ const linksSecondary = computed<InstanceType<typeof Header>['$props']['linksSeco
 
   return result
 })
+
+const socials = [
+  {
+    icon: 'mdi:github',
+    title: 'Github',
+    href: 'https://github.com/LaravelVueFoundry/LaravelVueFoundry',
+  },
+]
 </script>
 
 <template>
@@ -63,6 +71,7 @@ const linksSecondary = computed<InstanceType<typeof Header>['$props']['linksSeco
   </main>
 
   <Footer
-    :title="appName"
+    :site-name="appName"
+    :socials="socials"
   />
 </template>
