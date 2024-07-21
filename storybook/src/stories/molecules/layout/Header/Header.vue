@@ -10,7 +10,8 @@ import Container from '@/stories/atoms/container/Container/Container.vue'
 
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
-  title?: string
+  siteName?: string
+  homePath?: string
   linksPrimary?: {
     icon?: string
     title: string
@@ -22,6 +23,7 @@ const props = withDefaults(defineProps<{
     href: string
   }[]
 }>(), {
+  homePath: '/',
 })
 
 const headerRef = ref<HTMLElement | null>(null)
@@ -96,9 +98,9 @@ defineExpose({ openMobileMenu, closeMobileMenu })
     >
       <Link
         class="text-xl font-medium"
-        href="/"
+        :href="props.homePath"
       >
-        {{ props.title }}
+        {{ props.siteName }}
       </Link>
 
       <div

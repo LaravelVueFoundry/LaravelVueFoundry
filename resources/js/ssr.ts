@@ -19,7 +19,7 @@ createServer(page =>
         location: new URL(page.props.ziggy.location),
       }
 
-      createSSRApp({ render: () => h(App, props) })
+      return createSSRApp({ render: () => h(App, props) })
         .use(plugin)
         .use(ZiggyVue, Ziggy)
     },

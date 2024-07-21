@@ -8,6 +8,7 @@ import Container from '@/stories/atoms/container/Container/Container.vue'
 const props = withDefaults(defineProps<{
   class?: HTMLAttributes['class']
   siteName?: string
+  homePath?: string
   menus?: {
     title: string
     items: {
@@ -22,6 +23,7 @@ const props = withDefaults(defineProps<{
     href: string
   }[]
 }>(), {
+  homePath: '/',
 })
 </script>
 
@@ -41,7 +43,7 @@ const props = withDefaults(defineProps<{
         >
           <Link
             class="text-xl font-medium max-sm:text-center"
-            href="/"
+            :href="props.homePath"
           >
             {{ props.siteName }}
           </Link>

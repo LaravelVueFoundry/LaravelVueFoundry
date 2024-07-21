@@ -2,9 +2,11 @@
 import { usePage } from '@inertiajs/vue3'
 import { Footer, Header } from '@local/ui'
 import { computed } from 'vue'
+import { useRoute } from 'ziggy-js'
 
 const appName = import.meta.env.VITE_APP_NAME
 const page = usePage()
+const route = useRoute(page.props.ziggy)
 
 const linksPrimary: InstanceType<typeof Header>['$props']['linksPrimary'] = []
 
@@ -58,9 +60,10 @@ const socials = [
 
 <template>
   <Header
+    :home-path="route('home')"
     :links-primary="linksPrimary"
     :links-secondary="linksSecondary"
-    :title="appName"
+    :site-name="appName"
   />
 
   <main
@@ -71,6 +74,7 @@ const socials = [
   </main>
 
   <Footer
+    :home-path="route('home')"
     :site-name="appName"
     :socials="socials"
   />

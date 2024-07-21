@@ -11,7 +11,7 @@ const meta: Meta<Props> = {
   component: Component,
   tags: ['autodocs'],
   args: {
-    title: 'Header title',
+    siteName: 'Site name',
     linksPrimary: [
       {
         icon: 'mdi:calendar',
