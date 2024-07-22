@@ -53,5 +53,28 @@
     "editor.defaultFormatter": "open-southeners.laravel-pint",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
+  },
+
+  // Exclude certain search directories (built files etc.).
+  "search.exclude": {
+    "**/.ddev/.ddev-docker-compose-base.yaml": true,
+    "**/.ddev/.ddev-docker-compose-full.yaml": true,
+    "**/.ddev/.homeadditions": true,
+    "**/.ddev/.providers": true,
+    "**/.ddev/traefik/config": true,
+    "**/.git": true,
+    ".phpunit.result.cache": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/tmp": true,
+    "**/vendor": true,
+    "**/public/build": true,
+    "**/public/hot": true,
+    "**/bootstrap/cache": true,
+    "**/bootstrap/ssr": true,
+    "**/resources/js/ziggy.js": true,
+    "**/storage/framework": true,
+    "**/storybook/storybook-static": true,
+    "**/storybook/coverage": true
   }
 }
