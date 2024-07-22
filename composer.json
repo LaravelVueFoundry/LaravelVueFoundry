@@ -1,5 +1,5 @@
 {
-    "name": "dobefu/laravel-vue-starter",
+    "name": "dobefu/laravel-vue-foundry",
     "type": "project",
     "description": "Quickly start a Laravel project with a VueJS frontend and Storybook components",
     "keywords": [ "laravel", "framework", "vuejs", "vue3", "storybook", "inertia", "inertiajs" ],
