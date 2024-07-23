@@ -1,3 +1,5 @@
+export { default as Image } from './src/stories/atoms/base/Image/Image.vue'
+
 export { default as Button } from './src/stories/atoms/form/Button/Button.vue'
 export { default as Checkbox } from './src/stories/atoms/form/Checkbox/Checkbox.vue'
 export { default as PasswordStrength } from './src/stories/atoms/form/PasswordStrength/PasswordStrength.vue'
