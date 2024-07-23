@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
-import { type HTMLAttributes, onMounted, ref } from 'vue'
+import { type HTMLAttributes, onMounted, ref, watch } from 'vue'
 import { Icon } from '@iconify/vue'
 
 const props = withDefaults(defineProps<{
@@ -25,6 +25,11 @@ onMounted(() => {
   imgSrc.value = props.src
 })
 
+watch(() => props.src, () => {
+  hasError.value = false
+  imgSrc.value = props.src
+})
+
 function onImgLoadError() {
   hasError.value = true
 }
@@ -39,6 +44,7 @@ function onImgLoadError() {
       props.class,
     )"
     :crossorigin="crossorigin"
+    data-test-id="image"
     :decoding="decoding"
     :height="height && `${height}px`"
     :loading="loading"
@@ -54,7 +60,10 @@ function onImgLoadError() {
 
   <div
     v-else
-    class="flex h-auto max-w-full bg-gray-200 p-8 shadow-inner dark:bg-gray-900"
+    :class="twMerge(
+      'flex h-auto max-w-full bg-gray-200 p-8 dark:bg-gray-900',
+      props.class,
+    )"
     :style="{
       aspectRatio: width && height && `${width || 1}/${height || 1}`,
       width: width && `${width}px`,
