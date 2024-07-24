@@ -1,19 +1,29 @@
 <script setup lang="ts">
-import { Head, Link, useForm } from '@inertiajs/vue3'
-import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label, PasswordStrength } from '@local/ui'
-import BaseLayout from '@/Layouts/BaseLayout.vue'
+import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { Head, Link, useForm } from "@inertiajs/vue3"
+import {
+  Button,
+  Card,
+  Container,
+  Heading,
+  Input,
+  InputError,
+  InputGroup,
+  Label,
+  PasswordStrength,
+} from "@local/ui"
 
 const form = useForm({
-  name: '',
-  email: '',
-  password: '',
-  password_confirmation: '',
+  name: "",
+  email: "",
+  password: "",
+  password_confirmation: "",
 })
 
 function submit() {
-  form.post(route('register'), {
+  form.post(route("register"), {
     onFinish: () => {
-      form.reset('password', 'password_confirmation')
+      form.reset("password", "password_confirmation")
     },
   })
 }
@@ -23,13 +33,19 @@ function submit() {
   <BaseLayout>
     <Head>
       <title>Register</title>
-      <meta content="Register a new account" name="description">
+      <meta
+        content="Register a new account"
+        name="description"
+      />
     </Head>
 
     <Container type="narrow">
       <form @submit.prevent="submit">
         <Card>
-          <Heading class="pt-4 text-center" type="h2">
+          <Heading
+            class="pt-4 text-center"
+            type="h2"
+          >
             Register
           </Heading>
 
@@ -78,7 +94,10 @@ function submit() {
               type="password"
             />
 
-            <PasswordStrength class="-mb-3" :password="form.password" />
+            <PasswordStrength
+              class="-mb-3"
+              :password="form.password"
+            />
 
             <InputError :message="form.errors.password" />
           </InputGroup>

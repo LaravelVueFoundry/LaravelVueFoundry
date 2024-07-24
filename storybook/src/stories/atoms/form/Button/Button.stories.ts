@@ -1,24 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import { Icon as IconifyIcon } from '@iconify/vue'
-import Component from './Button.vue'
+import { Icon as IconifyIcon } from "@iconify/vue"
+import type { Meta, StoryObj } from "@storybook/vue3"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./Button.vue"
 
 type Props = ComponentProps<typeof Component> & { default: string }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Form/Button',
+  title: "Atoms/Form/Button",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      options: [undefined, 'button', 'submit'],
+      options: [undefined, "button", "submit"],
     },
     variant: {
-      options: [undefined, 'primary', 'warning', 'danger', 'ghost'],
+      options: [undefined, "primary", "warning", "danger", "ghost"],
     },
     size: {
-      control: 'inline-radio',
-      options: ['sm', 'md', 'lg', 'square'],
+      control: "inline-radio",
+      options: ["sm", "md", "lg", "square"],
     },
   },
   parameters: {
@@ -33,11 +33,11 @@ type Story = StoryObj<Props>
 
 export const Default: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'md',
+    size: "md",
     type: undefined,
     variant: undefined,
   },
@@ -45,59 +45,59 @@ export const Default: Story = {
 
 export const Primary: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'md',
+    size: "md",
     type: undefined,
-    variant: 'primary',
+    variant: "primary",
   },
 }
 
 export const Warning: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'md',
+    size: "md",
     type: undefined,
-    variant: 'warning',
+    variant: "warning",
   },
 }
 
 export const Danger: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'md',
+    size: "md",
     type: undefined,
-    variant: 'danger',
+    variant: "danger",
   },
 }
 
 export const Ghost: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'md',
+    size: "md",
     type: undefined,
-    variant: 'ghost',
+    variant: "ghost",
   },
 }
 
 export const Large: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'lg',
+    size: "lg",
     type: undefined,
     variant: undefined,
   },
@@ -105,11 +105,11 @@ export const Large: Story = {
 
 export const Small: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'sm',
+    size: "sm",
     type: undefined,
     variant: undefined,
   },
@@ -120,14 +120,16 @@ export const Square: Story = {
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'square',
+    size: "square",
     type: undefined,
     variant: undefined,
   },
   render: (args) => {
     return {
       components: { Component, IconifyIcon },
-      setup() { return { args } },
+      setup() {
+        return { args }
+      },
       template: `
         <Component v-bind="args">
           <IconifyIcon icon="mdi:dots-horizontal" ssr />
@@ -139,20 +141,20 @@ export const Square: Story = {
 
 export const Icon: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     onClick: () => {},
-    size: 'md',
+    size: "md",
     type: undefined,
     variant: undefined,
-    icon: 'mdi:account',
+    icon: "mdi:account",
   },
 }
 
 export const Disabled: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: true,
     loading: false,
     onClick: () => {},
@@ -163,7 +165,7 @@ export const Disabled: Story = {
 
 export const Loading: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: true,
     onClick: () => {},
@@ -174,11 +176,11 @@ export const Loading: Story = {
 
 export const ClickEvent: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
     // eslint-disable-next-line no-alert
-    onClick: e => alert(`Button clicked: ${e}`),
+    onClick: (e) => alert(`Button clicked: ${e}`),
     type: undefined,
     variant: undefined,
   },
@@ -186,11 +188,11 @@ export const ClickEvent: Story = {
 
 export const LinkButton: Story = {
   args: {
-    default: 'Button',
+    default: "Button",
     disabled: false,
     loading: false,
-    onClick: e => e.preventDefault(),
-    to: '/test',
+    onClick: (e) => e.preventDefault(),
+    to: "/test",
     type: undefined,
     variant: undefined,
   },

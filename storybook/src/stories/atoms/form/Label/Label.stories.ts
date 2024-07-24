@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import Component from './Label.vue'
+import type { Meta, StoryObj } from "@storybook/vue3"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./Label.vue"
 
 type Props = ComponentProps<typeof Component> & { default: string }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Form/Label',
+  title: "Atoms/Form/Label",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
-    default: 'Label',
+    default: "Label",
   },
   parameters: {
     slots: {

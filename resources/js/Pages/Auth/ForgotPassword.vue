@@ -1,18 +1,27 @@
 <script setup lang="ts">
-import { Head, useForm } from '@inertiajs/vue3'
-import { Button, Card, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
-import BaseLayout from '@/Layouts/BaseLayout.vue'
+import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { Head, useForm } from "@inertiajs/vue3"
+import {
+  Button,
+  Card,
+  Container,
+  Heading,
+  Input,
+  InputError,
+  InputGroup,
+  Label,
+} from "@local/ui"
 
 defineProps<{
   status?: string
 }>()
 
 const form = useForm({
-  email: '',
+  email: "",
 })
 
 function submit() {
-  form.post(route('password.email'))
+  form.post(route("password.email"))
 }
 </script>
 
@@ -20,21 +29,26 @@ function submit() {
   <BaseLayout>
     <Head>
       <title>Forgot Password</title>
-      <meta content="Forgot your password? No problem. You can reset it here." name="description">
+      <meta
+        content="Forgot your password? No problem. You can reset it here."
+        name="description"
+      />
     </Head>
 
     <Container type="narrow">
       <form @submit.prevent="submit">
         <Card>
-          <Heading class="pt-4 text-center" type="h2">
+          <Heading
+            class="pt-4 text-center"
+            type="h2"
+          >
             Forgot password
           </Heading>
 
-          <div
-            class="max-sm:text-justify"
-          >
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset
-            link that will allow you to choose a new one.
+          <div class="max-sm:text-justify">
+            Forgot your password? No problem. Just let us know your email
+            address and we will email you a password reset link that will allow
+            you to choose a new one.
           </div>
 
           <div v-if="status">

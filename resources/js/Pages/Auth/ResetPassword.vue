@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Head, useForm } from '@inertiajs/vue3'
-import { Button, Input, InputError, Label } from '@local/ui'
-import BaseLayout from '@/Layouts/BaseLayout.vue'
+import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { Head, useForm } from "@inertiajs/vue3"
+import { Button, Input, InputError, Label } from "@local/ui"
 
 const props = defineProps<{
   email: string
@@ -11,14 +11,14 @@ const props = defineProps<{
 const form = useForm({
   token: props.token,
   email: props.email,
-  password: '',
-  password_confirmation: '',
+  password: "",
+  password_confirmation: "",
 })
 
 function submit() {
-  form.post(route('password.store'), {
+  form.post(route("password.store"), {
     onFinish: () => {
-      form.reset('password', 'password_confirmation')
+      form.reset("password", "password_confirmation")
     },
   })
 }
@@ -28,7 +28,10 @@ function submit() {
   <BaseLayout>
     <Head>
       <title>Reset Password</title>
-      <meta content="Reset your password" name="description">
+      <meta
+        content="Reset your password"
+        name="description"
+      />
     </Head>
 
     <form @submit.prevent="submit">
@@ -79,9 +82,7 @@ function submit() {
       </div>
 
       <div>
-        <Button :loading="form.processing">
-          Reset Password
-        </Button>
+        <Button :loading="form.processing"> Reset Password </Button>
       </div>
     </form>
   </BaseLayout>

@@ -1,15 +1,15 @@
-import colors from 'tailwindcss/colors'
-import defaultTheme from 'tailwindcss/defaultTheme'
-import forms from '@tailwindcss/forms'
+import colors from "tailwindcss/colors"
+import defaultTheme from "tailwindcss/defaultTheme"
+import forms from "@tailwindcss/forms"
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-    './storage/framework/views/*.php',
-    './resources/views/**/*.blade.php',
-    './resources/js/**/*.vue',
-    './node_modules/@local/ui/dist/**/*.js',
+    "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+    "./storage/framework/views/*.php",
+    "./resources/views/**/*.blade.php",
+    "./resources/js/**/*.vue",
+    "./node_modules/@local/ui/dist/**/*.js",
   ],
 
   theme: {
@@ -31,10 +31,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
       transitionTimingFunction: {
-        exaggerate: 'cubic-bezier(0, 1.25, 1, 1.25)',
+        exaggerate: "cubic-bezier(0, 1.25, 1, 1.25)",
       },
     },
   },

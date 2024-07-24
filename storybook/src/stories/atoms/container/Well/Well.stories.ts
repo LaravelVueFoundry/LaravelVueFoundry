@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import Component from './Well.vue'
+import type { Meta, StoryObj } from "@storybook/vue3"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./Well.vue"
 
 type Props = ComponentProps<typeof Component> & { default: string }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Container/Well',
+  title: "Atoms/Container/Well",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
-    default: 'Well',
-    size: 'md',
+    default: "Well",
+    size: "md",
   },
   parameters: {
     slots: {
@@ -28,12 +28,12 @@ export const Default: Story = {
 
 export const Small: Story = {
   args: {
-    size: 'sm',
+    size: "sm",
   },
 }
 
 export const Large: Story = {
   args: {
-    size: 'lg',
+    size: "lg",
   },
 }

@@ -1,13 +1,22 @@
 <script setup lang="ts">
-import { useForm } from '@inertiajs/vue3'
-import { nextTick, ref } from 'vue'
-import { Button, Card, Heading, Input, InputError, InputGroup, Label, Modal } from '@local/ui'
+import { useForm } from "@inertiajs/vue3"
+import {
+  Button,
+  Card,
+  Heading,
+  Input,
+  InputError,
+  InputGroup,
+  Label,
+  Modal,
+} from "@local/ui"
+import { nextTick, ref } from "vue"
 
 const modalRef = ref<typeof Modal | null>(null)
 const passwordInput = ref<HTMLInputElement | null>(null)
 
 const form = useForm({
-  password: '',
+  password: "",
 })
 
 function confirmUserDeletion() {
@@ -17,7 +26,7 @@ function confirmUserDeletion() {
 }
 
 function deleteUser() {
-  form.delete(route('profile.destroy'), {
+  form.delete(route("profile.destroy"), {
     preserveScroll: true,
     onSuccess: () => closeModal(),
     onError: () => passwordInput.value?.focus(),
@@ -36,14 +45,13 @@ function closeModal() {
 <template>
   <Card>
     <template #header>
-      <Heading type="h4">
-        Delete Account
-      </Heading>
+      <Heading type="h4"> Delete Account </Heading>
     </template>
 
     <p>
-      Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
-      your account, please download any data or information that you wish to retain.
+      Once your account is deleted, all of its resources and data will be
+      permanently deleted. Before deleting your account, please download any
+      data or information that you wish to retain.
     </p>
 
     <template #footer>
@@ -62,25 +70,26 @@ function closeModal() {
       @on-close="closeModal"
     >
       <template #title>
-        <Heading type="h4">
-          Delete your account?
-        </Heading>
+        <Heading type="h4"> Delete your account? </Heading>
       </template>
 
-      <div
-        class="flex flex-col gap-4"
-      >
+      <div class="flex flex-col gap-4">
         <Heading type="h2">
           Are you sure you want to delete your account?
         </Heading>
 
         <p>
-          Once your account is deleted, all of its resources and data will be permanently deleted. Please
-          enter your password to confirm you would like to permanently delete your account.
+          Once your account is deleted, all of its resources and data will be
+          permanently deleted. Please enter your password to confirm you would
+          like to permanently delete your account.
         </p>
 
         <InputGroup>
-          <Label for="password" required>Password</Label>
+          <Label
+            for="password"
+            required
+            >Password</Label
+          >
 
           <Input
             id="password"
@@ -97,14 +106,8 @@ function closeModal() {
       </div>
 
       <template #actions>
-        <div
-          class="flex items-center justify-between"
-        >
-          <Button
-            @click="closeModal"
-          >
-            Cancel
-          </Button>
+        <div class="flex items-center justify-between">
+          <Button @click="closeModal"> Cancel </Button>
 
           <Button
             icon="mdi:bin-outline"
