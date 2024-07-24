@@ -36,11 +36,11 @@ const modelValue = defineModel<number>()
           :id="`${option.label.toLocaleLowerCase()}-${index}`"
           :checked="index === modelValue"
           :class="twMerge('peer absolute size-full opacity-0', props.class)"
+          data-test-id="radio-input"
           :name="props.name"
           :required="props.required"
           type="radio"
           :value="index"
-          data-test-id="radio-input"
           @input="
             (e) =>
               emit('update:modelValue', (e.target as HTMLInputElement)?.value)

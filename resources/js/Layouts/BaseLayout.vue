@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { usePage } from "@inertiajs/vue3"
-import { Header } from "@local/ui"
+import { Footer, Header } from "@local/ui"
 import { computed } from "vue"
+import { useRoute } from "ziggy-js"
 
+const appName = import.meta.env.VITE_APP_NAME
 const page = usePage()
+const route = useRoute(page.props.ziggy)
 
 const linksPrimary: InstanceType<typeof Header>["$props"]["linksPrimary"] = []
 
@@ -46,16 +49,34 @@ const linksSecondary = computed<
 
   return result
 })
+
+const socials = [
+  {
+    icon: "mdi:github",
+    title: "Github",
+    href: "https://github.com/LaravelVueFoundry/LaravelVueFoundry",
+  },
+]
 </script>
 
 <template>
   <Header
+    :home-path="route('home')"
     :links-primary="linksPrimary"
     :links-secondary="linksSecondary"
-    title="LaravelVueFoundry"
+    :site-name="appName"
   />
 
-  <main id="main-content">
+  <main
+    id="main-content"
+    class="flex flex-1"
+  >
     <slot />
   </main>
+
+  <Footer
+    :home-path="route('home')"
+    :site-name="appName"
+    :socials="socials"
+  />
 </template>

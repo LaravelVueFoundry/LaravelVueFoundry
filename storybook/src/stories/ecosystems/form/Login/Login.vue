@@ -11,11 +11,17 @@ import { Link } from "@inertiajs/vue3"
 </script>
 
 <template>
-  <Container type="narrow">
+  <Container
+    class=""
+    type="narrow"
+  >
     <Card>
-      <template #header>
-        <Heading type="h2"> Login form </Heading>
-      </template>
+      <Heading
+        class="pt-4 text-center"
+        type="h2"
+      >
+        Login form
+      </Heading>
 
       <InputGroup>
         <Label for="username">Username</Label>
@@ -42,9 +48,9 @@ import { Link } from "@inertiajs/vue3"
 
       <template #footer>
         <div class="flex items-center justify-between gap-8">
-          <Link href="#"> Forgot your password? </Link>
+          <Link href="#">Forgot your password?</Link>
 
-          <Button variant="primary"> Log in </Button>
+          <Button variant="primary">Log in</Button>
         </div>
       </template>
     </Card>

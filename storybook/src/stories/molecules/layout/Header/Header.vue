@@ -11,7 +11,8 @@ import { type HTMLAttributes, computed, nextTick, ref } from "vue"
 const props = withDefaults(
   defineProps<{
     class?: HTMLAttributes["class"]
-    title?: string
+    siteName?: string
+    homePath?: string
     linksPrimary?: {
       icon?: string
       title: string
@@ -25,6 +26,8 @@ const props = withDefaults(
   }>(),
   {
     class: undefined,
+    homePath: "/",
+    siteName: undefined,
     title: undefined,
     linksPrimary: undefined,
     linksSecondary: undefined,
@@ -106,9 +109,9 @@ defineExpose({ openMobileMenu, closeMobileMenu })
     >
       <Link
         class="text-xl font-medium"
-        href="/"
+        :href="props.homePath"
       >
-        {{ props.title }}
+        {{ props.siteName }}
       </Link>
 
       <div

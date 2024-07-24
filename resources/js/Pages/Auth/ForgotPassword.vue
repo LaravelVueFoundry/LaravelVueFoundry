@@ -35,7 +35,10 @@ function submit() {
       />
     </Head>
 
-    <Container type="narrow">
+    <Container
+      class="content-center"
+      type="narrow"
+    >
       <form @submit.prevent="submit">
         <Card>
           <Heading

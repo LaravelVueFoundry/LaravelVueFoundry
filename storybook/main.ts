@@ -11,9 +11,11 @@ export { default as Radio } from "./src/stories/atoms/form/Radio/Radio.vue"
 
 export { default as Heading } from "./src/stories/atoms/typography/Heading/Heading.vue"
 
+export { default as Footer } from "./src/stories/molecules/layout/Footer/Footer.vue"
+export { default as Header } from "./src/stories/molecules/layout/Header/Header.vue"
+
 export { default as Card } from "./src/stories/atoms/container/Card/Card.vue"
 export { default as Container } from "./src/stories/atoms/container/Container/Container.vue"
 export { default as Well } from "./src/stories/atoms/container/Well/Well.vue"
 
-export { default as Header } from "./src/stories/molecules/layout/Header/Header.vue"
 export { default as Modal } from "./src/stories/molecules/off-canvas/Modal/Modal.vue"

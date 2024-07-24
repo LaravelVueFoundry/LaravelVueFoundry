@@ -28,7 +28,7 @@ const width = computed(() => {
 </script>
 
 <template>
-  <div :class="twMerge('mx-auto p-8', width, props.class)">
+  <div :class="twMerge('mx-auto w-full px-8', width, props.class)">
     <slot />
   </div>
 </template>
