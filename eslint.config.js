@@ -25,6 +25,7 @@ export default [
       "no-alert": "warn",
       "no-console": "warn",
       "vue/multi-word-component-names": "off",
+      "vue/attributes-order": ["error", { alphabetical: true }],
     },
   },
   {
