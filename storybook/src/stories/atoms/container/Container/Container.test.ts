@@ -1,83 +1,83 @@
-import { describe, expect, it } from 'vitest'
-import { mount } from '@vue/test-utils'
-import Component from './Container.vue'
+import { mount } from "@vue/test-utils"
+import { describe, expect, it } from "vitest"
+import Component from "./Container.vue"
 
-describe('container', () => {
-  it('renders correctly', () => {
+describe("container", () => {
+  it("renders correctly", () => {
     const wrapper = mount(Component, {
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.text()).toContain('test')
+    expect(wrapper.text()).toContain("test")
   })
 
-  it('can have custom HTML classes', () => {
+  it("can have custom HTML classes", () => {
     const wrapper = mount(Component, {
       props: {
-        class: 'bogus-class',
+        class: "bogus-class",
       },
     })
 
-    expect(wrapper.classes()).toContain('bogus-class')
+    expect(wrapper.classes()).toContain("bogus-class")
   })
 
-  it('can be empty', () => {
+  it("can be empty", () => {
     const wrapper = mount(Component)
 
     expect(wrapper.html()).toBeTruthy()
   })
 
-  it('can be a regular size', () => {
+  it("can be a regular size", () => {
     const wrapper = mount(Component, {
       props: {
-        type: 'regular',
+        type: "regular",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('max-w-6xl')
+    expect(wrapper.classes()).toContain("max-w-6xl")
   })
 
-  it('can be wide', () => {
+  it("can be wide", () => {
     const wrapper = mount(Component, {
       props: {
-        type: 'wide',
+        type: "wide",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('max-w-7xl')
+    expect(wrapper.classes()).toContain("max-w-7xl")
   })
 
-  it('can be narrow', () => {
+  it("can be narrow", () => {
     const wrapper = mount(Component, {
       props: {
-        type: 'narrow',
+        type: "narrow",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('max-w-2xl')
+    expect(wrapper.classes()).toContain("max-w-2xl")
   })
 
-  it('can be full-sized', () => {
+  it("can be full-sized", () => {
     const wrapper = mount(Component, {
       props: {
-        type: 'full',
+        type: "full",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes().join(' ')).not.toContain('max-w-')
+    expect(wrapper.classes().join(" ")).not.toContain("max-w-")
   })
 })

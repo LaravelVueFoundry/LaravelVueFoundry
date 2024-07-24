@@ -1,168 +1,172 @@
-import { describe, expect, it } from 'vitest'
-import { mount } from '@vue/test-utils'
-import Component from './Button.vue'
+import { mount } from "@vue/test-utils"
+import { describe, expect, it } from "vitest"
+import Component from "./Button.vue"
 
-describe('heading', () => {
-  it('renders correctly', () => {
+describe("heading", () => {
+  it("renders correctly", () => {
     const wrapper = mount(Component, {
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.text()).toContain('test')
-    expect(wrapper.element.tagName).toBe('BUTTON')
-    expect(wrapper.classes()).toContain('py-3')
-    expect(wrapper.classes()).toContain('bg-gray-700')
+    expect(wrapper.text()).toContain("test")
+    expect(wrapper.element.tagName).toBe("BUTTON")
+    expect(wrapper.classes()).toContain("py-3")
+    expect(wrapper.classes()).toContain("bg-gray-700")
   })
 
-  it('can have custom HTML classes', () => {
+  it("can have custom HTML classes", () => {
     const wrapper = mount(Component, {
       props: {
-        class: 'bogus-class',
+        class: "bogus-class",
       },
     })
 
-    expect(wrapper.classes()).toContain('bogus-class')
+    expect(wrapper.classes()).toContain("bogus-class")
   })
 
-  it('can be empty', () => {
+  it("can be empty", () => {
     const wrapper = mount(Component)
 
     expect(wrapper.html()).toBeTruthy()
   })
 
-  it('can be a link', () => {
+  it("can be a link", () => {
     const wrapper = mount(Component, {
       props: {
-        to: '/',
+        to: "/",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.attributes().href).toBe('/')
-    expect(wrapper.element.tagName).toBe('A')
+    expect(wrapper.attributes().href).toBe("/")
+    expect(wrapper.element.tagName).toBe("A")
   })
 
-  it('can be small', () => {
+  it("can be small", () => {
     const wrapper = mount(Component, {
       props: {
-        size: 'sm',
+        size: "sm",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('py-2')
+    expect(wrapper.classes()).toContain("py-2")
   })
 
-  it('can be large', () => {
+  it("can be large", () => {
     const wrapper = mount(Component, {
       props: {
-        size: 'lg',
+        size: "lg",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('py-4')
+    expect(wrapper.classes()).toContain("py-4")
   })
 
-  it('can be a primary variant', () => {
+  it("can be a primary variant", () => {
     const wrapper = mount(Component, {
       props: {
-        variant: 'primary',
+        variant: "primary",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('bg-primary-600')
+    expect(wrapper.classes()).toContain("bg-primary-600")
   })
 
-  it('can be a warning variant', () => {
+  it("can be a warning variant", () => {
     const wrapper = mount(Component, {
       props: {
-        variant: 'warning',
+        variant: "warning",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('bg-warning-400')
+    expect(wrapper.classes()).toContain("bg-warning-400")
   })
 
-  it('can be a danger variant', () => {
+  it("can be a danger variant", () => {
     const wrapper = mount(Component, {
       props: {
-        variant: 'danger',
+        variant: "danger",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('bg-danger-600')
+    expect(wrapper.classes()).toContain("bg-danger-600")
   })
 
-  it('can be a ghost variant', () => {
+  it("can be a ghost variant", () => {
     const wrapper = mount(Component, {
       props: {
-        variant: 'ghost',
+        variant: "ghost",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    expect(wrapper.classes()).toContain('bg-transparent')
+    expect(wrapper.classes()).toContain("bg-transparent")
   })
 
-  it('can have a click event', () => {
+  it("can have a click event", () => {
     const wrapper = mount(Component, {
       props: {
         onClick: () => {},
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
-    wrapper.trigger('click')
-    expect(wrapper.emitted()).toHaveProperty('click')
+    wrapper.trigger("click")
+    expect(wrapper.emitted()).toHaveProperty("click")
   })
 
-  it('can have a loading state', () => {
+  it("can have a loading state", () => {
     const wrapper = mount(Component, {
       props: {
         loading: true,
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
     expect(wrapper.find('[data-test-id="button-icon"]').exists()).toBe(false)
-    expect(wrapper.find('[data-test-id="button-loading-icon"]').exists()).toBe(true)
+    expect(wrapper.find('[data-test-id="button-loading-icon"]').exists()).toBe(
+      true,
+    )
   })
 
-  it('can have an icon', () => {
+  it("can have an icon", () => {
     const wrapper = mount(Component, {
       props: {
-        icon: 'mdi:account',
+        icon: "mdi:account",
       },
       slots: {
-        default: 'test',
+        default: "test",
       },
     })
 
     expect(wrapper.find('[data-test-id="button-icon"]').exists()).toBe(true)
-    expect(wrapper.find('[data-test-id="button-loading-icon"]').exists()).toBe(false)
+    expect(wrapper.find('[data-test-id="button-loading-icon"]').exists()).toBe(
+      false,
+    )
   })
 })

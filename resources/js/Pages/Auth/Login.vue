@@ -1,7 +1,17 @@
 <script setup lang="ts">
-import { Head, Link, useForm } from '@inertiajs/vue3'
-import { Button, Card, Checkbox, Container, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
-import BaseLayout from '@/Layouts/BaseLayout.vue'
+import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { Head, Link, useForm } from "@inertiajs/vue3"
+import {
+  Button,
+  Card,
+  Checkbox,
+  Container,
+  Heading,
+  Input,
+  InputError,
+  InputGroup,
+  Label,
+} from "@local/ui"
 
 defineProps<{
   canResetPassword?: boolean
@@ -9,15 +19,15 @@ defineProps<{
 }>()
 
 const form = useForm({
-  email: '',
-  password: '',
+  email: "",
+  password: "",
   remember: false,
 })
 
 function submit() {
-  form.post(route('login'), {
+  form.post(route("login"), {
     onFinish: () => {
-      form.reset('password')
+      form.reset("password")
     },
   })
 }
@@ -28,12 +38,18 @@ function submit() {
     <Container type="narrow">
       <Head>
         <title>Log in</title>
-        <meta content="Log in to your account" name="description">
+        <meta
+          content="Log in to your account"
+          name="description"
+        />
       </Head>
 
       <form @submit.prevent="submit">
         <Card>
-          <Heading class="pt-4 text-center" type="h2">
+          <Heading
+            class="pt-4 text-center"
+            type="h2"
+          >
             Log in
           </Heading>
 
@@ -73,7 +89,11 @@ function submit() {
             <InputError :message="form.errors.password" />
           </InputGroup>
 
-          <Checkbox v-model="form.remember" label="Remember me" name="remember" />
+          <Checkbox
+            v-model="form.remember"
+            label="Remember me"
+            name="remember"
+          />
 
           <template #footer>
             <div

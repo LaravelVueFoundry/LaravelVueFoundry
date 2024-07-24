@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "DDEV: Clean up running NodeJS processes",
+      "type": "shell",
+      "command": "echo \"killall node\" | ddev ssh || true",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      }
+    }
+  ]
+}

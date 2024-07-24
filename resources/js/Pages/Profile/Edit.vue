@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/vue3'
-import { Container } from '@local/ui'
-import DeleteUserForm from './Partials/DeleteUserForm.vue'
-import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue'
-import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue'
-import BaseLayout from '@/Layouts/BaseLayout.vue'
+import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { Head } from "@inertiajs/vue3"
+import { Container } from "@local/ui"
+import DeleteUserForm from "./Partials/DeleteUserForm.vue"
+import UpdatePasswordForm from "./Partials/UpdatePasswordForm.vue"
+import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm.vue"
 
 defineProps<{
   mustVerifyEmail?: boolean
@@ -15,7 +15,10 @@ defineProps<{
 <template>
   <Head>
     <title>Profile</title>
-    <meta content="Edit your user profile" name="description">
+    <meta
+      content="Edit your user profile"
+      name="description"
+    />
   </Head>
 
   <BaseLayout>

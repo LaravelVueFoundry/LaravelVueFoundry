@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { type HTMLAttributes, nextTick, ref, useSlots } from 'vue'
-import { twMerge } from 'tailwind-merge'
-import { Icon } from '@iconify/vue'
-import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
-import { onKeyStroke } from '@vueuse/core'
-import Card from '@/stories/atoms/container/Card/Card.vue'
+import Card from "@/stories/atoms/container/Card/Card.vue"
+import { Icon } from "@iconify/vue"
+import { onKeyStroke } from "@vueuse/core"
+import { useFocusTrap } from "@vueuse/integrations/useFocusTrap"
+import { twMerge } from "tailwind-merge"
+import { type HTMLAttributes, nextTick, ref, useSlots } from "vue"
 
-import Container from '@/stories/atoms/container/Container/Container.vue'
+import Container from "@/stories/atoms/container/Container/Container.vue"
 
-const props = withDefaults(defineProps<{
-  class?: HTMLAttributes['class']
-}>(), {
-})
+const props = withDefaults(
+  defineProps<{
+    class?: HTMLAttributes["class"]
+  }>(),
+  {
+    class: undefined,
+  },
+)
 
-const emit = defineEmits(['onClose'])
+const emit = defineEmits(["onClose"])
 
 const slots = useSlots()
 
@@ -21,17 +25,17 @@ const isOpen = ref(false)
 const isInnerOpen = ref(false)
 
 const modalContainerRef = ref(null)
-const { activate: ftActivate, deactivate: ftDeactivate } = useFocusTrap(modalContainerRef)
+const { activate: ftActivate, deactivate: ftDeactivate } =
+  useFocusTrap(modalContainerRef)
 
-onKeyStroke('Escape', () => {
-  if (!isOpen.value)
-    return
+onKeyStroke("Escape", () => {
+  if (!isOpen.value) return
 
   close()
 })
 
 function open() {
-  document.body.classList.add('overflow-hidden')
+  document.body.classList.add("overflow-hidden")
   isOpen.value = true
 }
 
@@ -45,23 +49,21 @@ async function onModalOpened() {
   await nextTick()
 
   /* v8 ignore start */
-  if (process.env.NODE_ENV !== 'test')
-    ftActivate()
+  if (process.env.NODE_ENV !== "test") ftActivate()
   /* v8 ignore stop */
 }
 
 async function onModalClosed() {
   isInnerOpen.value = false
-  document.body.classList.remove('overflow-hidden')
+  document.body.classList.remove("overflow-hidden")
 
   await nextTick()
 
   /* v8 ignore start */
-  if (process.env.NODE_ENV !== 'test')
-    ftDeactivate()
+  if (process.env.NODE_ENV !== "test") ftDeactivate()
   /* v8 ignore stop */
 
-  emit('onClose')
+  emit("onClose")
 }
 
 defineExpose({ open, close })
@@ -110,16 +112,19 @@ defineExpose({ open, close })
               v-if="isInnerOpen"
               class="max-h-full flex-1 overflow-auto"
               data-test-id="modal-body"
-              :wrapper-class="twMerge(
-                'flex flex-col rounded-2xl shadow-lg max-sm:h-full',
-                props.class,
-              )"
+              :wrapper-class="
+                twMerge(
+                  'flex flex-col rounded-2xl shadow-lg max-sm:h-full',
+                  props.class,
+                )
+              "
             >
               <template #header>
-                <div
-                  class="flex items-center justify-between font-medium"
-                >
-                  <slot v-if="slots.title" name="title" />
+                <div class="flex items-center justify-between font-medium">
+                  <slot
+                    v-if="slots.title"
+                    name="title"
+                  />
                   <div v-else />
 
                   <button

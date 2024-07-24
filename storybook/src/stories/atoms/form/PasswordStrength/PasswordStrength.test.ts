@@ -1,53 +1,53 @@
-import { describe, expect, it } from 'vitest'
-import { flushPromises, mount } from '@vue/test-utils'
-import Component from './PasswordStrength.vue'
+import { flushPromises, mount } from "@vue/test-utils"
+import { describe, expect, it } from "vitest"
+import Component from "./PasswordStrength.vue"
 
-describe('passwordStrength', () => {
-  it('renders correctly', () => {
+describe("passwordStrength", () => {
+  it("renders correctly", () => {
     const wrapper = mount(Component, {
       props: {
-        password: '',
+        password: "",
       },
     })
 
-    expect(wrapper.text()).toBe('')
+    expect(wrapper.text()).toBe("")
   })
 
-  it('can have custom HTML classes', () => {
+  it("can have custom HTML classes", () => {
     const wrapper = mount(Component, {
       props: {
-        class: 'bogus-class',
+        class: "bogus-class",
       },
     })
 
-    expect(wrapper.classes()).toContain('bogus-class')
+    expect(wrapper.classes()).toContain("bogus-class")
   })
 
-  it('can be empty', () => {
+  it("can be empty", () => {
     const wrapper = mount(Component)
 
     expect(wrapper.html()).toBeTruthy()
   })
 
-  it('can have the score change', async () => {
+  it("can have the score change", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: '',
+        password: "",
       },
     })
 
     await flushPromises()
     expect((wrapper.vm as unknown as { score: number }).score).toBe(0)
 
-    await wrapper.setProps({ password: 'updated' })
+    await wrapper.setProps({ password: "updated" })
     await flushPromises()
     expect((wrapper.vm as unknown as { score: number }).score).toBe(1)
   })
 
-  it('may not be a common password', async () => {
+  it("may not be a common password", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'qwertyuiop',
+        password: "qwertyuiop",
       },
     })
 
@@ -55,10 +55,10 @@ describe('passwordStrength', () => {
     expect((wrapper.vm as unknown as { score: number }).score).toBe(0)
   })
 
-  it('may not be shorter than 6 characters', async () => {
+  it("may not be shorter than 6 characters", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'short',
+        password: "short",
       },
     })
 
@@ -66,10 +66,10 @@ describe('passwordStrength', () => {
     expect((wrapper.vm as unknown as { score: number }).score).toBe(0)
   })
 
-  it('can be 6 characters', async () => {
+  it("can be 6 characters", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'stapler',
+        password: "stapler",
       },
     })
 
@@ -77,10 +77,10 @@ describe('passwordStrength', () => {
     expect((wrapper.vm as unknown as { score: number }).score).toBe(1)
   })
 
-  it('can be 8 characters', async () => {
+  it("can be 8 characters", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'somepass',
+        password: "somepass",
       },
     })
 
@@ -88,10 +88,10 @@ describe('passwordStrength', () => {
     expect((wrapper.vm as unknown as { score: number }).score).toBe(2)
   })
 
-  it('can be 12 characters', async () => {
+  it("can be 12 characters", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'fluffybanana',
+        password: "fluffybanana",
       },
     })
 
@@ -99,10 +99,10 @@ describe('passwordStrength', () => {
     expect((wrapper.vm as unknown as { score: number }).score).toBe(3)
   })
 
-  it('should have uppercase characters', async () => {
+  it("should have uppercase characters", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'Mammoth',
+        password: "Mammoth",
       },
     })
 
@@ -110,10 +110,10 @@ describe('passwordStrength', () => {
     expect((wrapper.vm as unknown as { score: number }).score).toBe(2)
   })
 
-  it('should have numbers', async () => {
+  it("should have numbers", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'parr0t',
+        password: "parr0t",
       },
     })
 
@@ -121,10 +121,10 @@ describe('passwordStrength', () => {
     expect((wrapper.vm as unknown as { score: number }).score).toBe(2)
   })
 
-  it('should have special characters', async () => {
+  it("should have special characters", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'k!tten',
+        password: "k!tten",
       },
     })
 
@@ -132,10 +132,10 @@ describe('passwordStrength', () => {
     expect((wrapper.vm as unknown as { score: number }).score).toBe(2)
   })
 
-  it('can achieve the highest score', async () => {
+  it("can achieve the highest score", async () => {
     const wrapper = mount(Component, {
       props: {
-        password: 'ZR6U7Mw@Kz#7',
+        password: "ZR6U7Mw@Kz#7",
       },
     })
 

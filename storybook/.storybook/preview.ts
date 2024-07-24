@@ -1,6 +1,6 @@
-import type { Preview } from '@storybook/vue3'
-import { withThemeByClassName } from '@storybook/addon-themes'
-import '../src/style.css'
+import { withThemeByClassName } from "@storybook/addon-themes"
+import type { Preview } from "@storybook/vue3"
+import "../src/style.css"
 
 const preview: Preview = {
   parameters: {
@@ -12,14 +12,8 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        method: 'alphabetical',
-        order: [
-          'Introduction',
-
-          'Atoms',
-          'Molecules',
-          'Ecosystems',
-        ],
+        method: "alphabetical",
+        order: ["Introduction", "Atoms", "Molecules", "Ecosystems"],
       },
     },
   },
@@ -28,10 +22,10 @@ const preview: Preview = {
 export const decorators = [
   withThemeByClassName({
     themes: {
-      light: 'light',
-      dark: 'dark',
+      light: "light",
+      dark: "dark",
     },
-    defaultTheme: 'light',
+    defaultTheme: "light",
   }),
 ]
 

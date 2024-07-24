@@ -5,12 +5,8 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "paths": {
-      "@/*": [
-        "./resources/js/*"
-      ],
-      "ziggy-js": [
-        "./vendor/tightenco/ziggy"
-      ]
+      "@/*": ["./resources/js/*"],
+      "ziggy-js": ["./vendor/tightenco/ziggy"]
     },
     "allowJs": true,
     "strict": true,

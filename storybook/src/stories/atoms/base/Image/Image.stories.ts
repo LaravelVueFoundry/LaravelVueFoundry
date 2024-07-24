@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import Component from './Image.vue'
+import type { Meta, StoryObj } from "@storybook/vue3"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./Image.vue"
 
-import MockImgLandscape from './__mocks__/image-dimensions-landscape.png'
-import MockImgPortrait from './__mocks__/image-dimensions-portrait.png'
+import MockImgLandscape from "./__mocks__/image-dimensions-landscape.png"
+import MockImgPortrait from "./__mocks__/image-dimensions-portrait.png"
 
 type Props = ComponentProps<typeof Component>
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Base/Image',
+  title: "Atoms/Base/Image",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
-    alt: 'Alternate text',
+    alt: "Alternate text",
   },
   parameters: {
     slots: {
@@ -50,7 +50,7 @@ export const Square: Story = {
 
 export const Broken: Story = {
   args: {
-    src: '/some/broken/url',
+    src: "/some/broken/url",
     height: 1080,
     width: 1920,
   },

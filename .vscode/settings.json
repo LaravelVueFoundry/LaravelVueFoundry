@@ -1,30 +1,26 @@
 {
-  // Disable the Prettier formatter, use eslint instead.
-  "prettier.enable": false,
-  "editor.formatOnSave": false,
-  "editor.formatOnPaste": false,
+  // Use the ESLint flat config.
+  "eslint.useFlatConfig": true,
 
-  // Auto fix using ESLint.
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
+  // Enforce the Prettier formatter.
+  "prettier.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  // Silence the stylistic rules in you IDE, but still auto fix them.
-  "eslint.rules.customizations": [
-    { "rule": "style/*", "severity": "off" },
-    { "rule": "format/*", "severity": "off" },
-    { "rule": "*-indent", "severity": "off" },
-    { "rule": "*-spacing", "severity": "off" },
-    { "rule": "*-spaces", "severity": "off" },
-    { "rule": "*-order", "severity": "off" },
-    { "rule": "*-dangle", "severity": "off" },
-    { "rule": "*-newline", "severity": "off" },
-    { "rule": "*quotes", "severity": "off" },
-    { "rule": "*semi", "severity": "off" }
-  ],
+  // Disable auto-fixing using ESLint.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
+  },
 
-  // Enable eslint for all supported languages.
+  // Enable ESLint for all supported languages.
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -53,5 +49,6 @@
     "editor.defaultFormatter": "open-southeners.laravel-pint",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
-  }
+  },
+  "intelephense.environment.phpVersion": "8.2"
 }

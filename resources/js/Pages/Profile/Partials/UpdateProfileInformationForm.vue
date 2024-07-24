@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { Link, useForm, usePage } from '@inertiajs/vue3'
-import { Button, Card, Heading, Input, InputError, InputGroup, Label } from '@local/ui'
+import { Link, useForm, usePage } from "@inertiajs/vue3"
+import {
+  Button,
+  Card,
+  Heading,
+  Input,
+  InputError,
+  InputGroup,
+  Label,
+} from "@local/ui"
 
 defineProps<{
   mustVerifyEmail?: boolean
@@ -19,17 +27,17 @@ const form = useForm({
   <form @submit.prevent="form.patch(route('profile.update'))">
     <Card>
       <template #header>
-        <Heading type="h4">
-          Profile Information
-        </Heading>
+        <Heading type="h4"> Profile Information </Heading>
       </template>
 
-      <p>
-        Update your account's profile information and email address.
-      </p>
+      <p>Update your account's profile information and email address.</p>
 
       <InputGroup>
-        <Label for="name" required>Name</Label>
+        <Label
+          for="name"
+          required
+          >Name</Label
+        >
 
         <Input
           id="name"
@@ -46,7 +54,12 @@ const form = useForm({
       </InputGroup>
 
       <InputGroup>
-        <Label for="email" required>Email</Label>
+        <Label
+          for="email"
+          required
+        >
+          Email
+        </Label>
 
         <Input
           id="email"
@@ -73,17 +86,13 @@ const form = useForm({
           </Link>
         </p>
 
-        <div
-          v-show="status === 'verification-link-sent'"
-        >
+        <div v-show="status === 'verification-link-sent'">
           A new verification link has been sent to your email address.
         </div>
       </div>
 
       <template #footer>
-        <div
-          class="flex items-center justify-between"
-        >
+        <div class="flex items-center justify-between">
           <Button
             icon="mdi:content-save-outline"
             :loading="form.processing"
@@ -92,9 +101,7 @@ const form = useForm({
             Save
           </Button>
 
-          <p v-if="form.recentlySuccessful">
-            Saved.
-          </p>
+          <p v-if="form.recentlySuccessful">Saved.</p>
         </div>
       </template>
     </Card>
