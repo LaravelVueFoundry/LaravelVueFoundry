@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "cwd": "${workspaceFolder}",
+      "name": "[Dev] Launch Frontend",
+      "request": "launch",
+      "runtimeArgs": ["npm", "run", "dev"],
+      "localRoot": "${workspaceRoot}",
+      "remoteRoot": "/var/www/html",
+      "preLaunchTask": "DDEV: Clean up running NodeJS processes",
+      "runtimeExecutable": "ddev",
+      "runtimeVersion": "20.16.0",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "cwd": "${workspaceFolder}/storybook",
+      "name": "[Dev] Launch Storybook",
+      "request": "launch",
+      "runtimeArgs": ["run", "storybook"],
+      "runtimeExecutable": "npm",
+      "runtimeVersion": "20.16.0",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    }
+  ]
+}
