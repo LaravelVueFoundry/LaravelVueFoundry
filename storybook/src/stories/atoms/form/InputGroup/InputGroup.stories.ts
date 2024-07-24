@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import Component from './InputGroup.vue'
-import Input from '@/stories/atoms/form/Input/Input.vue'
-import Label from '@/stories/atoms/form/Label/Label.vue'
+import Input from "@/stories/atoms/form/Input/Input.vue"
+import Label from "@/stories/atoms/form/Label/Label.vue"
+import type { Meta, StoryObj } from "@storybook/vue3"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./InputGroup.vue"
 
 type Props = ComponentProps<typeof Component> & { default: string }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Form/InputGroup',
+  title: "Atoms/Form/InputGroup",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 }
 
 export default meta

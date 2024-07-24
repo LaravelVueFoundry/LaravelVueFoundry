@@ -1,0 +1,15 @@
+**/.ddev
+**/.github
+**/bootstrap/ssr
+**/composer.json
+**/composer.lock
+**/pnpm-lock.yaml
+**/public/build
+**/resources/js/ziggy.d.ts
+**/resources/js/ziggy.js
+**/storage
+**/storybook-static
+**/storybook/coverage
+**/storybook/dist
+**/vendor
+tailwind.config.d.ts

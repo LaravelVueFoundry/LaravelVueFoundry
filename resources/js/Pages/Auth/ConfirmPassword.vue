@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { Head, useForm } from '@inertiajs/vue3'
-import { Button, Input, InputError, Label } from '@local/ui'
-import BaseLayout from '@/Layouts/BaseLayout.vue'
+import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { Head, useForm } from "@inertiajs/vue3"
+import { Button, Input, InputError, Label } from "@local/ui"
 
 const form = useForm({
-  password: '',
+  password: "",
 })
 
 function submit() {
-  form.post(route('password.confirm'), {
+  form.post(route("password.confirm"), {
     onFinish: () => {
       form.reset()
     },
@@ -20,11 +20,15 @@ function submit() {
   <BaseLayout>
     <Head>
       <title>Confirm Password</title>
-      <meta content="Confirm your password to continue" name="description">
+      <meta
+        content="Confirm your password to continue"
+        name="description"
+      />
     </Head>
 
     <div>
-      This is a secure area of the application. Please confirm your password before continuing.
+      This is a secure area of the application. Please confirm your password
+      before continuing.
     </div>
 
     <form @submit.prevent="submit">
@@ -43,9 +47,7 @@ function submit() {
       </div>
 
       <div>
-        <Button :loading="form.processing">
-          Confirm
-        </Button>
+        <Button :loading="form.processing"> Confirm </Button>
       </div>
     </form>
   </BaseLayout>

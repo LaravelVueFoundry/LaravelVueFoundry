@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import { ref } from 'vue'
-import Input from '../Input/Input.vue'
-import InputGroup from '../InputGroup/InputGroup.vue'
-import Label from '../Label/Label.vue'
-import Component from './PasswordStrength.vue'
+import type { Meta, StoryObj } from "@storybook/vue3"
+import { ref } from "vue"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Input from "../Input/Input.vue"
+import InputGroup from "../InputGroup/InputGroup.vue"
+import Label from "../Label/Label.vue"
+import Component from "./PasswordStrength.vue"
 
 type Props = ComponentProps<typeof Component> & { default: string }
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Form/PasswordStrength',
+  title: "Atoms/Form/PasswordStrength",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   render: (args) => {
     return {
       components: { Component, InputGroup, Label, Input },
       setup() {
-        const model = ref('')
+        const model = ref("")
         return { args, model }
       },
       template: `

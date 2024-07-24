@@ -1,37 +1,37 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import Component from './Header.vue'
-import Card from '@/stories/atoms/container/Card/Card.vue'
-import Container from '@/stories/atoms/container/Container/Container.vue'
+import Card from "@/stories/atoms/container/Card/Card.vue"
+import Container from "@/stories/atoms/container/Container/Container.vue"
+import type { Meta, StoryObj } from "@storybook/vue3"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./Header.vue"
 
 type Props = ComponentProps<typeof Component>
 
 const meta: Meta<Props> = {
-  title: 'Molecules/Layout/Header',
+  title: "Molecules/Layout/Header",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
-    siteName: 'Site name',
+    siteName: "Site name",
     linksPrimary: [
       {
-        icon: 'mdi:calendar',
-        title: 'Primary link 1',
-        href: '/',
+        icon: "mdi:calendar",
+        title: "Primary link 1",
+        href: "/",
       },
       {
-        title: 'Primary link 2',
-        href: '/',
+        title: "Primary link 2",
+        href: "/",
       },
     ],
     linksSecondary: [
       {
-        title: 'Secondary link 1',
-        href: '/',
+        title: "Secondary link 1",
+        href: "/",
       },
       {
-        icon: 'mdi:account',
-        title: 'Secondary link 2',
-        href: '/',
+        icon: "mdi:account",
+        title: "Secondary link 2",
+        href: "/",
       },
     ],
   },
@@ -44,7 +44,9 @@ export const Default: Story = {
   render: (args) => {
     return {
       components: { Component },
-      setup() { return { args } },
+      setup() {
+        return { args }
+      },
       template: `<div class="-m-4 h-screen"><Component v-bind="args" /></div>`,
     }
   },
@@ -53,7 +55,9 @@ export const ScrollingPage: Story = {
   render: (args) => {
     return {
       components: { Component, Container, Card },
-      setup() { return { args } },
+      setup() {
+        return { args }
+      },
       template: `
       <div class="-m-4">
         <Component v-bind="args" />

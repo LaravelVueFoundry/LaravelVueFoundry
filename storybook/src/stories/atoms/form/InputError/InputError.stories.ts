@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import Component from './InputError.vue'
+import type { Meta, StoryObj } from "@storybook/vue3"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./InputError.vue"
 
 type Props = ComponentProps<typeof Component>
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Form/InputError',
+  title: "Atoms/Form/InputError",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
-    message: 'Input error',
+    message: "Input error",
   },
 }
 

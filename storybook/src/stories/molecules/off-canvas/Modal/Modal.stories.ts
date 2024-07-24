@@ -1,18 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import { ref } from 'vue'
-import Component from './Modal.vue'
-import Button from '@/stories/atoms/form/Button/Button.vue'
-import Heading from '@/stories/atoms/typography/Heading/Heading.vue'
+import Button from "@/stories/atoms/form/Button/Button.vue"
+import Heading from "@/stories/atoms/typography/Heading/Heading.vue"
+import type { Meta, StoryObj } from "@storybook/vue3"
+import { ref } from "vue"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./Modal.vue"
 
-type Props = ComponentProps<typeof Component> & { default: string, title: string }
+type Props = ComponentProps<typeof Component> & {
+  default: string
+  title: string
+}
 
 const meta: Meta<Props> = {
-  title: 'Molecules/OffCanvas/Modal',
+  title: "Molecules/OffCanvas/Modal",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
-    title: 'Modal title',
+    title: "Modal title",
   },
   parameters: {
     slots: {
@@ -27,7 +30,7 @@ type Story = StoryObj<Props>
 
 export const Default: Story = {
   args: {
-    default: 'Modal',
+    default: "Modal",
   },
   render: (args) => {
     return {
@@ -50,7 +53,7 @@ export const Default: Story = {
 
 export const PageOverflow: Story = {
   args: {
-    default: 'Page overflow modal contents',
+    default: "Page overflow modal contents",
   },
   render: (args) => {
     return {
@@ -101,7 +104,7 @@ export const ModalOverflow: Story = {
 
 export const Actions: Story = {
   args: {
-    default: 'Modal',
+    default: "Modal",
   },
   render: (args) => {
     return {

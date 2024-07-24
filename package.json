@@ -1,34 +1,36 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.5.0+sha256.dbdf5961c32909fb030595a9daa1dae720162e658609a8f92f2fa99835510ca5",
+  "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build && vite build --ssr",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . && prettier . --check",
+    "lint:fix": "eslint . --fix && prettier . --write"
   },
   "dependencies": {
     "@local/ui": "link:storybook",
     "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.23.0",
     "@iconify/vue": "^4.1.2",
     "@inertiajs/vue3": "^1.2.0",
     "@tailwindcss/forms": "^0.5.7",
     "@vitejs/plugin-vue": "^5.0.5",
-    "@vue/server-renderer": "^3.4.32",
+    "@vue/server-renderer": "^3.4.33",
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
     "eslint": "^9.7.0",
-    "eslint-plugin-tailwindcss": "^3.17.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.27.0",
     "laravel-vite-plugin": "^1.0.5",
     "postcss": "^8.4.39",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.6",
     "typescript": "^5.5.3",
+    "typescript-eslint": "^7.17.0",
     "vite": "^5.3.4",
-    "vue": "^3.4.32",
-    "vue-tsc": "^2.0.26"
+    "vue": "^3.4.33",
+    "vue-tsc": "^2.0.28"
   }
 }

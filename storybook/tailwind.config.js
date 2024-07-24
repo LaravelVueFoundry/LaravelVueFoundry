@@ -1,8 +1,8 @@
-import base from '../tailwind.config'
+import base from "../tailwind.config"
 
 /** @type {import('tailwindcss').Config} */
 export default {
   ...base,
-  content: ['./src/**/*.{vue,ts,mdx}'],
-  darkMode: ['selector'],
+  content: ["./src/**/*.{vue,ts,mdx}"],
+  darkMode: ["selector"],
 }

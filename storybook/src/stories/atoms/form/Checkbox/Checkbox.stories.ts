@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import { ref } from 'vue'
-import Component from './Checkbox.vue'
+import type { Meta, StoryObj } from "@storybook/vue3"
+import { ref } from "vue"
+import type { ComponentProps } from "vue-component-type-helpers"
+import Component from "./Checkbox.vue"
 
 type Props = ComponentProps<typeof Component>
 
 const meta: Meta<Props> = {
-  title: 'Atoms/Form/Checkbox',
+  title: "Atoms/Form/Checkbox",
   component: Component,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {},
   parameters: {
     slots: {
@@ -22,16 +22,16 @@ type Story = StoryObj<Props>
 
 export const Default: Story = {
   args: {
-    label: 'Option',
-    name: 'default',
+    label: "Option",
+    name: "default",
     required: false,
   },
 }
 
 export const VModel: Story = {
   args: {
-    label: 'Option',
-    name: 'default',
+    label: "Option",
+    name: "default",
     required: false,
   },
   render: (args) => {

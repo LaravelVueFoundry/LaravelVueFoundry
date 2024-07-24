@@ -1,30 +1,38 @@
 <script setup lang="ts">
-import { twMerge } from 'tailwind-merge'
-import { Icon } from '@iconify/vue'
-import { type HTMLAttributes, computed, nextTick, ref } from 'vue'
-import { useElementSize, useWindowScroll, useWindowSize } from '@vueuse/core'
-import { Link } from '@inertiajs/vue3'
-import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
-import Button from '@/stories/atoms/form/Button/Button.vue'
-import Container from '@/stories/atoms/container/Container/Container.vue'
+import Container from "@/stories/atoms/container/Container/Container.vue"
+import Button from "@/stories/atoms/form/Button/Button.vue"
+import { Icon } from "@iconify/vue"
+import { Link } from "@inertiajs/vue3"
+import { useElementSize, useWindowScroll, useWindowSize } from "@vueuse/core"
+import { useFocusTrap } from "@vueuse/integrations/useFocusTrap"
+import { twMerge } from "tailwind-merge"
+import { type HTMLAttributes, computed, nextTick, ref } from "vue"
 
-const props = withDefaults(defineProps<{
-  class?: HTMLAttributes['class']
-  siteName?: string
-  homePath?: string
-  linksPrimary?: {
-    icon?: string
-    title: string
-    href: string
-  }[]
-  linksSecondary?: {
-    icon?: string
-    title: string
-    href: string
-  }[]
-}>(), {
-  homePath: '/',
-})
+const props = withDefaults(
+  defineProps<{
+    class?: HTMLAttributes["class"]
+    siteName?: string
+    homePath?: string
+    linksPrimary?: {
+      icon?: string
+      title: string
+      href: string
+    }[]
+    linksSecondary?: {
+      icon?: string
+      title: string
+      href: string
+    }[]
+  }>(),
+  {
+    class: undefined,
+    homePath: "/",
+    siteName: undefined,
+    title: undefined,
+    linksPrimary: undefined,
+    linksSecondary: undefined,
+  },
+)
 
 const headerRef = ref<HTMLElement | null>(null)
 const mobileMenuRef = ref<HTMLElement | null>(null)
@@ -38,16 +46,19 @@ const isAnimating = ref(false)
 const isMobileMenuOpen = ref(false)
 const isMobileMenuInnerOpen = ref(false)
 
-const { activate: ftActivate, deactivate: ftDeactivate } = useFocusTrap(mobileMenuContainerRef, {
-  allowOutsideClick: true,
-})
+const { activate: ftActivate, deactivate: ftDeactivate } = useFocusTrap(
+  mobileMenuContainerRef,
+  {
+    allowOutsideClick: true,
+  },
+)
 
 const isMobile = computed(() => {
   return windowWidth.value < 768
 })
 
 function openMobileMenu() {
-  document.body.classList.add('overflow-hidden')
+  document.body.classList.add("overflow-hidden")
   isMobileMenuOpen.value = true
   isAnimating.value = true
 }
@@ -63,21 +74,19 @@ async function onMobileMenuOpened() {
   await nextTick()
 
   /* v8 ignore start */
-  if (process.env.NODE_ENV !== 'test')
-    ftActivate()
+  if (process.env.NODE_ENV !== "test") ftActivate()
   /* v8 ignore stop */
 }
 
 async function onMobileMenuClosed() {
   isMobileMenuInnerOpen.value = false
-  document.body.classList.remove('overflow-hidden')
+  document.body.classList.remove("overflow-hidden")
   isAnimating.value = false
 
   await nextTick()
 
   /* v8 ignore start */
-  if (process.env.NODE_ENV !== 'test')
-    ftDeactivate()
+  if (process.env.NODE_ENV !== "test") ftDeactivate()
   /* v8 ignore stop */
 }
 
@@ -87,11 +96,13 @@ defineExpose({ openMobileMenu, closeMobileMenu })
 <template>
   <header
     ref="headerRef"
-    :class="twMerge(
-      'sticky top-0 z-40 bg-gray-100/80 backdrop-blur-sm transition-shadow duration-500 dark:bg-gray-950/80',
-      y > 0 ? 'shadow-md' : '',
-      props.class,
-    )"
+    :class="
+      twMerge(
+        'sticky top-0 z-40 bg-gray-100/80 backdrop-blur-sm transition-shadow duration-500 dark:bg-gray-950/80',
+        y > 0 ? 'shadow-md' : '',
+        props.class,
+      )
+    "
   >
     <Container
       class="flex items-center justify-between gap-4 py-4 md:py-6 lg:gap-6"
@@ -114,12 +125,13 @@ defineExpose({ openMobileMenu, closeMobileMenu })
           icon="mdi:dots-horizontal"
           size="square"
           variant="ghost"
-          @click.prevent="() => {
-            if (isAnimating)
-              return
+          @click.prevent="
+            () => {
+              if (isAnimating) return
 
-            isMobileMenuInnerOpen ? closeMobileMenu() : openMobileMenu()
-          }"
+              isMobileMenuInnerOpen ? closeMobileMenu() : openMobileMenu()
+            }
+          "
         />
       </div>
       <div
@@ -127,9 +139,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
         class="flex flex-1 gap-4 lg:gap-6"
         data-test-id="menu-desktop"
       >
-        <div
-          class="flex flex-1 items-center gap-4 lg:gap-6"
-        >
+        <div class="flex flex-1 items-center gap-4 lg:gap-6">
           <div
             v-for="link in props.linksPrimary"
             :key="`${link.title}${link.href}`"
@@ -149,9 +159,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
           </div>
         </div>
 
-        <div
-          class="flex items-center justify-end gap-4 lg:gap-6"
-        >
+        <div class="flex items-center justify-end gap-4 lg:gap-6">
           <div
             v-for="link in props.linksSecondary"
             :key="`${link.title}${link.href}`"
@@ -225,9 +233,7 @@ defineExpose({ openMobileMenu, closeMobileMenu })
                 />
               </button>
 
-              <div
-                class="fixed inset-0 top-14 overflow-y-auto px-8"
-              >
+              <div class="fixed inset-0 top-14 overflow-y-auto px-8">
                 <div
                   v-for="link in props.linksPrimary"
                   :key="`${link.title}${link.href}`"
