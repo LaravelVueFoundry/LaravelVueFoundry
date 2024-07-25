@@ -16,6 +16,9 @@ export default defineConfig({
     }),
     dts({ tsconfigPath: "tsconfig.build.json" }),
   ],
+  css: {
+    devSourcemap: false,
+  },
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),

@@ -2,6 +2,7 @@ export { default as Image } from "./src/stories/atoms/base/Image/Image.vue"
 
 export { default as Button } from "./src/stories/atoms/form/Button/Button.vue"
 export { default as Checkbox } from "./src/stories/atoms/form/Checkbox/Checkbox.vue"
+export { default as FileUpload } from "./src/stories/atoms/form/FileUpload/FileUpload.vue"
 export { default as Input } from "./src/stories/atoms/form/Input/Input.vue"
 export { default as InputError } from "./src/stories/atoms/form/InputError/InputError.vue"
 export { default as InputGroup } from "./src/stories/atoms/form/InputGroup/InputGroup.vue"
