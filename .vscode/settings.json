@@ -73,5 +73,8 @@
     "**/storage/framework": true,
     "**/storybook/storybook-static": true,
     "**/storybook/coverage": true
-  }
+  },
+
+  // Enable Laravel Pint.
+  "laravel-pint.enable": true
 }

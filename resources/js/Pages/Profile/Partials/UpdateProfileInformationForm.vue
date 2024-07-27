@@ -26,9 +26,12 @@ const form = useForm({
 <template>
   <form @submit.prevent="form.patch(route('profile.update'))">
     <Card>
-      <template #header>
-        <Heading type="h4"> Profile Information </Heading>
-      </template>
+      <Heading
+        class="py-4 text-center"
+        type="h2"
+      >
+        Profile Information
+      </Heading>
 
       <p>Update your account's profile information and email address.</p>
 

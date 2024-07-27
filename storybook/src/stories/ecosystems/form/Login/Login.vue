@@ -17,7 +17,7 @@ import { Link } from "@inertiajs/vue3"
   >
     <Card>
       <Heading
-        class="pt-4 text-center"
+        class="py-4 text-center"
         type="h2"
       >
         Login form

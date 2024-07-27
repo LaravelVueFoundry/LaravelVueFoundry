@@ -23,7 +23,7 @@ defineProps<{
 
   <BaseLayout>
     <Container
-      class="flex flex-col gap-8"
+      class="flex flex-col gap-8 max-sm:gap-4"
       type="narrow"
     >
       <UpdateProfileInformationForm

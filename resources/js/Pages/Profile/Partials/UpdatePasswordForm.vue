@@ -43,9 +43,12 @@ function updatePassword() {
 <template>
   <form @submit.prevent="updatePassword">
     <Card>
-      <template #header>
-        <Heading type="h4"> Update Password </Heading>
-      </template>
+      <Heading
+        class="py-4 text-center"
+        type="h2"
+      >
+        Update Password
+      </Heading>
 
       <p>
         Ensure your account is using a long, random password to stay secure.

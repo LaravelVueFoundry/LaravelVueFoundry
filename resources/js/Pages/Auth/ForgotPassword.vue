@@ -42,7 +42,7 @@ function submit() {
       <form @submit.prevent="submit">
         <Card>
           <Heading
-            class="pt-4 text-center"
+            class="py-4 text-center"
             type="h2"
           >
             Forgot password

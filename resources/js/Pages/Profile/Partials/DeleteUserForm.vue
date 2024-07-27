@@ -44,9 +44,12 @@ function closeModal() {
 
 <template>
   <Card>
-    <template #header>
-      <Heading type="h4"> Delete Account </Heading>
-    </template>
+    <Heading
+      class="py-4 text-center"
+      type="h2"
+    >
+      Delete Account
+    </Heading>
 
     <p>
       Once your account is deleted, all of its resources and data will be
