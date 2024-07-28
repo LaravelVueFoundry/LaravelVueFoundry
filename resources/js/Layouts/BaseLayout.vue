@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { usePage } from "@inertiajs/vue3"
-import { Footer, Header } from "@local/ui"
+import { Footer, Header, ToastContainer } from "@local/ui"
 import { computed } from "vue"
 import { useRoute } from "ziggy-js"
 
@@ -79,4 +79,6 @@ const socials = [
     :site-name="appName"
     :socials="socials"
   />
+
+  <ToastContainer />
 </template>

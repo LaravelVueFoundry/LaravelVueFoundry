@@ -85,6 +85,19 @@ describe("heading", () => {
     expect(wrapper.classes()).toContain("bg-primary-600")
   })
 
+  it("can be a success variant", () => {
+    const wrapper = mount(Component, {
+      props: {
+        variant: "success",
+      },
+      slots: {
+        default: "test",
+      },
+    })
+
+    expect(wrapper.classes()).toContain("bg-success-500")
+  })
+
   it("can be a warning variant", () => {
     const wrapper = mount(Component, {
       props: {

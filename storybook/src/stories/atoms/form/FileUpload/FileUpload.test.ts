@@ -35,8 +35,7 @@ describe("fileUpload", () => {
   it("can open a file picker", async () => {
     const wrapper = mount(Component)
 
-    // @ts-expect-error The pickFile function is not exposed, but does exist.
-    wrapper.vm.pickFile()
+    ;(wrapper.vm as unknown as { pickFile: () => void }).pickFile()
     await wrapper.get('[data-test-id="file-upload-wrapper"]').trigger("click"),
       await flushPromises()
   })

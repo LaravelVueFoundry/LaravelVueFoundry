@@ -14,7 +14,7 @@ const meta: Meta<Props> = {
       options: [undefined, "button", "submit"],
     },
     variant: {
-      options: [undefined, "primary", "warning", "danger", "ghost"],
+      options: [undefined, "primary", "success", "warning", "danger", "ghost"],
     },
     size: {
       control: "inline-radio",
@@ -52,6 +52,18 @@ export const Primary: Story = {
     size: "md",
     type: undefined,
     variant: "primary",
+  },
+}
+
+export const Success: Story = {
+  args: {
+    default: "Button",
+    disabled: false,
+    loading: false,
+    onClick: () => {},
+    size: "md",
+    type: undefined,
+    variant: "success",
   },
 }
 
