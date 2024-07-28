@@ -23,6 +23,7 @@ export default {
       orange: colors.orange,
       yellow: colors.yellow,
 
+      info: colors.sky,
       success: colors.green,
       warning: colors.amber,
       danger: colors.rose,

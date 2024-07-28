@@ -8,8 +8,12 @@ import {
   InputError,
   InputGroup,
   Label,
+  PasswordStrength,
+  useToast,
 } from "@local/ui"
 import { ref } from "vue"
+
+const toastStore = useToast()
 
 const passwordInput = ref<HTMLInputElement | null>(null)
 const currentPasswordInput = ref<HTMLInputElement | null>(null)
@@ -25,6 +29,7 @@ function updatePassword() {
     preserveScroll: true,
     onSuccess: () => {
       form.reset()
+      toastStore.success("Your password has been updated")
     },
     onError: () => {
       if (form.errors.password) {
@@ -81,6 +86,11 @@ function updatePassword() {
           type="password"
         />
 
+        <PasswordStrength
+          class="-mb-5"
+          :password="form.password"
+        />
+
         <InputError :message="form.errors.password" />
       </InputGroup>
 
@@ -107,8 +117,6 @@ function updatePassword() {
           >
             Save
           </Button>
-
-          <p v-if="form.recentlySuccessful">Saved.</p>
         </div>
       </template>
     </Card>

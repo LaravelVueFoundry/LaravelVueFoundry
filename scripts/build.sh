@@ -7,6 +7,7 @@ cd "$CURRENT_DIR/.." || exit 1
 . scripts/common.sh
 
 heading "Building Storybook"
-cd storybook && pnpm build
+cd storybook && pnpm build && cd ..
+
 heading "Building main application"
 ddev exec pnpm build

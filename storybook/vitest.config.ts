@@ -1,7 +1,7 @@
-import { resolve } from "node:path"
-import { defineConfig } from "vitest/config"
-import tsconfigPaths from "vite-tsconfig-paths"
 import vue from "@vitejs/plugin-vue"
+import { resolve } from "node:path"
+import tsconfigPaths from "vite-tsconfig-paths"
+import { defineConfig } from "vitest/config"
 
 export default defineConfig({
   resolve: {
@@ -17,6 +17,7 @@ export default defineConfig({
       exclude: [
         "src/stories/**/*.stories.{ts,tsx}",
         "src/stories/**/*.test.{ts,tsx}",
+        "src/stories/**/*.d.{ts,tsx}",
       ],
       reporter: ["text", "text-summary", "json", "json-summary", "html"],
       reportsDirectory: "coverage/unit",

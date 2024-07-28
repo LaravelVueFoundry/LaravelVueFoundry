@@ -8,7 +8,7 @@ const props = withDefaults(
   defineProps<{
     class?: HTMLAttributes["class"]
     type?: "button" | "submit"
-    variant?: "primary" | "warning" | "danger" | "ghost"
+    variant?: "primary" | "success" | "warning" | "danger" | "ghost"
     size?: "lg" | "md" | "sm" | "square"
     to?: string
     disabled?: boolean
@@ -37,6 +37,8 @@ const bgColor = computed(() => {
   switch (props.variant) {
     case "primary":
       return "bg-primary-600 hover:bg-primary-500 active:bg-primary-700 border-primary-500 hover:border-primary-400 active:border-primary-600"
+    case "success":
+      return "bg-success-500 hover:bg-success-400 active:bg-success-600 border-success-400 hover:border-success-300 active:border-success-500 text-success-950"
     case "warning":
       return "text-warning-900 bg-warning-400 hover:bg-warning-300 active:bg-warning-500 border-warning-300 hover:border-warning-200 active:border-warning-400"
     case "danger":

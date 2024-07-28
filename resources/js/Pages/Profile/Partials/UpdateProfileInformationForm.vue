@@ -8,6 +8,7 @@ import {
   InputError,
   InputGroup,
   Label,
+  useToast,
 } from "@local/ui"
 
 defineProps<{
@@ -15,16 +16,26 @@ defineProps<{
   status?: string
 }>()
 
+const toastStore = useToast()
+
 const user = usePage().props.auth.user
 
 const form = useForm({
   name: user.name,
   email: user.email,
 })
+
+const submit = () => {
+  form.patch(route("profile.update"), {
+    onSuccess: () => {
+      toastStore.success("Your profile information has been updated")
+    },
+  })
+}
 </script>
 
 <template>
-  <form @submit.prevent="form.patch(route('profile.update'))">
+  <form @submit.prevent="submit">
     <Card>
       <Heading
         class="py-4 text-center"
@@ -103,8 +114,6 @@ const form = useForm({
           >
             Save
           </Button>
-
-          <p v-if="form.recentlySuccessful">Saved.</p>
         </div>
       </template>
     </Card>
