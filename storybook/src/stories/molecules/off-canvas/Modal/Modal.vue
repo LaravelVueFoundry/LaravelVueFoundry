@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Card from "@/stories/atoms/container/Card/Card.vue"
 import { Icon } from "@iconify/vue"
-import { onKeyStroke } from "@vueuse/core"
+import { onKeyDown } from "@vueuse/core"
 import { useFocusTrap } from "@vueuse/integrations/useFocusTrap"
 import { twMerge } from "tailwind-merge"
-import { type HTMLAttributes, nextTick, ref, useSlots } from "vue"
+import { nextTick, ref, useSlots, type HTMLAttributes } from "vue"
 
 import Container from "@/stories/atoms/container/Container/Container.vue"
 
@@ -28,7 +28,7 @@ const modalContainerRef = ref(null)
 const { activate: ftActivate, deactivate: ftDeactivate } =
   useFocusTrap(modalContainerRef)
 
-onKeyStroke("Escape", () => {
+onKeyDown("Escape", () => {
   if (!isOpen.value) return
 
   close()
