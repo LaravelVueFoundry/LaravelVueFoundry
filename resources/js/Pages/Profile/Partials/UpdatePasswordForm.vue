@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLocale } from "@/composables/useLocale"
 import { useForm } from "@inertiajs/vue3"
 import {
   Button,
@@ -13,6 +14,7 @@ import {
 } from "@local/ui"
 import { ref } from "vue"
 
+const { locale } = useLocale()
 const toastStore = useToast()
 
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -25,7 +27,7 @@ const form = useForm({
 })
 
 function updatePassword() {
-  form.put(route("password.update"), {
+  form.put(route("password.update", { lang: locale }), {
     preserveScroll: true,
     onSuccess: () => {
       form.reset()

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature;
 
 use App\Models\User;
@@ -10,28 +12,30 @@ class ProfileTest extends TestCase {
     use RefreshDatabase;
 
     public function testProfilePageIsDisplayed(): void {
+        /** @var User */
         $user = User::factory()->create();
 
         $response = $this
             ->actingAs($user)
-            ->get('/profile');
+            ->get(route('profile.edit', ['lang' => 'en']));
 
         $response->assertOk();
     }
 
     public function testProfileInformationCanBeUpdated(): void {
+        /** @var User */
         $user = User::factory()->create();
 
         $response = $this
             ->actingAs($user)
-            ->patch('/profile', [
+            ->patch(route('profile.update', ['lang' => 'en']), [
                 'name' => 'Test User',
                 'email' => 'test@example.com',
             ]);
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/profile');
+            ->assertRedirect(route('profile.edit', ['lang' => 'en']));
 
         $user->refresh();
 
@@ -41,52 +45,55 @@ class ProfileTest extends TestCase {
     }
 
     public function testEmailVerificationStatusIsUnchangedWhenTheEmailAddressIsUnchanged(): void {
+        /** @var User */
         $user = User::factory()->create();
 
         $response = $this
             ->actingAs($user)
-            ->patch('/profile', [
+            ->patch(route('profile.update', ['lang' => 'en']), [
                 'name' => 'Test User',
                 'email' => $user->email,
             ]);
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/profile');
+            ->assertRedirect(route('profile.edit', ['lang' => 'en']));
 
         $this->assertNotNull($user->refresh()->email_verified_at);
     }
 
     public function testUserCanDeleteTheirAccount(): void {
+        /** @var User */
         $user = User::factory()->create();
 
         $response = $this
             ->actingAs($user)
-            ->delete('/profile', [
+            ->delete(route('profile.destroy', ['lang' => 'en']), [
                 'password' => 'password',
             ]);
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/');
+            ->assertRedirect(route('home', ['lang' => 'en']));
 
         $this->assertGuest();
         $this->assertNull($user->fresh());
     }
 
     public function testCorrectPasswordMustBeProvidedToDeleteAccount(): void {
+        /** @var User */
         $user = User::factory()->create();
 
         $response = $this
             ->actingAs($user)
-            ->from('/profile')
-            ->delete('/profile', [
+            ->from(route('profile.edit', ['lang' => 'en']))
+            ->delete(route('profile.destroy', ['lang' => 'en']), [
                 'password' => 'wrong-password',
             ]);
 
         $response
             ->assertSessionHasErrors('password')
-            ->assertRedirect('/profile');
+            ->assertRedirect(route('profile.edit', ['lang' => 'en']));
 
         $this->assertNotNull($user->fresh());
     }

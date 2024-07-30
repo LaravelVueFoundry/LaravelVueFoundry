@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -12,7 +14,13 @@ class EmailVerificationNotificationController extends Controller {
      */
     public function store(Request $request): RedirectResponse {
         if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(route('dashboard', absolute: false));
+            $locale = $request->getLocale();
+
+            return redirect()->intended(route(
+                'dashboard',
+                ['lang' => $locale],
+                false,
+            ));
         }
 
         $request->user()->sendEmailVerificationNotification();

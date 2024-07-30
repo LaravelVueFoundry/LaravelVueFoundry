@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { useLocale } from "@/composables/useLocale"
 import { Head, useForm } from "@inertiajs/vue3"
 import {
   Button,
@@ -16,12 +17,14 @@ defineProps<{
   status?: string
 }>()
 
+const { locale } = useLocale()
+
 const form = useForm({
   email: "",
 })
 
 function submit() {
-  form.post(route("password.email"))
+  form.post(route("password.email", { lang: locale }))
 }
 </script>
 

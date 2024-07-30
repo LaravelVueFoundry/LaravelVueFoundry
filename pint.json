@@ -7,6 +7,11 @@
       "anonymous_functions_opening_brace": "same_line",
       "functions_opening_brace": "same_line",
       "control_structures_opening_brace": "same_line"
+    },
+    "declare_strict_types": true,
+    "trailing_comma_in_multiline": {
+      "after_heredoc": true,
+      "elements": ["arguments", "arrays", "match", "parameters"]
     }
   }
 }

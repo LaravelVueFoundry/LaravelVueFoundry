@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -30,7 +32,12 @@ class ConfirmablePasswordController extends Controller {
         }
 
         $request->session()->put('auth.password_confirmed_at', time());
+        $locale = $request->getLocale();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route(
+            'dashboard',
+            ['lang' => $locale],
+            false,
+        ));
     }
 }

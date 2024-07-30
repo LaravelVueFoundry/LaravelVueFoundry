@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLocale } from "@/composables/useLocale"
 import { usePage } from "@inertiajs/vue3"
 import { Footer, Header, ToastContainer } from "@local/ui"
 import { computed } from "vue"
@@ -6,7 +7,9 @@ import { useRoute } from "ziggy-js"
 
 const appName = import.meta.env.VITE_APP_NAME
 const page = usePage()
+
 const route = useRoute(page.props.ziggy)
+const { locale } = useLocale()
 
 const linksPrimary: InstanceType<typeof Header>["$props"]["linksPrimary"] = []
 
@@ -19,33 +22,34 @@ const linksSecondary = computed<
     result.push({
       icon: "mdi:graph-line",
       title: "Dashboard",
-      href: route("dashboard"),
+      href: route("dashboard", { lang: locale }),
     })
 
     result.push({
       icon: "mdi:account",
       title: "Profile",
-      href: route("profile.edit"),
+      href: route("profile.edit", { lang: locale }),
     })
 
     result.push({
       icon: "mdi:logout",
       title: "Log out",
-      href: route("logout"),
-    })
-  } else {
-    result.push({
-      icon: "mdi:login",
-      title: "Log in",
-      href: route("login"),
+      href: route("logout", { lang: locale }),
     })
 
-    result.push({
-      icon: "mdi:register",
-      title: "Register",
-      href: route("register"),
-    })
+    return result
   }
+  result.push({
+    icon: "mdi:login",
+    title: "Log in",
+    href: route("login", { lang: locale }),
+  })
+
+  result.push({
+    icon: "mdi:register",
+    title: "Register",
+    href: route("register", { lang: locale }),
+  })
 
   return result
 })
@@ -61,7 +65,7 @@ const socials = [
 
 <template>
   <Header
-    :home-path="route('home')"
+    :home-path="route('home', { lang: locale })"
     :links-primary="linksPrimary"
     :links-secondary="linksSecondary"
     :site-name="appName"
@@ -75,7 +79,7 @@ const socials = [
   </main>
 
   <Footer
-    :home-path="route('home')"
+    :home-path="route('home', { lang: locale })"
     :site-name="appName"
     :socials="socials"
   />

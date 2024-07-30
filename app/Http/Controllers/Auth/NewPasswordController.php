@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -49,14 +51,19 @@ class NewPasswordController extends Controller {
                 ])->save();
 
                 event(new PasswordReset($user));
-            }
+            },
         );
 
         // If the password was successfully reset, we will redirect the user back to
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
         if (Password::PASSWORD_RESET == $status) {
-            return redirect()->route('login')->with('status', __($status));
+            $locale = $request->getLocale();
+
+            return redirect()->route(
+                'login',
+                ['lang' => $locale],
+            )->with('status', __($status));
         }
 
         throw ValidationException::withMessages(['email' => [trans($status)]]);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
@@ -12,7 +14,7 @@ class PasswordResetTest extends TestCase {
     use RefreshDatabase;
 
     public function testResetPasswordLinkScreenCanBeRendered(): void {
-        $response = $this->get('/forgot-password');
+        $response = $this->get(route('password.request', ['lang' => 'en']));
 
         $response->assertStatus(200);
     }
@@ -22,7 +24,10 @@ class PasswordResetTest extends TestCase {
 
         $user = User::factory()->create();
 
-        $this->post('/forgot-password', ['email' => $user->email]);
+        $this->post(route(
+            'password.email',
+            ['lang' => 'en'],
+        ), ['email' => $user->email]);
 
         Notification::assertSentTo($user, ResetPassword::class);
     }
@@ -32,10 +37,16 @@ class PasswordResetTest extends TestCase {
 
         $user = User::factory()->create();
 
-        $this->post('/forgot-password', ['email' => $user->email]);
+        $this->post(route(
+            'password.email',
+            ['lang' => 'en'],
+        ), ['email' => $user->email]);
 
         Notification::assertSentTo($user, ResetPassword::class, function ($notification) {
-            $response = $this->get('/reset-password/'.$notification->token);
+            $response = $this->get(route(
+                'password.store',
+                ['lang' => 'en'],
+            ).'/'.$notification->token);
 
             $response->assertStatus(200);
 
@@ -48,10 +59,13 @@ class PasswordResetTest extends TestCase {
 
         $user = User::factory()->create();
 
-        $this->post('/forgot-password', ['email' => $user->email]);
+        $this->post(route(
+            'password.email',
+            ['lang' => 'en'],
+        ), ['email' => $user->email]);
 
         Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
-            $response = $this->post('/reset-password', [
+            $response = $this->post(route('password.store', ['lang' => 'en']), [
                 'token' => $notification->token,
                 'email' => $user->email,
                 'password' => 'password',
@@ -60,7 +74,7 @@ class PasswordResetTest extends TestCase {
 
             $response
                 ->assertSessionHasNoErrors()
-                ->assertRedirect(route('login'));
+                ->assertRedirect(route('login', ['lang' => 'en']));
 
             return true;
         });

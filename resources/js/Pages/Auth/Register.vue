@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { useLocale } from "@/composables/useLocale"
 import { Head, Link, useForm } from "@inertiajs/vue3"
 import {
   Button,
@@ -20,12 +21,19 @@ const form = useForm({
   password_confirmation: "",
 })
 
+const { locale } = useLocale()
+
 function submit() {
-  form.post(route("register"), {
-    onFinish: () => {
-      form.reset("password", "password_confirmation")
+  form.post(
+    route("register", {
+      lang: locale,
+    }),
+    {
+      onFinish: () => {
+        form.reset("password", "password_confirmation")
+      },
     },
-  })
+  )
 }
 </script>
 
@@ -134,7 +142,7 @@ function submit() {
 
               <Link
                 class="p-2 text-center"
-                :href="route('login')"
+                :href="route('login', { lang: locale })"
               >
                 Already registered?
               </Link>

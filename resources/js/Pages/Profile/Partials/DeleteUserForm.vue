@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLocale } from "@/composables/useLocale"
 import { useForm } from "@inertiajs/vue3"
 import {
   Button,
@@ -11,6 +12,8 @@ import {
   Modal,
 } from "@local/ui"
 import { nextTick, ref } from "vue"
+
+const { locale } = useLocale()
 
 const modalRef = ref<typeof Modal | null>(null)
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -26,7 +29,7 @@ function confirmUserDeletion() {
 }
 
 function deleteUser() {
-  form.delete(route("profile.destroy"), {
+  form.delete(route("profile.destroy", { lang: locale }), {
     preserveScroll: true,
     onSuccess: () => closeModal(),
     onError: () => passwordInput.value?.focus(),

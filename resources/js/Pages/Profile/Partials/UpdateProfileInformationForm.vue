@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLocale } from "@/composables/useLocale"
 import { Link, useForm, usePage } from "@inertiajs/vue3"
 import {
   Button,
@@ -16,6 +17,7 @@ defineProps<{
   status?: string
 }>()
 
+const { locale } = useLocale()
 const toastStore = useToast()
 
 const user = usePage().props.auth.user
@@ -26,7 +28,7 @@ const form = useForm({
 })
 
 const submit = () => {
-  form.patch(route("profile.update"), {
+  form.patch(route("profile.update", { lang: locale }), {
     onSuccess: () => {
       toastStore.success("Your profile information has been updated")
     },
@@ -93,7 +95,7 @@ const submit = () => {
           Your email address is unverified.
           <Link
             as="button"
-            :href="route('verification.send')"
+            :href="route('verification.send', { lang: locale })"
             method="post"
           >
             Click here to re-send the verification email.

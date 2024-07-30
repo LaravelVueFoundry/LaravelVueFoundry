@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { useLocale } from "@/composables/useLocale"
 import { Head, Link, useForm } from "@inertiajs/vue3"
 import {
   Button,
@@ -18,6 +19,8 @@ defineProps<{
   status?: string
 }>()
 
+const { locale } = useLocale()
+
 const form = useForm({
   email: "",
   password: "",
@@ -25,7 +28,7 @@ const form = useForm({
 })
 
 function submit() {
-  form.post(route("login"), {
+  form.post(route("login", { lang: locale }), {
     onFinish: () => {
       form.reset("password")
     },
@@ -114,7 +117,7 @@ function submit() {
               <Link
                 v-if="canResetPassword"
                 class="p-2 text-center"
-                :href="route('password.request')"
+                :href="route('password.request', { lang: locale })"
               >
                 Forgot your password?
               </Link>

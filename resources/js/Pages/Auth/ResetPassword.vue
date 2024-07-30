@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { useLocale } from "@/composables/useLocale"
 import { Head, useForm } from "@inertiajs/vue3"
 import { Button, Input, InputError, Label } from "@local/ui"
 
@@ -7,6 +8,8 @@ const props = defineProps<{
   email: string
   token: string
 }>()
+
+const { locale } = useLocale()
 
 const form = useForm({
   token: props.token,
@@ -16,7 +19,7 @@ const form = useForm({
 })
 
 function submit() {
-  form.post(route("password.store"), {
+  form.post(route("password.store", { lang: locale }), {
     onFinish: () => {
       form.reset("password", "password_confirmation")
     },

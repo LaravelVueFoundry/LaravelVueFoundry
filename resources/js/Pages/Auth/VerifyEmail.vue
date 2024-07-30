@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseLayout from "@/Layouts/BaseLayout.vue"
+import { useLocale } from "@/composables/useLocale"
 import { Head, Link, useForm } from "@inertiajs/vue3"
 import { Button } from "@local/ui"
 import { computed } from "vue"
@@ -8,10 +9,11 @@ const props = defineProps<{
   status?: string
 }>()
 
+const { locale } = useLocale()
 const form = useForm({})
 
 function submit() {
-  form.post(route("verification.send"))
+  form.post(route("verification.send", { lang: locale }))
 }
 
 const verificationLinkSent = computed(
@@ -46,7 +48,7 @@ const verificationLinkSent = computed(
 
         <Link
           as="button"
-          :href="route('logout')"
+          :href="route('logout', { lang: locale })"
           method="post"
         >
           Log Out

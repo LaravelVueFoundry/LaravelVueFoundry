@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
@@ -10,7 +12,7 @@ class AuthenticationTest extends TestCase {
     use RefreshDatabase;
 
     public function testLoginScreenCanBeRendered(): void {
-        $response = $this->get('/login');
+        $response = $this->get(route('login', ['lang' => 'en']));
 
         $response->assertStatus(200);
     }
@@ -18,19 +20,23 @@ class AuthenticationTest extends TestCase {
     public function testUsersCanAuthenticateUsingTheLoginScreen(): void {
         $user = User::factory()->create();
 
-        $response = $this->post('/login', [
+        $response = $this->post(route('login', ['lang' => 'en']), [
             'email' => $user->email,
             'password' => 'password',
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(route('dashboard', absolute: false));
+        $response->assertRedirect(route(
+            'dashboard',
+            ['lang' => 'en'],
+            false,
+        ));
     }
 
     public function testUsersCanNotAuthenticateWithInvalidPassword(): void {
         $user = User::factory()->create();
 
-        $this->post('/login', [
+        $this->post(route('login', ['lang' => 'en']), [
             'email' => $user->email,
             'password' => 'wrong-password',
         ]);
@@ -39,11 +45,12 @@ class AuthenticationTest extends TestCase {
     }
 
     public function testUsersCanLogout(): void {
+        /** @var User */
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->get('/logout');
+        $response = $this->actingAs($user)->get(route('logout', ['lang' => 'en']));
 
         $this->assertGuest();
-        $response->assertRedirect('/');
+        $response->assertRedirect(route('home', ['lang' => 'en']));
     }
 }
