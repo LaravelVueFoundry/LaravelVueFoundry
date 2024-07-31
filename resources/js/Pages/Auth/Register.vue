@@ -21,7 +21,7 @@ const form = useForm({
   password_confirmation: "",
 })
 
-const { locale } = useLocale()
+const { locale, t } = useLocale()
 
 function submit() {
   form.post(
@@ -40,9 +40,9 @@ function submit() {
 <template>
   <BaseLayout>
     <Head>
-      <title>Register</title>
+      <title>{{ t("auth.register.meta.title") }}</title>
       <meta
-        content="Register a new account"
+        :content="t('auth.register.meta.description')"
         name="description"
       />
     </Head>
@@ -57,11 +57,11 @@ function submit() {
             class="py-4 text-center"
             type="h2"
           >
-            Register
+            {{ t("auth.register.title") }}
           </Heading>
 
           <InputGroup>
-            <Label for="name">Name</Label>
+            <Label for="name">{{ t("auth.register.field.name") }}</Label>
 
             <Input
               id="name"
@@ -69,7 +69,7 @@ function submit() {
               autocomplete="name"
               autofocus
               name="name"
-              placeholder="John Doe"
+              :placeholder="t('auth.register.field.name.placeholder')"
               required
               type="text"
             />
@@ -78,14 +78,14 @@ function submit() {
           </InputGroup>
 
           <InputGroup>
-            <Label for="email">Email</Label>
+            <Label for="email">{{ t("auth.register.field.email") }}</Label>
 
             <Input
               id="email"
               v-model="form.email"
               autocomplete="email"
               name="email"
-              placeholder="info@example.com"
+              :placeholder="t('auth.register.field.email.placeholder')"
               required
               type="email"
             />
@@ -94,13 +94,16 @@ function submit() {
           </InputGroup>
 
           <InputGroup>
-            <Label for="password">Password</Label>
+            <Label for="password">{{
+              t("auth.register.field.password")
+            }}</Label>
 
             <Input
               id="password"
               v-model="form.password"
               autocomplete="new-password"
               name="password"
+              :placeholder="t('auth.register.field.password.placeholder')"
               required
               type="password"
             />
@@ -114,13 +117,18 @@ function submit() {
           </InputGroup>
 
           <InputGroup>
-            <Label for="password_confirmation">Confirm Password</Label>
+            <Label for="password_confirmation">{{
+              t("auth.register.field.password-confirm")
+            }}</Label>
 
             <Input
               id="password_confirmation"
               v-model="form.password_confirmation"
               autocomplete="new-password"
               name="new-password"
+              :placeholder="
+                t('auth.register.field.password-confirm.placeholder')
+              "
               required
               type="password"
             />
@@ -137,14 +145,15 @@ function submit() {
                 :loading="form.processing"
                 variant="primary"
               >
-                Register
+                {{ t("auth.register.submit") }}
               </Button>
 
               <Link
+                as="button"
                 class="p-2 text-center"
                 :href="route('login', { lang: locale })"
               >
-                Already registered?
+                {{ t("auth.register.login") }}
               </Link>
             </div>
           </template>

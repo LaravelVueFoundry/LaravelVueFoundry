@@ -17,7 +17,7 @@ defineProps<{
   status?: string
 }>()
 
-const { locale } = useLocale()
+const { locale, t } = useLocale()
 
 const form = useForm({
   email: "",
@@ -31,9 +31,9 @@ function submit() {
 <template>
   <BaseLayout>
     <Head>
-      <title>Forgot Password</title>
+      <title>{{ t("auth.forgot-pass.meta.title") }}</title>
       <meta
-        content="Forgot your password? No problem. You can reset it here."
+        :content="t('auth.forgot-pass.meta.description')"
         name="description"
       />
     </Head>
@@ -48,13 +48,11 @@ function submit() {
             class="py-4 text-center"
             type="h2"
           >
-            Forgot password
+            {{ t("auth.forgot-pass.title") }}
           </Heading>
 
           <div class="max-sm:text-justify">
-            Forgot your password? No problem. Just let us know your email
-            address and we will email you a password reset link that will allow
-            you to choose a new one.
+            {{ t("auth.forgot-pass.intro") }}
           </div>
 
           <div v-if="status">
@@ -62,7 +60,9 @@ function submit() {
           </div>
 
           <InputGroup>
-            <Label for="email">Email</Label>
+            <Label for="email">
+              {{ t("auth.forgot-pass.field.email") }}
+            </Label>
 
             <Input
               id="email"
@@ -70,7 +70,7 @@ function submit() {
               autocomplete="email"
               autofocus
               name="email"
-              placeholder="info@example.com"
+              :placeholder="t('auth.forgot-pass.field.email.placeholder')"
               required
               type="email"
             />
@@ -85,7 +85,7 @@ function submit() {
               :loading="form.processing"
               variant="primary"
             >
-              Reset password
+              {{ t("auth.forgot-pass.submit") }}
             </Button>
           </template>
         </Card>

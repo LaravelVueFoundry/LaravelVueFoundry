@@ -17,7 +17,7 @@ defineProps<{
   status?: string
 }>()
 
-const { locale } = useLocale()
+const { locale, t } = useLocale()
 const toastStore = useToast()
 
 const user = usePage().props.auth.user
@@ -43,17 +43,18 @@ const submit = () => {
         class="py-4 text-center"
         type="h2"
       >
-        Profile Information
+        {{ t("profile.info.title") }}
       </Heading>
 
-      <p>Update your account's profile information and email address.</p>
+      <p>{{ t("profile.info.intro") }}</p>
 
       <InputGroup>
         <Label
           for="name"
           required
-          >Name</Label
         >
+          {{ t("profile.info.field.name") }}
+        </Label>
 
         <Input
           id="name"
@@ -61,7 +62,7 @@ const submit = () => {
           autocomplete="name"
           autofocus
           name="name"
-          placeholder="John Doe"
+          :placeholder="t('profile.info.field.name.placeholder')"
           required
           type="text"
         />
@@ -74,7 +75,7 @@ const submit = () => {
           for="email"
           required
         >
-          Email
+          {{ t("profile.info.field.email") }}
         </Label>
 
         <Input
@@ -82,7 +83,7 @@ const submit = () => {
           v-model="form.email"
           autocomplete="username"
           name="email"
-          placeholder="info@example.com"
+          :placeholder="t('profile.info.field.email.placeholder')"
           required
           type="email"
         />
@@ -92,18 +93,19 @@ const submit = () => {
 
       <div v-if="mustVerifyEmail && user.email_verified_at === null">
         <p>
-          Your email address is unverified.
+          {{ t("profile.info.email.unverified") }}
+
           <Link
             as="button"
             :href="route('verification.send', { lang: locale })"
             method="post"
           >
-            Click here to re-send the verification email.
+            {{ t("profile.info.email.verify-resend") }}
           </Link>
         </p>
 
         <div v-show="status === 'verification-link-sent'">
-          A new verification link has been sent to your email address.
+          {{ t("profile.info.email.verify-sent") }}
         </div>
       </div>
 
@@ -114,7 +116,7 @@ const submit = () => {
             :loading="form.processing"
             variant="primary"
           >
-            Save
+            {{ t("profile.info.submit") }}
           </Button>
         </div>
       </template>

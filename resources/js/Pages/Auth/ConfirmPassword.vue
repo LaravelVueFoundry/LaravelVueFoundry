@@ -2,9 +2,18 @@
 import BaseLayout from "@/Layouts/BaseLayout.vue"
 import { useLocale } from "@/composables/useLocale"
 import { Head, useForm } from "@inertiajs/vue3"
-import { Button, Input, InputError, Label } from "@local/ui"
+import {
+  Button,
+  Card,
+  Container,
+  Heading,
+  Input,
+  InputError,
+  InputGroup,
+  Label,
+} from "@local/ui"
 
-const { locale } = useLocale()
+const { locale, t } = useLocale()
 
 const form = useForm({
   password: "",
@@ -22,36 +31,65 @@ function submit() {
 <template>
   <BaseLayout>
     <Head>
-      <title>Confirm Password</title>
+      <title>
+        {{ t("auth.confirm-pass.meta.title") }}
+      </title>
       <meta
         content="Confirm your password to continue"
         name="description"
       />
     </Head>
 
-    <div>
-      This is a secure area of the application. Please confirm your password
-      before continuing.
-    </div>
+    <Container
+      class="content-center"
+      type="narrow"
+    >
+      <form @submit.prevent="submit">
+        <Card>
+          <Heading
+            class="py-4 text-center"
+            type="h2"
+          >
+            {{ t("auth.confirm-pass.title") }}
+          </Heading>
 
-    <form @submit.prevent="submit">
-      <div>
-        <Label for="password">Password</Label>
-        <Input
-          id="password"
-          v-model="form.password"
-          autocomplete="current-password"
-          autofocus
-          name="password"
-          required
-          type="password"
-        />
-        <InputError :message="form.errors.password" />
-      </div>
+          <div>
+            {{ t("auth.confirm-pass.intro") }}
+          </div>
 
-      <div>
-        <Button :loading="form.processing"> Confirm </Button>
-      </div>
-    </form>
+          <InputGroup>
+            <Label for="password">
+              {{ t("auth.confirm-pass.field.password") }}
+            </Label>
+            <Input
+              id="password"
+              v-model="form.password"
+              autocomplete="current-password"
+              autofocus
+              name="password"
+              :placeholder="t('auth.confirm-pass.field.password.placeholder')"
+              required
+              type="password"
+            />
+            <InputError :message="form.errors.password" />
+          </InputGroup>
+
+          <template #footer>
+            <div
+              class="flex flex-row-reverse items-center justify-between gap-6 max-sm:flex-col max-sm:items-stretch"
+            >
+              <Button
+                icon="mdi:lock-open-variant"
+                :loading="form.processing"
+                type="submit"
+                variant="primary"
+              >
+                {{ t("auth.confirm-pass.submit") }}
+              </Button>
+            </div>
+          </template>
+        </Card>
+      </form>
+    </Container>
   </BaseLayout>
 </template>

@@ -13,7 +13,7 @@ import {
 } from "@local/ui"
 import { nextTick, ref } from "vue"
 
-const { locale } = useLocale()
+const { locale, t } = useLocale()
 
 const modalRef = ref<typeof Modal | null>(null)
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -51,13 +51,11 @@ function closeModal() {
       class="py-4 text-center"
       type="h2"
     >
-      Delete Account
+      {{ t("profile.delete.title") }}
     </Heading>
 
     <p>
-      Once your account is deleted, all of its resources and data will be
-      permanently deleted. Before deleting your account, please download any
-      data or information that you wish to retain.
+      {{ t("profile.delete.intro") }}
     </p>
 
     <template #footer>
@@ -67,7 +65,7 @@ function closeModal() {
         variant="danger"
         @click="confirmUserDeletion"
       >
-        Delete Account
+        {{ t("profile.delete.modal.button") }}
       </Button>
     </template>
 
@@ -76,32 +74,34 @@ function closeModal() {
       @on-close="closeModal"
     >
       <template #title>
-        <Heading type="h4"> Delete your account? </Heading>
+        <Heading type="h4">
+          {{ t("profile.delete.modal.heading") }}
+        </Heading>
       </template>
 
       <div class="flex flex-col gap-4">
         <Heading type="h2">
-          Are you sure you want to delete your account?
+          {{ t("profile.delete.modal.title") }}
         </Heading>
 
         <p>
-          Once your account is deleted, all of its resources and data will be
-          permanently deleted. Please enter your password to confirm you would
-          like to permanently delete your account.
+          {{ t("profile.delete.modal.intro") }}
         </p>
 
         <InputGroup>
           <Label
             for="password"
             required
-            >Password</Label
           >
+            {{ t("profile.delete.modal.field.password") }}
+          </Label>
 
           <Input
             id="password"
             ref="passwordInput"
             v-model="form.password"
             name="password"
+            :placeholder="t('profile.delete.modal.field.password.placeholder')"
             required
             type="password"
             @keyup.enter="deleteUser"
@@ -113,7 +113,9 @@ function closeModal() {
 
       <template #actions>
         <div class="flex items-center justify-between">
-          <Button @click="closeModal"> Cancel </Button>
+          <Button @click="closeModal">
+            {{ t("profile.delete.modal.cancel") }}
+          </Button>
 
           <Button
             icon="mdi:bin-outline"
@@ -121,7 +123,7 @@ function closeModal() {
             variant="danger"
             @click="deleteUser"
           >
-            Delete Account
+            {{ t("profile.delete.modal.submit") }}
           </Button>
         </div>
       </template>

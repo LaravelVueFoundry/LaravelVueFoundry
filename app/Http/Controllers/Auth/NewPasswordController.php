@@ -21,9 +21,11 @@ class NewPasswordController extends Controller {
      * Display the password reset view.
      */
     public function create(Request $request): Response {
+        $locale = $request->getLocale();
+
         return Inertia::render('Auth/ResetPassword', [
             'email' => $request->email,
-            'token' => $request->route('token'),
+            'token' => $request->route('token', ['lang' => $locale]),
         ]);
     }
 
@@ -60,10 +62,8 @@ class NewPasswordController extends Controller {
         if (Password::PASSWORD_RESET == $status) {
             $locale = $request->getLocale();
 
-            return redirect()->route(
-                'login',
-                ['lang' => $locale],
-            )->with('status', __($status));
+            return redirect()->route('login', ['lang' => $locale])
+                ->with('status', __($status));
         }
 
         throw ValidationException::withMessages(['email' => [trans($status)]]);

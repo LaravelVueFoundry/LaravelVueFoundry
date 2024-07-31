@@ -1,25 +1,27 @@
 <script setup lang="ts">
+import { useLocale } from "@/composables/useLocale"
 import BaseLayout from "@/Layouts/BaseLayout.vue"
 import { Head, usePage } from "@inertiajs/vue3"
 import { Container, Heading } from "@local/ui"
 
 const page = usePage()
+const { t } = useLocale()
 </script>
 
 <template>
   <Head>
-    <title>Dashboard</title>
+    <title>{{ t("profile.meta.title") }}</title>
     <meta
-      content="The user dashboard"
+      :content="t('profile.meta.description')"
       name="description"
     />
   </Head>
 
   <BaseLayout>
     <Container class="flex flex-col gap-4">
-      <Heading type="h2">Welcome, {{ page.props.auth.user.name }}!</Heading>
-
-      <p>You're logged in!</p>
+      <Heading type="h2">
+        {{ t("profile.title", { name: page.props.auth.user.name }) }}
+      </Heading>
     </Container>
   </BaseLayout>
 </template>

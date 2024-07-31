@@ -19,7 +19,7 @@ defineProps<{
   status?: string
 }>()
 
-const { locale } = useLocale()
+const { locale, t } = useLocale()
 
 const form = useForm({
   email: "",
@@ -39,9 +39,9 @@ function submit() {
 <template>
   <BaseLayout>
     <Head>
-      <title>Log in</title>
+      <title>{{ t("auth.login.meta.title") }}</title>
       <meta
-        content="Log in to your account"
+        :content="t('auth.login.meta.description')"
         name="description"
       />
     </Head>
@@ -56,7 +56,7 @@ function submit() {
             class="py-4 text-center"
             type="h2"
           >
-            Log in
+            {{ t("auth.login.title") }}
           </Heading>
 
           <div v-if="status">
@@ -64,7 +64,7 @@ function submit() {
           </div>
 
           <InputGroup>
-            <Label for="email">Email</Label>
+            <Label for="email">{{ t("auth.login.field.email") }}</Label>
 
             <Input
               id="email"
@@ -72,7 +72,7 @@ function submit() {
               autocomplete="email"
               autofocus
               name="email"
-              placeholder="info@example.com"
+              :placeholder="t('auth.login.field.email.placeholder')"
               required
               type="email"
             />
@@ -81,13 +81,14 @@ function submit() {
           </InputGroup>
 
           <InputGroup>
-            <Label for="password">Password</Label>
+            <Label for="password">{{ t("auth.login.field.password") }}</Label>
 
             <Input
               id="password"
               v-model="form.password"
               autocomplete="current-password"
               name="password"
+              :placeholder="t('auth.login.field.password.placeholder')"
               required
               type="password"
             />
@@ -97,7 +98,7 @@ function submit() {
 
           <Checkbox
             v-model="form.remember"
-            label="Remember me"
+            :label="t('auth.login.field.remember')"
             name="remember"
           />
 
@@ -111,15 +112,16 @@ function submit() {
                 type="submit"
                 variant="primary"
               >
-                Log in
+                {{ t("auth.login.submit") }}
               </Button>
 
               <Link
                 v-if="canResetPassword"
+                as="button"
                 class="p-2 text-center"
                 :href="route('password.request', { lang: locale })"
               >
-                Forgot your password?
+                {{ t("auth.login.forgot-pass") }}
               </Link>
             </div>
           </template>

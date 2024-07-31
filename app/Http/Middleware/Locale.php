@@ -20,20 +20,19 @@ class Locale {
 
         $segment = $request->segment(1);
 
+        $cookie = cookie('locale', $segment, strtotime('+1 year'));
+
         // Redirect to a localised path, if one is not already present.
         if (!in_array($segment, array_keys(config('app.locales')))) {
             $segments = $request->segments();
-            $fallback = session('locale') ?: config('app.fallback_locale');
+            $fallback = $request->cookie('locale') ?: config('app.fallback_locale');
             $segments = Arr::prepend($segments, $fallback);
 
-            return redirect()->to(implode('/', $segments));
+            return redirect()->to(implode('/', $segments))->withCookie($cookie);
         }
 
-        // Set the current locale in the session,
-        // so URLs without a locale will redirect back to the last used locale.
-        session(['locale' => $segment]);
         App::setLocale($segment);
 
-        return $next($request);
+        return $next($request)->withCookie($cookie);
     }
 }
