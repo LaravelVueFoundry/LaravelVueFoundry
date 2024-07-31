@@ -21,7 +21,7 @@ class Locale {
         $segment = $request->segment(1);
 
         // Redirect to a localised path, if one is not already present.
-        if (!in_array($segment, config('app.locales'))) {
+        if (!in_array($segment, array_keys(config('app.locales')))) {
             $segments = $request->segments();
             $fallback = session('locale') ?: config('app.fallback_locale');
             $segments = Arr::prepend($segments, $fallback);

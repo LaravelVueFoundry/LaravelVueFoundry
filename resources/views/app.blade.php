@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html class="h-full antialiased bg-gray-100 dark:bg-gray-950" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+    class="h-full antialiased bg-gray-100 dark:bg-gray-950"
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    dir="{{ config('app.locales')[app()->getLocale()]['dir'] ?? 'ltr' }}"
+>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

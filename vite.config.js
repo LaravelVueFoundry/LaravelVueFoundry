@@ -1,7 +1,8 @@
-import process from "node:process"
-import path from "node:path"
-import laravel from "laravel-vite-plugin"
 import vue from "@vitejs/plugin-vue"
+import laravel from "laravel-vite-plugin"
+import i18n from "laravel-vue-i18n/vite"
+import path from "node:path"
+import process from "node:process"
 import { defineConfig } from "vite"
 
 const port = 5173
@@ -26,6 +27,9 @@ export default defineConfig({
           includeAbsolute: false,
         },
       },
+    }),
+    i18n({
+      additionalLangPaths: ["public/locales"],
     }),
   ],
   server: {

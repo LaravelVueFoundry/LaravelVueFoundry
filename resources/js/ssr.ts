@@ -2,6 +2,7 @@ import { createInertiaApp } from "@inertiajs/vue3"
 import createServer from "@inertiajs/vue3/server"
 import { renderToString } from "@vue/server-renderer"
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers"
+import { i18nVue } from "laravel-vue-i18n"
 import type { DefineComponent } from "vue"
 import { createSSRApp, h } from "vue"
 import { ZiggyVue } from "ziggy-js"
@@ -27,6 +28,15 @@ createServer((page) =>
       return createSSRApp({ render: () => h(App, props) })
         .use(plugin)
         .use(ZiggyVue, Ziggy)
+        .use(i18nVue, {
+          resolve: (lang: string) => {
+            const langs = import.meta.glob<{ default: unknown }>(
+              "../../lang/*.json",
+              { eager: true },
+            )
+            return langs[`../../lang/${lang}.json`].default
+          },
+        })
     },
   }),
 )

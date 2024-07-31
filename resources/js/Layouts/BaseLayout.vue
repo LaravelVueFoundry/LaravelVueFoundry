@@ -9,7 +9,7 @@ const appName = import.meta.env.VITE_APP_NAME
 const page = usePage()
 
 const route = useRoute(page.props.ziggy)
-const { locale } = useLocale()
+const { locale, t } = useLocale()
 
 const linksPrimary: InstanceType<typeof Header>["$props"]["linksPrimary"] = []
 
@@ -21,19 +21,19 @@ const linksSecondary = computed<
   if (page.props.auth.user) {
     result.push({
       icon: "mdi:graph-line",
-      title: "Dashboard",
+      title: t("menu.dashboard"),
       href: route("dashboard", { lang: locale }),
     })
 
     result.push({
       icon: "mdi:account",
-      title: "Profile",
+      title: t("menu.profile"),
       href: route("profile.edit", { lang: locale }),
     })
 
     result.push({
       icon: "mdi:logout",
-      title: "Log out",
+      title: t("menu.logout"),
       href: route("logout", { lang: locale }),
     })
 
@@ -41,13 +41,13 @@ const linksSecondary = computed<
   }
   result.push({
     icon: "mdi:login",
-    title: "Log in",
+    title: t("menu.login"),
     href: route("login", { lang: locale }),
   })
 
   result.push({
     icon: "mdi:register",
-    title: "Register",
+    title: t("menu.register"),
     href: route("register", { lang: locale }),
   })
 
