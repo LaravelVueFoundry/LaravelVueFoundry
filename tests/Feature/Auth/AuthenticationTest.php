@@ -48,7 +48,7 @@ class AuthenticationTest extends TestCase {
         /** @var User */
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->get(route('logout', ['lang' => 'en']));
+        $response = $this->actingAs($user)->post(route('logout', ['lang' => 'en']));
 
         $this->assertGuest();
         $response->assertRedirect(route('home', ['lang' => 'en']));
