@@ -1,14 +1,16 @@
+import Img from "@/stories/assets/test-20x20.jpg"
 import type { Meta, StoryObj } from "@storybook/vue3"
 import type { ComponentProps } from "vue-component-type-helpers"
 import Component, { type Item } from "./Dropdown.vue"
 
 type Props = ComponentProps<typeof Component>
 
-function genOptions(num: number): Item[] {
+function genOptions(num: number, prefix?: Item["prefix"]): Item[] {
   const options = []
 
   for (let i = 0; i < num; i++) {
     options.push({
+      prefix,
       key: `item_${i}`,
       value: `Item ${i + 1}`,
     } satisfies Item)
@@ -24,6 +26,7 @@ const meta: Meta<Props> = {
   args: {
     disabled: false,
     placeholder: "Placeholder...",
+    required: false,
   },
 }
 
@@ -32,6 +35,24 @@ type Story = StoryObj<Props>
 
 export const Default: Story = { args: { items: genOptions(3) } }
 export const ManyItems: Story = { args: { items: genOptions(100) } }
+
+export const Icons: Story = {
+  args: {
+    items: genOptions(100, {
+      type: "icon",
+      value: "mdi:account",
+    }),
+  },
+}
+
+export const Images: Story = {
+  args: {
+    items: genOptions(100, {
+      type: "image",
+      value: Img,
+    }),
+  },
+}
 
 export const ScrollingPage: Story = {
   args: {

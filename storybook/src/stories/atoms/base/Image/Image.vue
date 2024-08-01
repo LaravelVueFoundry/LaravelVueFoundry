@@ -74,7 +74,7 @@ function onImgLoadError() {
     v-else
     :class="
       twMerge(
-        'flex h-auto max-w-full bg-gray-200 p-8 dark:bg-gray-900',
+        'flex h-auto max-w-full bg-gray-200 dark:bg-gray-900',
         props.class,
       )
     "

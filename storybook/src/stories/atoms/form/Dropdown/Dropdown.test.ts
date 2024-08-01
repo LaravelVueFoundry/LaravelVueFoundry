@@ -1,12 +1,14 @@
+import Img from "@/stories/assets/test-20x20.jpg"
 import { flushPromises, mount } from "@vue/test-utils"
 import { describe, expect, it } from "vitest"
 import Component, { Item } from "./Dropdown.vue"
 
-function genOptions(num: number): Item[] {
+function genOptions(num: number, prefix?: Item["prefix"]): Item[] {
   const options = []
 
   for (let i = 0; i < num; i++) {
     options.push({
+      prefix,
       key: `item_${i}`,
       value: `Item ${i + 1}`,
     } satisfies Item)
@@ -75,9 +77,7 @@ describe("dropdown", () => {
 
   it("can be opened", async () => {
     const wrapper = mount(Component, {
-      props: {
-        items: genOptions(3),
-      },
+      props: {},
       attachTo: document.body,
       ...global,
     })
@@ -88,6 +88,47 @@ describe("dropdown", () => {
     await flushPromises()
 
     expect(wrapper.find('[data-test-id="dropdown-list"]').exists()).toBe(true)
+  })
+
+  it("can be required", async () => {
+    const wrapper = mount(Component, {
+      props: {
+        items: genOptions(3),
+        required: true,
+      },
+      attachTo: document.body,
+      ...global,
+    })
+
+    wrapper
+      .get('[data-test-id="dropdown"]')
+      .element.dispatchEvent(new Event("mousedown"))
+    await flushPromises()
+
+    expect(
+      wrapper.findAll('[data-test-id="dropdown-list-item"]')[0].text(),
+    ).toBe("Item 1")
+  })
+
+  it("can be optional", async () => {
+    const wrapper = mount(Component, {
+      props: {
+        placeholder: "Placeholder",
+        items: genOptions(3),
+        required: false,
+      },
+      attachTo: document.body,
+      ...global,
+    })
+
+    wrapper
+      .get('[data-test-id="dropdown"]')
+      .element.dispatchEvent(new Event("mousedown"))
+    await flushPromises()
+
+    expect(
+      wrapper.findAll('[data-test-id="dropdown-list-item"]')[0].text(),
+    ).toBe("Placeholder")
   })
 
   it("can be opened by pressing space", async () => {
@@ -251,7 +292,7 @@ describe("dropdown", () => {
 
     wrapper.vm.selectItem(
       new Event(""),
-      wrapper.findAll('[data-test-id="dropdown-list-item"]')[0].attributes()
+      wrapper.findAll('[data-test-id="dropdown-list-item"]')[1].attributes()
         .value as unknown as Item,
     )
     await flushPromises()
@@ -265,7 +306,7 @@ describe("dropdown", () => {
     await flushPromises()
 
     await wrapper
-      .findAll('[data-test-id="dropdown-list-item"]')[1]
+      .findAll('[data-test-id="dropdown-list-item"]')[2]
       .trigger("keydown", { key: "Space" })
 
     expect(wrapper.find('[data-test-id="dropdown"]').text()).toBe("Item 2")
@@ -276,10 +317,60 @@ describe("dropdown", () => {
     await flushPromises()
 
     wrapper
-      .findAll('[data-test-id="dropdown-list-item"]')[2]
+      .findAll('[data-test-id="dropdown-list-item"]')[3]
       .element.dispatchEvent(new MouseEvent("click"))
     await flushPromises()
 
     expect(wrapper.find('[data-test-id="dropdown"]').text()).toBe("Item 3")
+  })
+
+  it("can have icons", async () => {
+    const wrapper = mount(Component, {
+      props: {
+        items: genOptions(3, {
+          type: "icon",
+          value: "mdi:account",
+        }),
+      },
+      attachTo: document.body,
+      ...global,
+    })
+
+    wrapper
+      .get('[data-test-id="dropdown"]')
+      .element.dispatchEvent(new Event("mousedown"))
+    await flushPromises()
+
+    expect(
+      wrapper
+        .findAll('[data-test-id="dropdown-list-item"]')[1]
+        .find('[data-test-id="dropdown-list-icon"]')
+        .exists(),
+    ).toBe(true)
+  })
+
+  it("can have images", async () => {
+    const wrapper = mount(Component, {
+      props: {
+        items: genOptions(3, {
+          type: "image",
+          value: Img,
+        }),
+      },
+      attachTo: document.body,
+      ...global,
+    })
+
+    wrapper
+      .get('[data-test-id="dropdown"]')
+      .element.dispatchEvent(new Event("mousedown"))
+    await flushPromises()
+
+    expect(
+      wrapper
+        .findAll('[data-test-id="dropdown-list-item"]')[1]
+        .find('[data-test-id="dropdown-list-image"]')
+        .exists(),
+    ).toBe(true)
   })
 })
