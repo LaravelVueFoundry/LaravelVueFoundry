@@ -15,7 +15,7 @@ import { Container, Heading } from "@local/ui"
     </Head>
 
     <Container class="flex flex-col gap-4">
-      <Heading type="h2"> Home </Heading>
+      <Heading type="h2">Home</Heading>
 
       <p>Homepage</p>
     </Container>

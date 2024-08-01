@@ -17,11 +17,13 @@ const props = withDefaults(
       icon?: string
       title: string
       href: string
+      method?: "get" | "post"
     }[]
     linksSecondary?: {
       icon?: string
       title: string
       href: string
+      method?: "get" | "post"
     }[]
   }>(),
   {
@@ -145,8 +147,10 @@ defineExpose({ openMobileMenu, closeMobileMenu })
             :key="`${link.title}${link.href}`"
           >
             <Link
+              :as="link.method === 'post' ? 'button' : undefined"
               class="flex items-center gap-1 lg:gap-2"
               :href="link.href"
+              :method="link.method"
             >
               <Icon
                 v-if="link.icon"
@@ -165,8 +169,10 @@ defineExpose({ openMobileMenu, closeMobileMenu })
             :key="`${link.title}${link.href}`"
           >
             <Link
+              :as="link.method === 'post' ? 'button' : undefined"
               class="flex items-center gap-1 lg:gap-2"
               :href="link.href"
+              :method="link.method"
             >
               <Icon
                 v-if="link.icon"

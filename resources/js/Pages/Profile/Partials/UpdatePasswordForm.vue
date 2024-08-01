@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLocale } from "@/composables/useLocale"
 import { useForm } from "@inertiajs/vue3"
 import {
   Button,
@@ -13,6 +14,7 @@ import {
 } from "@local/ui"
 import { ref } from "vue"
 
+const { locale, t } = useLocale()
 const toastStore = useToast()
 
 const passwordInput = ref<HTMLInputElement | null>(null)
@@ -25,17 +27,18 @@ const form = useForm({
 })
 
 function updatePassword() {
-  form.put(route("password.update"), {
+  form.put(route("password.update", { lang: locale }), {
     preserveScroll: true,
     onSuccess: () => {
       form.reset()
-      toastStore.success("Your password has been updated")
+      toastStore.success(t("profile.update-pass.submit.success"))
     },
     onError: () => {
       if (form.errors.password) {
         form.reset("password", "password_confirmation")
         passwordInput.value?.focus()
       }
+
       if (form.errors.current_password) {
         form.reset("current_password")
         currentPasswordInput.value?.focus()
@@ -52,15 +55,17 @@ function updatePassword() {
         class="py-4 text-center"
         type="h2"
       >
-        Update Password
+        {{ t("profile.update-pass.title") }}
       </Heading>
 
       <p>
-        Ensure your account is using a long, random password to stay secure.
+        {{ t("profile.update-pass.intro") }}
       </p>
 
       <InputGroup>
-        <Label for="current_password">Current Password</Label>
+        <Label for="current_password">
+          {{ t("profile.update-pass.field.pass-current") }}
+        </Label>
 
         <Input
           id="current_password"
@@ -68,6 +73,7 @@ function updatePassword() {
           v-model="form.current_password"
           autocomplete="current-password"
           name="password"
+          :placeholder="t('profile.update-pass.field.pass-current.placeholder')"
           type="password"
         />
 
@@ -75,7 +81,9 @@ function updatePassword() {
       </InputGroup>
 
       <InputGroup>
-        <Label for="password">New Password</Label>
+        <Label for="password">
+          {{ t("profile.update-pass.field.pass-new") }}
+        </Label>
 
         <Input
           id="password"
@@ -83,6 +91,7 @@ function updatePassword() {
           v-model="form.password"
           autocomplete="new-password"
           name="new-password"
+          :placeholder="t('profile.update-pass.field.pass-new.placeholder')"
           type="password"
         />
 
@@ -95,13 +104,16 @@ function updatePassword() {
       </InputGroup>
 
       <InputGroup>
-        <Label for="password_confirmation">Confirm Password</Label>
+        <Label for="password_confirmation">
+          {{ t("profile.update-pass.field.pass-confirm") }}
+        </Label>
 
         <Input
           id="password_confirmation"
           v-model="form.password_confirmation"
-          autocomplete="new-password"
-          name="new-password"
+          autocomplete="password-confirm"
+          name="password-confirm"
+          :placeholder="t('profile.update-pass.field.pass-confirm.placeholder')"
           type="password"
         />
 
@@ -115,7 +127,7 @@ function updatePassword() {
             :loading="form.processing"
             variant="primary"
           >
-            Save
+            {{ t("profile.update-pass.submit") }}
           </Button>
         </div>
       </template>

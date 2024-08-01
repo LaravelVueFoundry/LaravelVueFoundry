@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLocale } from "@/composables/useLocale"
 import BaseLayout from "@/Layouts/BaseLayout.vue"
 import { Head } from "@inertiajs/vue3"
 import { Container } from "@local/ui"
@@ -10,13 +11,15 @@ defineProps<{
   mustVerifyEmail?: boolean
   status?: string
 }>()
+
+const { t } = useLocale()
 </script>
 
 <template>
   <Head>
-    <title>Profile</title>
+    <title>{{ t("profile.edit.meta.title") }}</title>
     <meta
-      content="Edit your user profile"
+      :content="t('profile.edit.meta.description')"
       name="description"
     />
   </Head>

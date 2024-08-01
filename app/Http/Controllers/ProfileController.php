@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
@@ -34,7 +36,9 @@ class ProfileController extends Controller {
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit');
+        $locale = $request->getLocale();
+
+        return Redirect::route('profile.edit', ['lang' => $locale]);
     }
 
     /**
@@ -54,6 +58,8 @@ class ProfileController extends Controller {
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        $locale = $request->getLocale();
+
+        return Redirect::route('home', ['lang' => $locale]);
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
 
@@ -33,6 +36,9 @@ class HandleInertiaRequests extends Middleware {
                 return [
                     'user' => $request->user(),
                 ];
+            },
+            'locale' => function () {
+                return App::getLocale();
             },
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy())->toArray(), [

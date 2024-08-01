@@ -3,6 +3,7 @@ import "./bootstrap"
 
 import { createInertiaApp } from "@inertiajs/vue3"
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers"
+import { i18nVue } from "laravel-vue-i18n"
 import type { DefineComponent } from "vue"
 import { createApp, h } from "vue"
 import { ZiggyVue } from "../../vendor/tightenco/ziggy"
@@ -20,6 +21,15 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(ZiggyVue)
+      .use(i18nVue, {
+        resolve: (lang: string) => {
+          const langs = import.meta.glob<{ default: unknown }>(
+            "../../lang/*.json",
+            { eager: true },
+          )
+          return langs[`../../lang/${lang}.json`].default
+        },
+      })
       .mount(el)
   },
   progress: {
