@@ -5,6 +5,8 @@ import { Footer, Header, ToastContainer } from "@local/ui"
 import { computed } from "vue"
 import { useRoute } from "ziggy-js"
 
+type Method = "get" | "post"
+
 const appName = import.meta.env.VITE_APP_NAME
 const page = usePage()
 
@@ -35,6 +37,7 @@ const linksSecondary = computed<
       icon: "mdi:logout",
       title: t("menu.logout"),
       href: route("logout", { lang: locale }),
+      method: "post" as Method,
     })
 
     return result

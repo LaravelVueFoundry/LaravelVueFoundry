@@ -13,9 +13,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->priority([
+            App\Http\Middleware\Locale::class,
+        ]);
+
         $middleware->web(append: [
             App\Http\Middleware\HandleInertiaRequests::class,
             Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
+        ], replace: [
+            Illuminate\Cookie\Middleware\EncryptCookies::class => App\Http\Middleware\EncryptCookies::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) { })->create();

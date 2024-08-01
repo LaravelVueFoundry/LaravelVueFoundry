@@ -40,7 +40,7 @@ Route::prefix('{lang?}')->middleware(Locale::class)->group(function () {
             ->name('password.store');
     });
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'auth.session'])->group(function () {
         Route::get('verify-email', EmailVerificationPromptController::class)
             ->name('verification.notice');
 
@@ -59,7 +59,7 @@ Route::prefix('{lang?}')->middleware(Locale::class)->group(function () {
 
         Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-        Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
+        Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
             ->name('logout');
     });
 });
