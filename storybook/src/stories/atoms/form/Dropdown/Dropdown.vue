@@ -1,12 +1,17 @@
 <script setup lang="ts">
+import Image from "@/stories/atoms/base/Image/Image.vue"
 import { Icon } from "@iconify/vue"
 import { onClickOutside, onKeyDown, useElementBounding } from "@vueuse/core"
 import { useFocusTrap } from "@vueuse/integrations/useFocusTrap"
 import { twMerge } from "tailwind-merge"
-import { ref, watch, type HTMLAttributes } from "vue"
+import { computed, ref, watch, type HTMLAttributes } from "vue"
 
 export interface Item {
-  key: number | string
+  prefix?: {
+    type: "icon" | "image"
+    value: string
+  }
+  key?: number | string
   value: string
 }
 
@@ -17,6 +22,7 @@ const props = withDefaults(
     disabled?: boolean
     placeholder?: string
     items?: Item[]
+    required?: boolean
   }>(),
   {
     wrapperClass: undefined,
@@ -42,6 +48,19 @@ const { activate: ftActivate, deactivate: ftDeactivate } = useFocusTrap(
     allowOutsideClick: true,
   },
 )
+
+const items = computed(() => {
+  if (!props.items) return
+  if (props.required) return props.items
+
+  return [
+    {
+      key: undefined,
+      value: props.placeholder,
+    },
+    ...props.items,
+  ]
+})
 
 watch(
   () => props.disabled,
@@ -127,7 +146,19 @@ defineExpose({ open, close, toggle, selectItem })
       @keydown.space="() => !props.disabled && toggle()"
       @mousedown="() => !props.disabled && toggle()"
     >
-      <template v-if="selectedItem">{{ selectedItem.value }}</template>
+      <span
+        v-if="selectedItem"
+        class="flex items-center gap-3"
+      >
+        <Icon
+          v-if="selectedItem.prefix && selectedItem.prefix.type === 'icon'"
+          class="size-5"
+          :icon="selectedItem.prefix?.value"
+          ssr
+        />
+
+        {{ selectedItem.value }}
+      </span>
       <template v-else-if="props.placeholder">
         <span class="text-gray-700 dark:text-gray-400">
           {{ props.placeholder }}
@@ -170,7 +201,7 @@ defineExpose({ open, close, toggle, selectItem })
             <div
               v-for="item of items"
               :key="item.key"
-              class="px-4 py-3 -outline-offset-1 transition-[background-color,box-shadow] first:rounded-t-xl last:rounded-b-xl hover:bg-gray-100 focus:bg-gray-100 active:shadow-inner dark:hover:bg-gray-800 dark:focus:bg-gray-800"
+              class="flex items-center gap-3 px-4 py-3 -outline-offset-1 transition-[background-color,box-shadow] first:rounded-t-xl last:rounded-b-xl hover:bg-gray-100 focus:bg-gray-100 active:shadow-inner dark:hover:bg-gray-800 dark:focus:bg-gray-800"
               data-test-id="dropdown-list-item"
               role="button"
               tabindex="0"
@@ -179,6 +210,24 @@ defineExpose({ open, close, toggle, selectItem })
               @keydown.enter="(e) => selectItem(e, item)"
               @keydown.space="(e) => selectItem(e, item)"
             >
+              <Icon
+                v-if="item.prefix && item.prefix.type === 'icon'"
+                class="size-5"
+                data-test-id="dropdown-list-icon"
+                :icon="item.prefix?.value"
+                ssr
+              />
+
+              <Image
+                v-if="item.prefix && item.prefix.type === 'image'"
+                alt=""
+                class="size-5"
+                data-test-id="dropdown-list-image"
+                :height="20"
+                :src="item.prefix.value"
+                :width="20"
+              />
+
               {{ item.value }}
             </div>
           </div>
