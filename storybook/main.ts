@@ -12,7 +12,10 @@ export { default as Well } from "./src/stories/atoms/container/Well/Well.vue"
 
 export { default as Button } from "./src/stories/atoms/form/Button/Button.vue"
 export { default as Checkbox } from "./src/stories/atoms/form/Checkbox/Checkbox.vue"
-export { default as Dropdown } from "./src/stories/atoms/form/Dropdown/Dropdown.vue"
+export {
+  default as Dropdown,
+  type DropdownItem,
+} from "./src/stories/atoms/form/Dropdown/Dropdown.vue"
 export { default as FileUpload } from "./src/stories/atoms/form/FileUpload/FileUpload.vue"
 export { default as Input } from "./src/stories/atoms/form/Input/Input.vue"
 export { default as InputError } from "./src/stories/atoms/form/InputError/InputError.vue"

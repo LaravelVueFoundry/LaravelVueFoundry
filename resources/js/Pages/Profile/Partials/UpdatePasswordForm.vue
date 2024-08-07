@@ -31,7 +31,7 @@ function updatePassword() {
     preserveScroll: true,
     onSuccess: () => {
       form.reset()
-      toastStore.success(t("profile.update-pass.submit.success"))
+      toastStore.success(t("profile.update-pass.submit.success").value)
     },
     onError: () => {
       if (form.errors.password) {
@@ -73,7 +73,9 @@ function updatePassword() {
           v-model="form.current_password"
           autocomplete="current-password"
           name="password"
-          :placeholder="t('profile.update-pass.field.pass-current.placeholder')"
+          :placeholder="
+            t('profile.update-pass.field.pass-current.placeholder').value
+          "
           type="password"
         />
 
@@ -91,7 +93,9 @@ function updatePassword() {
           v-model="form.password"
           autocomplete="new-password"
           name="new-password"
-          :placeholder="t('profile.update-pass.field.pass-new.placeholder')"
+          :placeholder="
+            t('profile.update-pass.field.pass-new.placeholder').value
+          "
           type="password"
         />
 
@@ -113,7 +117,9 @@ function updatePassword() {
           v-model="form.password_confirmation"
           autocomplete="password-confirm"
           name="password-confirm"
-          :placeholder="t('profile.update-pass.field.pass-confirm.placeholder')"
+          :placeholder="
+            t('profile.update-pass.field.pass-confirm.placeholder').value
+          "
           type="password"
         />
 

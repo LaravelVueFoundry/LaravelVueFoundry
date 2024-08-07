@@ -1,11 +1,14 @@
 import Img from "@/stories/assets/test-20x20.jpg"
 import type { Meta, StoryObj } from "@storybook/vue3"
 import type { ComponentProps } from "vue-component-type-helpers"
-import Component, { type Item } from "./Dropdown.vue"
+import Component, { type DropdownItem } from "./Dropdown.vue"
 
 type Props = ComponentProps<typeof Component>
 
-function genOptions(num: number, prefix?: Item["prefix"]): Item[] {
+function genOptions(
+  num: number,
+  prefix?: DropdownItem["prefix"],
+): DropdownItem[] {
   const options = []
 
   for (let i = 0; i < num; i++) {
@@ -13,7 +16,7 @@ function genOptions(num: number, prefix?: Item["prefix"]): Item[] {
       prefix,
       key: `item_${i}`,
       value: `Item ${i + 1}`,
-    } satisfies Item)
+    } satisfies DropdownItem)
   }
 
   return options
@@ -27,6 +30,14 @@ const meta: Meta<Props> = {
     disabled: false,
     placeholder: "Placeholder...",
     required: false,
+  },
+  argTypes: {
+    direction: {
+      control: {
+        type: "inline-radio",
+      },
+      options: ["down", "up"],
+    },
   },
 }
 
@@ -65,6 +76,22 @@ export const ScrollingPage: Story = {
         return { args }
       },
       template: `<div class="h-screen" /><Component v-bind="args" /><div class="h-screen" />`,
+    }
+  },
+}
+
+export const Dropup: Story = {
+  args: {
+    direction: "up",
+    items: genOptions(100),
+  },
+  render: (args) => {
+    return {
+      components: { Component },
+      setup() {
+        return { args }
+      },
+      template: `<div class="h-[calc(100vh-2rem)] flex flex-col-reverse"><Component v-bind="args" /></div>`,
     }
   },
 }

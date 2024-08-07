@@ -1,9 +1,12 @@
 import Img from "@/stories/assets/test-20x20.jpg"
 import { flushPromises, mount } from "@vue/test-utils"
 import { describe, expect, it } from "vitest"
-import Component, { Item } from "./Dropdown.vue"
+import Component, { type DropdownItem } from "./Dropdown.vue"
 
-function genOptions(num: number, prefix?: Item["prefix"]): Item[] {
+function genOptions(
+  num: number,
+  prefix?: DropdownItem["prefix"],
+): DropdownItem[] {
   const options = []
 
   for (let i = 0; i < num; i++) {
@@ -11,7 +14,7 @@ function genOptions(num: number, prefix?: Item["prefix"]): Item[] {
       prefix,
       key: `item_${i}`,
       value: `Item ${i + 1}`,
-    } satisfies Item)
+    } satisfies DropdownItem)
   }
 
   return options
@@ -293,7 +296,7 @@ describe("dropdown", () => {
     wrapper.vm.selectItem(
       new Event(""),
       wrapper.findAll('[data-test-id="dropdown-list-item"]')[1].attributes()
-        .value as unknown as Item,
+        .value as unknown as DropdownItem,
     )
     await flushPromises()
 

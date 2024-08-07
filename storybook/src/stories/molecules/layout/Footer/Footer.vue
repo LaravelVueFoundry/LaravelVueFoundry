@@ -46,7 +46,10 @@ const props = withDefaults(
             {{ props.siteName }}
           </Link>
 
-          <div class="flex flex-wrap items-center gap-16 max-sm:justify-evenly">
+          <div
+            v-if="props.menus"
+            class="flex flex-wrap items-center gap-16 max-sm:justify-evenly"
+          >
             <div
               v-for="(menu, index) of props.menus"
               :key="index"
@@ -85,6 +88,8 @@ const props = withDefaults(
           </p>
 
           <div class="flex items-center gap-4">
+            <slot />
+
             <a
               v-for="(social, index) of props.socials"
               :key="`${index}${social.title}${social.href}`"

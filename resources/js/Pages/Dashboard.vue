@@ -12,7 +12,7 @@ const { t } = useLocale()
   <Head>
     <title>{{ t("profile.meta.title") }}</title>
     <meta
-      :content="t('profile.meta.description')"
+      :content="t('profile.meta.description').value"
       name="description"
     />
   </Head>

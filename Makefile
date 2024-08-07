@@ -1,4 +1,4 @@
-.PHONY: install build dev storybook lint test test-storybook
+.PHONY: install build dev storybook lint test start test-storybook
 
 export PATH := $(PATH)
 
@@ -25,6 +25,9 @@ lint: _pnpm
 
 test:
 	@ddev test
+
+start:
+	@ddev pnpm start
 
 test-storybook: _pnpm
 	@cd storybook && pnpm test

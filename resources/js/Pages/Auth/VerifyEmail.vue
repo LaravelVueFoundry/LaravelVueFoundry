@@ -28,7 +28,7 @@ const verificationLinkSent = computed(
         {{ t("auth.verify.meta.title") }}
       </title>
       <meta
-        :content="t('auth.verify.meta.description')"
+        :content="t('auth.verify.meta.description').value"
         name="description"
       />
     </Head>

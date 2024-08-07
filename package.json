@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build && vite build --ssr",
     "lint": "eslint . && prettier . --check",
-    "lint:fix": "eslint . --fix && prettier . --write"
+    "lint:fix": "eslint . --fix && prettier . --write",
+    "start": "node bootstrap/ssr/ssr.js"
   },
   "dependencies": {
     "@local/ui": "link:storybook",

@@ -6,7 +6,7 @@ import { useFocusTrap } from "@vueuse/integrations/useFocusTrap"
 import { twMerge } from "tailwind-merge"
 import { computed, ref, watch, type HTMLAttributes } from "vue"
 
-export interface Item {
+export interface DropdownItem {
   prefix?: {
     type: "icon" | "image"
     value: string
@@ -19,28 +19,35 @@ const props = withDefaults(
   defineProps<{
     wrapperClass?: HTMLAttributes["class"]
     class?: HTMLAttributes["class"]
+    default?: number | string
     disabled?: boolean
+    direction?: "down" | "up"
     placeholder?: string
-    items?: Item[]
+    items?: DropdownItem[]
     required?: boolean
   }>(),
   {
     wrapperClass: undefined,
     class: undefined,
+    default: undefined,
+    direction: "down",
     placeholder: "",
     items: undefined,
   },
 )
 
 const dropdownWrapperRef = ref<HTMLElement | null>(null)
+const dropdownRef = ref<HTMLElement | null>(null)
 const dropdownListRef = ref<HTMLElement | null>(null)
 const dropdownListInnerRef = ref<HTMLElement | null>(null)
 
-const { height: listHeight, y: listY } =
-  useElementBounding(dropdownListInnerRef)
+const { y: listY } = useElementBounding(dropdownRef)
+const { height: listHeight } = useElementBounding(dropdownListRef)
 
 const isOpen = ref(false)
-const selectedItem = ref<Item | undefined>(undefined)
+const selectedItem = ref<DropdownItem | undefined>(
+  props.items?.find((item) => item.key === props.default),
+)
 
 const { activate: ftActivate, deactivate: ftDeactivate } = useFocusTrap(
   dropdownWrapperRef,
@@ -91,9 +98,10 @@ function toggle() {
 
 onClickOutside(dropdownWrapperRef, close)
 
-function selectItem(e: Event, item: Item | string | number) {
+function selectItem(e: Event, item: DropdownItem | string | number) {
   close()
   emit("change", e)
+  emit("selectItem", item)
 
   if (typeof item === "object" && "key" in item) {
     selectedItem.value = item
@@ -132,6 +140,7 @@ defineExpose({ open, close, toggle, selectItem })
     :class="twMerge('relative', props.wrapperClass)"
   >
     <fieldset
+      ref="dropdownRef"
       :class="
         twMerge(
           'flex select-none items-center justify-between gap-4 rounded-xl border bg-white px-4 py-3 transition-shadow disabled:bg-gray-100 disabled:text-gray-400 dark:border-gray-700 dark:bg-gray-950 dark:disabled:bg-gray-700',
@@ -168,7 +177,11 @@ defineExpose({ open, close, toggle, selectItem })
 
       <Icon
         :class="
-          twMerge('size-5 transition-transform', isOpen && '-scale-y-100')
+          twMerge(
+            'size-5 transition-transform',
+            isOpen && '-scale-y-100',
+            direction === 'up' && 'rotate-180',
+          )
         "
         icon="mdi:keyboard-arrow-down"
         ssr
@@ -184,18 +197,25 @@ defineExpose({ open, close, toggle, selectItem })
       <div
         v-if="isOpen"
         ref="dropdownListInnerRef"
-        class="absolute end-0 start-0 top-14"
+        :class="
+          twMerge(
+            'absolute end-0 start-0',
+            direction === 'up' && listY - 16 > listHeight && 'bottom-14',
+            direction === 'up' && listY - 16 <= listHeight && 'top-0',
+            direction === 'down' &&
+              listY + (dropdownRef?.offsetHeight || 0) + 16 <= listHeight &&
+              'top-14',
+            direction === 'down' &&
+              !dropdownListInnerRef?.classList.contains('top-14') &&
+              listY + (dropdownRef?.offsetHeight || 0) + 16 > listHeight &&
+              'bottom-0',
+          )
+        "
         data-test-id="dropdown-list"
       >
         <div
           ref="dropdownListRef"
           class="overflow-hidden rounded-xl border bg-white shadow-md dark:border-gray-800 dark:bg-gray-900"
-          :style="{
-            transform:
-              listY + 16 > listHeight
-                ? `translateY(-${listY - listHeight + 16}px)`
-                : undefined,
-          }"
         >
           <div class="max-h-[50vh] overflow-auto">
             <div
