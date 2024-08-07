@@ -28,7 +28,7 @@ const languages = computed(() => {
           value: `circle-flags:${locale}`,
         },
         key: locale,
-        value: t(`locale.name.${locale}`),
+        value: t(`locale.name.${locale}`).value,
       }) satisfies DropdownItem,
   )
 })

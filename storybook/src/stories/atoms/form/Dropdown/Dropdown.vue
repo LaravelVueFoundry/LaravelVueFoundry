@@ -4,7 +4,7 @@ import { Icon } from "@iconify/vue"
 import { onClickOutside, onKeyDown, useElementBounding } from "@vueuse/core"
 import { useFocusTrap } from "@vueuse/integrations/useFocusTrap"
 import { twMerge } from "tailwind-merge"
-import { computed, ComputedRef, ref, watch, type HTMLAttributes } from "vue"
+import { computed, ref, watch, type HTMLAttributes } from "vue"
 
 export interface DropdownItem {
   prefix?: {
@@ -12,7 +12,7 @@ export interface DropdownItem {
     value: string
   }
   key?: number | string
-  value: string | ComputedRef
+  value: string
 }
 
 const props = withDefaults(
