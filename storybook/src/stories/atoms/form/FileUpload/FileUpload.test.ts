@@ -36,8 +36,8 @@ describe("fileUpload", () => {
     const wrapper = mount(Component)
 
     ;(wrapper.vm as unknown as { pickFile: () => void }).pickFile()
-    await wrapper.get('[data-test-id="file-upload-wrapper"]').trigger("click"),
-      await flushPromises()
+    await wrapper.get('[data-test-id="file-upload-wrapper"]').trigger("click")
+    await flushPromises()
   })
 
   it("can have a file selected", async () => {

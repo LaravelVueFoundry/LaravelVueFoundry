@@ -86,7 +86,12 @@ function close() {
 }
 
 function toggle() {
-  isOpen.value ? close() : open()
+  if (isOpen.value) {
+    close()
+    return
+  }
+
+  open()
 }
 
 onClickOutside(dropdownWrapperRef, close)
