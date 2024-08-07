@@ -67,7 +67,9 @@ function submit() {
               autocomplete="current-password"
               autofocus
               name="password"
-              :placeholder="t('auth.confirm-pass.field.password.placeholder')"
+              :placeholder="
+                t('auth.confirm-pass.field.password.placeholder').value
+              "
               required
               type="password"
             />

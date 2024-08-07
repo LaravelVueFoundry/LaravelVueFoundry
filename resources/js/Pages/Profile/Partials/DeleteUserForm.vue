@@ -101,7 +101,9 @@ function closeModal() {
             ref="passwordInput"
             v-model="form.password"
             name="password"
-            :placeholder="t('profile.delete.modal.field.password.placeholder')"
+            :placeholder="
+              t('profile.delete.modal.field.password.placeholder').value
+            "
             required
             type="password"
             @keyup.enter="deleteUser"

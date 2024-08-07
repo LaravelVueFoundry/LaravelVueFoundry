@@ -6,7 +6,7 @@ import { Link } from "@inertiajs/vue3"
 import { useElementSize, useWindowScroll, useWindowSize } from "@vueuse/core"
 import { useFocusTrap } from "@vueuse/integrations/useFocusTrap"
 import { twMerge } from "tailwind-merge"
-import { type HTMLAttributes, computed, nextTick, ref } from "vue"
+import { ComputedRef, type HTMLAttributes, computed, nextTick, ref } from "vue"
 
 const props = withDefaults(
   defineProps<{
@@ -15,7 +15,7 @@ const props = withDefaults(
     homePath?: string
     linksPrimary?: {
       icon?: string
-      title: string
+      title: string | ComputedRef
       href: string
       method?: "get" | "post"
     }[]

@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { useLocale } from "@/composables/useLocale"
 import { usePage } from "@inertiajs/vue3"
-import { Footer, Header, ToastContainer } from "@local/ui"
+import {
+  Dropdown,
+  Footer,
+  Header,
+  ToastContainer,
+  type DropdownItem,
+} from "@local/ui"
 import { computed } from "vue"
 import { useRoute } from "ziggy-js"
 
@@ -11,7 +17,21 @@ const appName = import.meta.env.VITE_APP_NAME
 const page = usePage()
 
 const route = useRoute(page.props.ziggy)
-const { locale, t } = useLocale()
+const { locale, setLocale, t } = useLocale()
+
+const languages = computed(() => {
+  return (page.props.locales as string[]).map(
+    (locale) =>
+      ({
+        prefix: {
+          type: "icon",
+          value: `circle-flags:${locale}`,
+        },
+        key: locale,
+        value: t(`locale.name.${locale}`),
+      }) satisfies DropdownItem,
+  )
+})
 
 const linksPrimary: InstanceType<typeof Header>["$props"]["linksPrimary"] = []
 
@@ -23,19 +43,19 @@ const linksSecondary = computed<
   if (page.props.auth.user) {
     result.push({
       icon: "mdi:graph-line",
-      title: t("menu.dashboard"),
+      title: t("menu.dashboard").value,
       href: route("dashboard", { lang: locale }),
     })
 
     result.push({
       icon: "mdi:account",
-      title: t("menu.profile"),
+      title: t("menu.profile").value,
       href: route("profile.edit", { lang: locale }),
     })
 
     result.push({
       icon: "mdi:logout",
-      title: t("menu.logout"),
+      title: t("menu.logout").value,
       href: route("logout", { lang: locale }),
       method: "post" as Method,
     })
@@ -44,13 +64,13 @@ const linksSecondary = computed<
   }
   result.push({
     icon: "mdi:login",
-    title: t("menu.login"),
+    title: t("menu.login").value,
     href: route("login", { lang: locale }),
   })
 
   result.push({
     icon: "mdi:register",
-    title: t("menu.register"),
+    title: t("menu.register").value,
     href: route("register", { lang: locale }),
   })
 
@@ -64,6 +84,12 @@ const socials = [
     href: "https://github.com/LaravelVueFoundry/LaravelVueFoundry",
   },
 ]
+
+async function setLanguage(item: DropdownItem) {
+  if (item.key === locale) return
+
+  await setLocale(item.key?.toString() ?? "")
+}
 </script>
 
 <template>
@@ -85,7 +111,16 @@ const socials = [
     :home-path="route('home', { lang: locale })"
     :site-name="appName"
     :socials="socials"
-  />
+  >
+    <Dropdown
+      class="shrink-0"
+      :default="locale"
+      direction="up"
+      :items="languages"
+      required
+      @select-item="async (item) => await setLanguage(item)"
+    />
+  </Footer>
 
   <ToastContainer />
 </template>

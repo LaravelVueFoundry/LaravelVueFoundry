@@ -41,7 +41,7 @@ function submit() {
     <Head>
       <title>{{ t("auth.login.meta.title") }}</title>
       <meta
-        :content="t('auth.login.meta.description')"
+        :content="t('auth.login.meta.description').value"
         name="description"
       />
     </Head>
@@ -72,7 +72,7 @@ function submit() {
               autocomplete="email"
               autofocus
               name="email"
-              :placeholder="t('auth.login.field.email.placeholder')"
+              :placeholder="t('auth.login.field.email.placeholder').value"
               required
               type="email"
             />
@@ -88,7 +88,7 @@ function submit() {
               v-model="form.password"
               autocomplete="current-password"
               name="password"
-              :placeholder="t('auth.login.field.password.placeholder')"
+              :placeholder="t('auth.login.field.password.placeholder').value"
               required
               type="password"
             />
@@ -98,7 +98,7 @@ function submit() {
 
           <Checkbox
             v-model="form.remember"
-            :label="t('auth.login.field.remember')"
+            :label="t('auth.login.field.remember').value"
             name="remember"
           />
 

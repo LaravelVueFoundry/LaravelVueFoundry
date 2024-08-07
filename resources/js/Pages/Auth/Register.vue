@@ -42,7 +42,7 @@ function submit() {
     <Head>
       <title>{{ t("auth.register.meta.title") }}</title>
       <meta
-        :content="t('auth.register.meta.description')"
+        :content="t('auth.register.meta.description').value"
         name="description"
       />
     </Head>
@@ -69,7 +69,7 @@ function submit() {
               autocomplete="name"
               autofocus
               name="name"
-              :placeholder="t('auth.register.field.name.placeholder')"
+              :placeholder="t('auth.register.field.name.placeholder').value"
               required
               type="text"
             />
@@ -85,7 +85,7 @@ function submit() {
               v-model="form.email"
               autocomplete="email"
               name="email"
-              :placeholder="t('auth.register.field.email.placeholder')"
+              :placeholder="t('auth.register.field.email.placeholder').value"
               required
               type="email"
             />
@@ -103,7 +103,7 @@ function submit() {
               v-model="form.password"
               autocomplete="new-password"
               name="password"
-              :placeholder="t('auth.register.field.password.placeholder')"
+              :placeholder="t('auth.register.field.password.placeholder').value"
               required
               type="password"
             />
@@ -127,7 +127,7 @@ function submit() {
               autocomplete="new-password"
               name="new-password"
               :placeholder="
-                t('auth.register.field.password-confirm.placeholder')
+                t('auth.register.field.password-confirm.placeholder').value
               "
               required
               type="password"

@@ -43,7 +43,7 @@ function submit() {
         {{ t("auth.reset-pass.meta.title") }}
       </title>
       <meta
-        :content="t('auth.reset-pass.meta.title')"
+        :content="t('auth.reset-pass.meta.title').value"
         name="description"
       />
     </Head>
@@ -72,7 +72,7 @@ function submit() {
               autocomplete="email"
               autofocus
               name="email"
-              :placeholder="t('auth.reset-pass.field.email.placeholder')"
+              :placeholder="t('auth.reset-pass.field.email.placeholder').value"
               required
               type="email"
             />
@@ -90,7 +90,9 @@ function submit() {
               v-model="form.password"
               autocomplete="new-password"
               name="password"
-              :placeholder="t('auth.reset-pass.field.password.placeholder')"
+              :placeholder="
+                t('auth.reset-pass.field.password.placeholder').value
+              "
               required
               type="password"
             />
@@ -109,7 +111,7 @@ function submit() {
               autocomplete="new-password"
               name="new-password"
               :placeholder="
-                t('auth.reset-pass.field.password-confirm.placeholder')
+                t('auth.reset-pass.field.password-confirm.placeholder').value
               "
               required
               type="password"

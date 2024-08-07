@@ -33,7 +33,7 @@ function submit() {
     <Head>
       <title>{{ t("auth.forgot-pass.meta.title") }}</title>
       <meta
-        :content="t('auth.forgot-pass.meta.description')"
+        :content="t('auth.forgot-pass.meta.description').value"
         name="description"
       />
     </Head>
@@ -70,7 +70,7 @@ function submit() {
               autocomplete="email"
               autofocus
               name="email"
-              :placeholder="t('auth.forgot-pass.field.email.placeholder')"
+              :placeholder="t('auth.forgot-pass.field.email.placeholder').value"
               required
               type="email"
             />

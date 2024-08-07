@@ -62,7 +62,7 @@ const submit = () => {
           autocomplete="name"
           autofocus
           name="name"
-          :placeholder="t('profile.info.field.name.placeholder')"
+          :placeholder="t('profile.info.field.name.placeholder').value"
           required
           type="text"
         />
@@ -83,7 +83,7 @@ const submit = () => {
           v-model="form.email"
           autocomplete="username"
           name="email"
-          :placeholder="t('profile.info.field.email.placeholder')"
+          :placeholder="t('profile.info.field.email.placeholder').value"
           required
           type="email"
         />
