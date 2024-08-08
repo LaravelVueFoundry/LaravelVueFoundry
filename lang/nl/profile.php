@@ -22,6 +22,7 @@ return [
         'email.verify-resend' => 'Klik hier om de verificatie-email opnieuw te versturen.',
         'email.verify-sent' => 'Een nieuwe verificatielink is naar uw e-mailadres verstuurd.',
         'submit' => 'Bijwerken',
+        'submit.success' => 'Uw profiel informatie is bijgewerkt.',
     ],
     'update-pass' => [
         'title' => 'Wachtwoord Bijwerken',
@@ -34,6 +35,14 @@ return [
         'field.pass-confirm.placeholder' => '',
         'submit' => 'Bijwerken',
         'submit.success' => 'Uw wachtwoord is bijgewerkt.',
+    ],
+    'update-profile-pic' => [
+        'title' => 'Profiel Afbeelding Bijwerken',
+        'field.new-image.label' => 'Nieuwe Afbeelding',
+        'field.new-image.btn' => 'Kies bestand',
+        'field.new-image.nofile' => 'Geen bestand gekozen',
+        'submit' => 'Bijwerken',
+        'submit.success' => 'Uw profiel afbeelding is bijgewerkt.',
     ],
     'delete' => [
         'title' => 'Account Verwijderen',

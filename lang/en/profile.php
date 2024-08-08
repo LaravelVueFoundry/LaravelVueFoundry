@@ -22,6 +22,7 @@ return [
         'email.verify-resend' => 'Click here to re-send the verification email.',
         'email.verify-sent' => 'A new verification link has been sent to your email address.',
         'submit' => 'Update',
+        'submit.success' => 'Your profile information has been updated.',
     ],
     'update-pass' => [
         'title' => 'Update Password',
@@ -34,6 +35,14 @@ return [
         'field.pass-confirm.placeholder' => '',
         'submit' => 'Update',
         'submit.success' => 'Your password has been updated.',
+    ],
+    'update-profile-pic' => [
+        'title' => 'Update Profile Picture',
+        'field.new-image.label' => 'New Image',
+        'field.new-image.btn' => 'Choose a file',
+        'field.new-image.nofile' => 'No file selected',
+        'submit' => 'Update',
+        'submit.success' => 'Your profile picture has been updated.',
     ],
     'delete' => [
         'title' => 'Delete Account',

@@ -48,6 +48,8 @@ watch(
 function onImgLoadError() {
   hasError.value = true
 }
+
+defineExpose({ hasError })
 </script>
 
 <template>

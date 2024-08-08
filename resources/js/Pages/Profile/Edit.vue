@@ -6,6 +6,7 @@ import { Container } from "@local/ui"
 import DeleteUserForm from "./Partials/DeleteUserForm.vue"
 import UpdatePasswordForm from "./Partials/UpdatePasswordForm.vue"
 import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm.vue"
+import UpdateProfilePicture from "./Partials/UpdateProfilePicture.vue"
 
 defineProps<{
   mustVerifyEmail?: boolean
@@ -25,18 +26,21 @@ const { t } = useLocale()
   </Head>
 
   <BaseLayout>
-    <Container
-      class="flex flex-col gap-8 max-sm:gap-4"
-      type="narrow"
-    >
-      <UpdateProfileInformationForm
-        :must-verify-email="mustVerifyEmail"
-        :status="status"
-      />
+    <Container class="grid grid-cols-2 gap-8 max-md:grid-cols-1 max-sm:gap-4">
+      <div class="flex flex-col gap-8 max-sm:gap-4">
+        <UpdateProfilePicture />
 
-      <UpdatePasswordForm />
+        <UpdateProfileInformationForm
+          :must-verify-email="mustVerifyEmail"
+          :status="status"
+        />
+      </div>
 
-      <DeleteUserForm />
+      <div class="flex flex-col gap-8 max-sm:gap-4">
+        <UpdatePasswordForm />
+
+        <DeleteUserForm />
+      </div>
     </Container>
   </BaseLayout>
 </template>

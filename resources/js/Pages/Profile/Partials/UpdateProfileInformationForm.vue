@@ -30,7 +30,7 @@ const form = useForm({
 const submit = () => {
   form.patch(route("profile.update", { lang: locale }), {
     onSuccess: () => {
-      toastStore.success("Your profile information has been updated")
+      toastStore.success(t("profile.info.submit.success").value)
     },
   })
 }
