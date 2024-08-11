@@ -23,6 +23,8 @@ const toastStore = useToast()
 
 const profilePictureInput = ref<typeof FileUpload | null>(null)
 
+const rnd = ref(Date.now())
+
 const form = useForm<Form>({
   image: null,
 })
@@ -34,6 +36,8 @@ function updateProfilePicture() {
       toastStore.success(t("profile.update-profile-pic.submit.success").value)
       profilePictureInput.value?.clear()
       form.reset()
+
+      rnd.value = Date.now()
     },
     onError: () => {},
   })
@@ -50,12 +54,13 @@ function updateProfilePicture() {
         {{ t("profile.update-profile-pic.title") }}
       </Heading>
 
-      <InputGroup>
-        <Avatar
-          :name="$page.props.auth.user.name"
-          :src="`/avatars/${$page.props.auth.user.id}.png`"
-        />
+      <Avatar
+        class="mx-auto"
+        :name="$page.props.auth.user.name"
+        :src="`/avatars/${$page.props.auth.user.id}.png?r=${rnd}`"
+      />
 
+      <InputGroup>
         <Label
           for="profile-picture"
           required
