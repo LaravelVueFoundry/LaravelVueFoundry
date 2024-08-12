@@ -12,7 +12,7 @@ export interface DropdownItem {
     value: string
   }
   key?: number | string
-  value: string
+  value: unknown
 }
 
 const props = withDefaults(

@@ -23,16 +23,21 @@ const fileUploadRef = ref<HTMLInputElement | null>(null)
 
 function onFileChosen(e: Event) {
   fileList.value = (e.target as HTMLInputElement).files
+
+  emit("update:modelValue", fileList.value)
 }
 
 function pickFile() {
   fileUploadRef.value?.click()
 }
 
-function clearFile() {
+function clear() {
   ;(fileUploadRef.value as HTMLInputElement).value = ""
   fileList.value = null
 }
+
+const emit = defineEmits(["update:modelValue"])
+defineExpose({ clear })
 </script>
 
 <template>
@@ -61,8 +66,9 @@ function clearFile() {
         :disabled="disabled"
         icon="mdi:upload"
         size="square"
+        type="button"
         variant="primary"
-        @click.stop="pickFile"
+        @click.stop.prevent="pickFile"
       >
         {{ buttonText }}
       </Button>
@@ -112,8 +118,9 @@ function clearFile() {
           :disabled="disabled"
           icon="mdi:bin-outline"
           size="square"
+          type="button"
           variant="danger"
-          @click.stop="clearFile"
+          @click.stop="clear"
         />
       </Transition>
     </div>

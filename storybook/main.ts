@@ -34,6 +34,8 @@ export { default as Modal } from "./src/stories/molecules/off-canvas/Modal/Modal
 export { default as Toast } from "./src/stories/molecules/toast/Toast/Toast.vue"
 export { default as ToastContainer } from "./src/stories/molecules/toast/ToastContainer/ToastContainer.vue"
 
+export { default as Avatar } from "./src/stories/molecules/user/Avatar/Avatar.vue"
+
 export { default as useToast } from "./src/stories/molecules/toast/ToastContainer/composables/useToast"
 
 export type { ToastOptions, ToastPosition, Toast as ToastType }

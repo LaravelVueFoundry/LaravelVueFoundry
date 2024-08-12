@@ -31,7 +31,9 @@ const props = withDefaults(
 const imgSrc = ref(
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
 )
+
 const hasError = ref(false)
+const isLoaded = ref(false)
 
 onMounted(() => {
   imgSrc.value = props.src
@@ -41,6 +43,7 @@ watch(
   () => props.src,
   () => {
     hasError.value = false
+    isLoaded.value = false
     imgSrc.value = props.src
   },
 )
@@ -48,6 +51,8 @@ watch(
 function onImgLoadError() {
   hasError.value = true
 }
+
+defineExpose({ hasError, isLoaded })
 </script>
 
 <template>
@@ -61,6 +66,7 @@ function onImgLoadError() {
     :height="height && `${height}px`"
     :loading="loading"
     :onerror="onImgLoadError"
+    :onload="(isLoaded = true)"
     :sizes="sizes"
     :src="imgSrc"
     :srcset="srcset"

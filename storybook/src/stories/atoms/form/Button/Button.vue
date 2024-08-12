@@ -57,7 +57,7 @@ const padding = computed(() => {
     case "sm":
       return "px-4 py-2 rounded-lg"
     case "square":
-      return "px-3 py-3 rounded-lg"
+      return "px-3 py-3 rounded-xl"
     default:
       return "px-6 py-3 rounded-xl"
   }
