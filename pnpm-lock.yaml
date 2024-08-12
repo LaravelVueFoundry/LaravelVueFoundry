@@ -29,7 +29,7 @@ importers:
         version: 0.5.7(tailwindcss@3.4.7)
       '@vitejs/plugin-vue':
         specifier: ^5.1.2
-        version: 5.1.2(vite@5.3.5)(vue@3.4.37(typescript@5.5.4))
+        version: 5.1.2(vite@5.4.0)(vue@3.4.37(typescript@5.5.4))
       '@vue/server-renderer':
         specifier: ^3.4.37
         version: 3.4.37(vue@3.4.37(typescript@5.5.4))
@@ -50,7 +50,7 @@ importers:
         version: 9.27.0(eslint@9.8.0)
       laravel-vite-plugin:
         specifier: ^1.0.5
-        version: 1.0.5(vite@5.3.5)
+        version: 1.0.5(vite@5.4.0)
       postcss:
         specifier: ^8.4.40
         version: 8.4.40
@@ -70,8 +70,8 @@ importers:
         specifier: ^8.0.1
         version: 8.0.1(eslint@9.8.0)(typescript@5.5.4)
       vite:
-        specifier: ^5.3.5
-        version: 5.3.5
+        specifier: ^5.4.0
+        version: 5.4.0
       vue:
         specifier: ^3.4.37
         version: 3.4.37(typescript@5.5.4)
@@ -1466,8 +1466,8 @@ packages:
   vite-plugin-full-reload@1.2.0:
     resolution: {integrity: sha512-kz18NW79x0IHbxRSHm0jttP4zoO9P9gXh+n6UTwlNKnviTTEpOlum6oS9SmecrTtSr+muHEn5TUuC75UovQzcA==}
 
-  vite@5.3.5:
-    resolution: {integrity: sha512-MdjglKR6AQXQb9JGiS7Rc2wC6uMjcm7Go/NHNO63EwiJXfuk9PgqiP/n5IDJCziMkfw9n4Ubp7lttNwz+8ZVKA==}
+  vite@5.4.0:
+    resolution: {integrity: sha512-5xokfMX0PIiwCMCMb9ZJcMyh5wbBun0zUzKib+L65vAZ8GY9ePZMXxFrHbr/Kyll2+LSCY7xtERPpxkBDKngwg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -1475,6 +1475,7 @@ packages:
       less: '*'
       lightningcss: ^1.21.0
       sass: '*'
+      sass-embedded: '*'
       stylus: '*'
       sugarss: '*'
       terser: ^5.4.0
@@ -1486,6 +1487,8 @@ packages:
       lightningcss:
         optional: true
       sass:
+        optional: true
+      sass-embedded:
         optional: true
       stylus:
         optional: true
@@ -1873,9 +1876,9 @@ snapshots:
       '@typescript-eslint/types': 8.0.1
       eslint-visitor-keys: 3.4.3
 
-  '@vitejs/plugin-vue@5.1.2(vite@5.3.5)(vue@3.4.37(typescript@5.5.4))':
+  '@vitejs/plugin-vue@5.1.2(vite@5.4.0)(vue@3.4.37(typescript@5.5.4))':
     dependencies:
-      vite: 5.3.5
+      vite: 5.4.0
       vue: 3.4.37(typescript@5.5.4)
 
   '@volar/language-core@2.4.0-alpha.18':
@@ -2460,10 +2463,10 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  laravel-vite-plugin@1.0.5(vite@5.3.5):
+  laravel-vite-plugin@1.0.5(vite@5.4.0):
     dependencies:
       picocolors: 1.0.1
-      vite: 5.3.5
+      vite: 5.4.0
       vite-plugin-full-reload: 1.2.0
 
   laravel-vue-i18n@2.7.7(typescript@5.5.4):
@@ -2861,7 +2864,7 @@ snapshots:
       picocolors: 1.0.1
       picomatch: 2.3.1
 
-  vite@5.3.5:
+  vite@5.4.0:
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.40
