@@ -41,6 +41,8 @@ return [
         'field.new-image.label' => 'New Image',
         'field.new-image.btn' => 'Choose a file',
         'field.new-image.nofile' => 'No file selected',
+        'delete' => 'Delete avatar',
+        'delete.success' => 'Your profile picture has been deleted.',
         'submit' => 'Update',
         'submit.success' => 'Your profile picture has been updated.',
     ],

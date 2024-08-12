@@ -41,6 +41,8 @@ return [
         'field.new-image.label' => 'Nieuwe Afbeelding',
         'field.new-image.btn' => 'Kies bestand',
         'field.new-image.nofile' => 'Geen bestand gekozen',
+        'delete' => 'Verwijder avatar',
+        'delete.success' => 'Uw profiel afbeelding is verwijderd.',
         'submit' => 'Bijwerken',
         'submit.success' => 'Uw profiel afbeelding is bijgewerkt.',
     ],

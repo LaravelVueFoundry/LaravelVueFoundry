@@ -54,6 +54,7 @@ Route::prefix('{lang?}')->middleware(Locale::class)->group(function () {
             ->name('verification.send');
 
         Route::post('profile-picture', [ProfilePictureController::class, 'update'])->name('profile_picture.update');
+        Route::delete('profile-picture', [ProfilePictureController::class, 'delete'])->name('profile_picture.delete');
 
         Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
             ->name('password.confirm');

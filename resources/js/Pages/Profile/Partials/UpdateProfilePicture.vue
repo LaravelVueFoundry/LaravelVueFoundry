@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useLocale } from "@/composables/useLocale"
+import { Icon } from "@iconify/vue"
 import { useForm } from "@inertiajs/vue3"
 import {
   Avatar,
@@ -42,6 +43,20 @@ function updateProfilePicture() {
     onError: () => {},
   })
 }
+
+function deleteProfilePicture() {
+  form.delete(route("profile_picture.delete", { lang: locale }), {
+    preserveScroll: true,
+    onSuccess: () => {
+      toastStore.success(t("profile.update-profile-pic.delete.success").value)
+      profilePictureInput.value?.clear()
+      form.reset()
+
+      rnd.value = Date.now()
+    },
+    onError: () => {},
+  })
+}
 </script>
 
 <template>
@@ -54,11 +69,25 @@ function updateProfilePicture() {
         {{ t("profile.update-profile-pic.title") }}
       </Heading>
 
-      <Avatar
-        class="mx-auto"
-        :name="$page.props.auth.user.name"
-        :src="`/avatars/${$page.props.auth.user.id}.png?r=${rnd}`"
-      />
+      <div class="relative mx-auto">
+        <Avatar
+          :name="$page.props.auth.user.name"
+          :src="`/avatars/${$page.props.auth.user.id}.png?r=${rnd}`"
+        />
+
+        <Button
+          class="absolute end-0 top-0 -translate-x-4 translate-y-4 rounded-full rtl:translate-x-4"
+          size="square"
+          :title="t('profile.update-profile-pic.delete').value"
+          variant="danger"
+          @click.prevent="deleteProfilePicture"
+        >
+          <Icon
+            icon="mdi:close"
+            ssr
+          />
+        </Button>
+      </div>
 
       <InputGroup>
         <Label
