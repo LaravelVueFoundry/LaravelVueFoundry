@@ -11,6 +11,7 @@ import {
   InputError,
   InputGroup,
   Label,
+  Modal,
   useToast,
 } from "@local/ui"
 import { ref } from "vue"
@@ -23,6 +24,9 @@ const { locale, t } = useLocale()
 const toastStore = useToast()
 
 const profilePictureInput = ref<typeof FileUpload | null>(null)
+const modalRef = ref<typeof Modal | null>(null)
+
+const canDelete = ref(false)
 
 const rnd = ref(Date.now())
 
@@ -34,7 +38,7 @@ function updateProfilePicture() {
   form.post(route("profile_picture.update", { lang: locale }), {
     preserveScroll: true,
     onSuccess: () => {
-      toastStore.success(t("profile.update-profile-pic.submit.success").value)
+      toastStore.success(t("profile.update-avatar.submit.success").value)
       profilePictureInput.value?.clear()
       form.reset()
 
@@ -48,14 +52,24 @@ function deleteProfilePicture() {
   form.delete(route("profile_picture.delete", { lang: locale }), {
     preserveScroll: true,
     onSuccess: () => {
-      toastStore.success(t("profile.update-profile-pic.delete.success").value)
+      toastStore.success(t("profile.update-avatar.delete.success").value)
       profilePictureInput.value?.clear()
-      form.reset()
+      closeModal()
 
+      canDelete.value = false
       rnd.value = Date.now()
     },
     onError: () => {},
   })
+}
+
+function confirmAvatarDeletion() {
+  modalRef.value?.open()
+}
+
+function closeModal() {
+  modalRef.value?.close()
+  form.reset()
 }
 </script>
 
@@ -66,21 +80,23 @@ function deleteProfilePicture() {
         class="py-4 text-center"
         type="h2"
       >
-        {{ t("profile.update-profile-pic.title") }}
+        {{ t("profile.update-avatar.title") }}
       </Heading>
 
       <div class="relative mx-auto">
         <Avatar
           :name="$page.props.auth.user.name"
+          :onload="() => (canDelete = true)"
           :src="`/avatars/${$page.props.auth.user.id}.png?r=${rnd}`"
         />
 
         <Button
+          v-if="canDelete"
           class="absolute end-0 top-0 -translate-x-4 translate-y-4 rounded-full rtl:translate-x-4"
           size="square"
-          :title="t('profile.update-profile-pic.delete').value"
+          :title="t('profile.update-avatar.delete').value"
           variant="danger"
-          @click.prevent="deleteProfilePicture"
+          @click.prevent="confirmAvatarDeletion"
         >
           <Icon
             icon="mdi:close"
@@ -94,18 +110,16 @@ function deleteProfilePicture() {
           for="profile-picture"
           required
         >
-          {{ t("profile.update-profile-pic.field.new-image.label") }}
+          {{ t("profile.update-avatar.field.new-image.label") }}
         </Label>
 
         <FileUpload
           id="profile-picture"
           ref="profilePictureInput"
-          :button-text="
-            t('profile.update-profile-pic.field.new-image.btn').value
-          "
+          :button-text="t('profile.update-avatar.field.new-image.btn').value"
           name="image"
           :no-file-text="
-            t('profile.update-profile-pic.field.new-image.nofile').value
+            t('profile.update-avatar.field.new-image.nofile').value
           "
           required
           @input="form.image = $event.target.files[0]"
@@ -121,10 +135,44 @@ function deleteProfilePicture() {
             type="submit"
             variant="primary"
           >
-            {{ t("profile.update-profile-pic.submit") }}
+            {{ t("profile.update-avatar.submit") }}
           </Button>
         </div>
       </template>
     </Card>
+
+    <Modal
+      ref="modalRef"
+      @on-close="closeModal"
+    >
+      <template #title>
+        <Heading type="h4">
+          {{ t("profile.update-avatar.delete.modal.heading") }}
+        </Heading>
+      </template>
+
+      <div class="flex flex-col gap-4">
+        <p>
+          {{ t("profile.update-avatar.delete.modal.intro") }}
+        </p>
+      </div>
+
+      <template #actions>
+        <div class="flex items-center justify-between">
+          <Button @click="closeModal">
+            {{ t("profile.update-avatar.delete.modal.cancel") }}
+          </Button>
+
+          <Button
+            icon="mdi:bin-outline"
+            :loading="form.processing"
+            variant="danger"
+            @click="deleteProfilePicture"
+          >
+            {{ t("profile.update-avatar.delete.modal.submit") }}
+          </Button>
+        </div>
+      </template>
+    </Modal>
   </form>
 </template>

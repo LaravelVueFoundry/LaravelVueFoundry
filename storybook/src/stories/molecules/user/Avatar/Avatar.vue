@@ -8,10 +8,12 @@ const props = withDefaults(
     class?: HTMLAttributes["class"]
     src?: string
     name: string
+    onload?: () => void
   }>(),
   {
     class: undefined,
     src: undefined,
+    onload: () => {},
   },
 )
 
@@ -39,6 +41,7 @@ const initials = computed(() => {
     "
     data-test-id="avatar-img"
     :height="256"
+    :onload="props.onload"
     :src="props.src ?? ''"
     :title="$props.name"
     :width="256"

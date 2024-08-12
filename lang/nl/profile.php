@@ -36,13 +36,19 @@ return [
         'submit' => 'Bijwerken',
         'submit.success' => 'Uw wachtwoord is bijgewerkt.',
     ],
-    'update-profile-pic' => [
+    'update-avatar' => [
         'title' => 'Profiel Afbeelding Bijwerken',
         'field.new-image.label' => 'Nieuwe Afbeelding',
         'field.new-image.btn' => 'Kies bestand',
         'field.new-image.nofile' => 'Geen bestand gekozen',
         'delete' => 'Verwijder avatar',
         'delete.success' => 'Uw profiel afbeelding is verwijderd.',
+        'delete.modal' => [
+            'heading' => 'Avatar verwijderen?',
+            'intro' => 'Weet u zeker dat u uw avatar wilt verwijderen?',
+            'cancel' => 'Annuleren',
+            'submit' => 'Verwijder avatar',
+        ],
         'submit' => 'Bijwerken',
         'submit.success' => 'Uw profiel afbeelding is bijgewerkt.',
     ],
@@ -52,7 +58,7 @@ return [
         'modal' => [
             'button' => 'Verwijder Account',
             'heading' => 'Uw account verwijderen?',
-            'title' => 'Weet U zeker dat U uw account wil verwijderen?',
+            'title' => 'Weet u zeker dat u uw account wil verwijderen?',
             'intro' => 'Wanneer uw account wordt verwijderd, zullen alle bronnen en gegevens permanent worden verwijderd. Vul alstublieft uw wachtwoord in om te bevestigen dat u uw account permanent wilt verwijderen.',
             'field.password' => 'Wachtwoord',
             'field.password.placeholder' => '',

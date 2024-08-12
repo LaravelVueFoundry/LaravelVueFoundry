@@ -36,13 +36,19 @@ return [
         'submit' => 'Update',
         'submit.success' => 'Your password has been updated.',
     ],
-    'update-profile-pic' => [
+    'update-avatar' => [
         'title' => 'Update Profile Picture',
         'field.new-image.label' => 'New Image',
         'field.new-image.btn' => 'Choose a file',
         'field.new-image.nofile' => 'No file selected',
         'delete' => 'Delete avatar',
         'delete.success' => 'Your profile picture has been deleted.',
+        'delete.modal' => [
+            'heading' => 'Delete your avatar?',
+            'intro' => 'Are you sure you want to delete your avatar?',
+            'cancel' => 'Cancel',
+            'submit' => 'Delete avatar',
+        ],
         'submit' => 'Update',
         'submit.success' => 'Your profile picture has been updated.',
     ],
