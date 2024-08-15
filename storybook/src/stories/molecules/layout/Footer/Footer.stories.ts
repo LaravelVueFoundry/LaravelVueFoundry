@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3"
 import type { ComponentProps } from "vue-component-type-helpers"
 import Component from "./Footer.vue"
+import MockImg from "./__mocks__/wordmark.png"
 
 type Props = ComponentProps<typeof Component>
 
@@ -56,6 +57,25 @@ export default meta
 type Story = StoryObj<Props>
 
 export const Default: Story = {
+  render: (args) => {
+    return {
+      components: { Component },
+      setup() {
+        return { args }
+      },
+      template: `<div class="-m-4"><Component v-bind="args" /></div>`,
+    }
+  },
+}
+
+export const Logo: Story = {
+  args: {
+    logo: {
+      src: MockImg,
+      height: 151,
+      width: 548,
+    },
+  },
   render: (args) => {
     return {
       components: { Component },

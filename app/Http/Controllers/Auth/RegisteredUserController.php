@@ -47,6 +47,6 @@ class RegisteredUserController extends Controller {
 
         $locale = $request->getLocale();
 
-        return redirect(route('dashboard', ['lang' => $locale], false));
+        return redirect(route('profile.view', ['lang' => $locale], false));
     }
 }

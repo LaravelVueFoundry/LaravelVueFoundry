@@ -42,15 +42,9 @@ const linksSecondary = computed<
 
   if (page.props.auth.user) {
     result.push({
-      icon: "mdi:graph-line",
-      title: t("menu.dashboard").value,
-      href: route("dashboard", { lang: locale }),
-    })
-
-    result.push({
       icon: "mdi:account",
       title: t("menu.profile").value,
-      href: route("profile.edit", { lang: locale }),
+      href: route("profile.view", { lang: locale }),
     })
 
     result.push({
@@ -97,6 +91,7 @@ async function setLanguage(item: DropdownItem) {
     :home-path="route('home', { lang: locale })"
     :links-primary="linksPrimary"
     :links-secondary="linksSecondary"
+    :logo="{ src: '/images/logo.svg', height: 128, width: 128 }"
     :site-name="appName"
   />
 
@@ -109,6 +104,7 @@ async function setLanguage(item: DropdownItem) {
 
   <Footer
     :home-path="route('home', { lang: locale })"
+    :logo="{ src: '/images/logo.svg', height: 128, width: 128 }"
     :site-name="appName"
     :socials="socials"
   >

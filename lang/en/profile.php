@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 return [
     'title' => 'Welcome, :name!',
-    'meta.title' => 'Dashboard',
-    'meta.description' => 'Your personal dashboard.',
+    'meta.title' => 'Profile',
+    'meta.description' => 'Your user profile.',
+    'tabs' => [
+        'view.title' => 'View',
+        'edit.title' => 'Edit',
+    ],
     'edit' => [
         'title' => 'Edit Profile',
         'meta.title' => 'Edit your profile',
@@ -37,12 +41,12 @@ return [
         'submit.success' => 'Your password has been updated.',
     ],
     'update-avatar' => [
-        'title' => 'Update Profile Picture',
+        'title' => 'Update Avatar',
         'field.new-image.label' => 'New Image',
         'field.new-image.btn' => 'Choose a file',
         'field.new-image.nofile' => 'No file selected',
         'delete' => 'Delete avatar',
-        'delete.success' => 'Your profile picture has been deleted.',
+        'delete.success' => 'Your avatar has been deleted.',
         'delete.modal' => [
             'heading' => 'Delete your avatar?',
             'intro' => 'Are you sure you want to delete your avatar?',
@@ -50,7 +54,7 @@ return [
             'submit' => 'Delete avatar',
         ],
         'submit' => 'Update',
-        'submit.success' => 'Your profile picture has been updated.',
+        'submit.success' => 'Your avatar has been updated.',
     ],
     'delete' => [
         'title' => 'Delete Account',

@@ -3,6 +3,7 @@ import Container from "@/stories/atoms/container/Container/Container.vue"
 import type { Meta, StoryObj } from "@storybook/vue3"
 import type { ComponentProps } from "vue-component-type-helpers"
 import Component from "./Header.vue"
+import MockImg from "./__mocks__/logo.svg"
 
 type Props = ComponentProps<typeof Component>
 
@@ -41,6 +42,25 @@ export default meta
 type Story = StoryObj<Props>
 
 export const Default: Story = {
+  render: (args) => {
+    return {
+      components: { Component },
+      setup() {
+        return { args }
+      },
+      template: `<div class="-m-4 h-screen"><Component v-bind="args" /></div>`,
+    }
+  },
+}
+
+export const Logo: Story = {
+  args: {
+    logo: {
+      src: MockImg,
+      height: 128,
+      width: 128,
+    },
+  },
   render: (args) => {
     return {
       components: { Component },

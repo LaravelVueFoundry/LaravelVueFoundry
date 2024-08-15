@@ -6,6 +6,5 @@ return [
     'login' => 'Log in',
     'logout' => 'Log out',
     'register' => 'Register',
-    'dashboard' => 'Dashboard',
     'profile' => 'Profile',
 ];

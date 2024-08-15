@@ -14,9 +14,9 @@ use League\Flysystem\Filesystem;
 use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 
-class ProfilePictureController extends Controller {
+class AvatarController extends Controller {
     /**
-     * Update the user's profile picture.
+     * Update the user's avatar.
      */
     public function update(Request $request): RedirectResponse {
         $validated = $request->validate([
@@ -55,7 +55,7 @@ class ProfilePictureController extends Controller {
     }
 
     /**
-     * Delete the user's profile picture.
+     * Delete the user's avatar.
      */
     public function delete(Request $request): RedirectResponse {
         $imageName = Str::lower($request->user()->id).'.png';

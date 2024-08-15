@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Image from "@/stories/atoms/base/Image/Image.vue"
 import Container from "@/stories/atoms/container/Container/Container.vue"
 import Button from "@/stories/atoms/form/Button/Button.vue"
 import { Icon } from "@iconify/vue"
@@ -8,28 +9,31 @@ import { useFocusTrap } from "@vueuse/integrations/useFocusTrap"
 import { twMerge } from "tailwind-merge"
 import { ComputedRef, type HTMLAttributes, computed, nextTick, ref } from "vue"
 
+export interface HeaderLink {
+  icon?: string
+  title: string | ComputedRef
+  href: string
+  method?: "get" | "post"
+}
+
 const props = withDefaults(
   defineProps<{
     class?: HTMLAttributes["class"]
     siteName?: string
+    logo?: {
+      src: string
+      height: number
+      width: number
+    }
     homePath?: string
-    linksPrimary?: {
-      icon?: string
-      title: string | ComputedRef
-      href: string
-      method?: "get" | "post"
-    }[]
-    linksSecondary?: {
-      icon?: string
-      title: string
-      href: string
-      method?: "get" | "post"
-    }[]
+    linksPrimary?: HeaderLink[]
+    linksSecondary?: HeaderLink[]
   }>(),
   {
     class: undefined,
     homePath: "/",
     siteName: undefined,
+    logo: undefined,
     title: undefined,
     linksPrimary: undefined,
     linksSecondary: undefined,
@@ -113,7 +117,17 @@ defineExpose({ openMobileMenu, closeMobileMenu })
         class="text-xl font-medium"
         :href="props.homePath"
       >
-        {{ props.siteName }}
+        <Image
+          v-if="$props.logo"
+          :alt="$props.siteName ?? ''"
+          class="inline-block h-12 w-auto"
+          :height="$props.logo.height"
+          :src="$props.logo.src"
+          :title="$props.siteName"
+          :width="$props.logo.width"
+        />
+
+        <span v-else>{{ props.siteName }}</span>
       </Link>
 
       <div

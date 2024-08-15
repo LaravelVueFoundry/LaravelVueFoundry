@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller {
         $locale = $request->getLocale();
 
         return redirect()->intended(route(
-            'dashboard',
+            'profile.view',
             ['lang' => $locale],
             false,
         ));

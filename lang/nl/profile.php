@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 return [
     'title' => 'Welkom, :name!',
-    'meta.title' => 'Dashboard',
-    'meta.description' => 'Uw persoonlijke dashboard.',
+    'meta.title' => 'Profiel',
+    'meta.description' => 'Uw gebruikersprofiel.',
+    'tabs' => [
+        'view.title' => 'Weergeven',
+        'edit.title' => 'Bewerken',
+    ],
     'edit' => [
         'title' => 'Bewerk Profiel',
         'meta.title' => 'Bewerk uw profiel',
@@ -37,12 +41,12 @@ return [
         'submit.success' => 'Uw wachtwoord is bijgewerkt.',
     ],
     'update-avatar' => [
-        'title' => 'Profiel Afbeelding Bijwerken',
+        'title' => 'Avatar Bijwerken',
         'field.new-image.label' => 'Nieuwe Afbeelding',
         'field.new-image.btn' => 'Kies bestand',
         'field.new-image.nofile' => 'Geen bestand gekozen',
         'delete' => 'Verwijder avatar',
-        'delete.success' => 'Uw profiel afbeelding is verwijderd.',
+        'delete.success' => 'Uw avatar is verwijderd.',
         'delete.modal' => [
             'heading' => 'Avatar verwijderen?',
             'intro' => 'Weet u zeker dat u uw avatar wilt verwijderen?',
@@ -50,7 +54,7 @@ return [
             'submit' => 'Verwijder avatar',
         ],
         'submit' => 'Bijwerken',
-        'submit.success' => 'Uw profiel afbeelding is bijgewerkt.',
+        'submit.success' => 'Uw avatar is bijgewerkt.',
     ],
     'delete' => [
         'title' => 'Account Verwijderen',

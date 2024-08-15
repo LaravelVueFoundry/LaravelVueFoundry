@@ -18,7 +18,7 @@ class VerifyEmailController extends Controller {
 
         if ($request->user()->hasVerifiedEmail()) {
             return redirect()->intended(route(
-                'dashboard',
+                'profile.view',
                 ['lang' => $locale, 'verified' => 1],
                 false,
             ));
@@ -29,7 +29,7 @@ class VerifyEmailController extends Controller {
         }
 
         return redirect()->intended(route(
-            'dashboard',
+            'profile.view',
             ['lang' => $locale, 'verified' => 1],
             false,
         ));

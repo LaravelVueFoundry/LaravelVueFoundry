@@ -27,7 +27,14 @@ export { default as Radio } from "./src/stories/atoms/form/Radio/Radio.vue"
 export { default as Heading } from "./src/stories/atoms/typography/Heading/Heading.vue"
 
 export { default as Footer } from "./src/stories/molecules/layout/Footer/Footer.vue"
-export { default as Header } from "./src/stories/molecules/layout/Header/Header.vue"
+export {
+  default as Header,
+  type HeaderLink,
+} from "./src/stories/molecules/layout/Header/Header.vue"
+export {
+  default as Tabs,
+  type Tab,
+} from "./src/stories/molecules/layout/Tabs/Tabs.vue"
 
 export { default as Modal } from "./src/stories/molecules/off-canvas/Modal/Modal.vue"
 

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Image from "@/stories/atoms/base/Image/Image.vue"
 import Container from "@/stories/atoms/container/Container/Container.vue"
 import { Icon } from "@iconify/vue"
 import { Link } from "@inertiajs/vue3"
@@ -9,6 +10,11 @@ const props = withDefaults(
   defineProps<{
     class?: HTMLAttributes["class"]
     siteName?: string
+    logo?: {
+      src: string
+      height: number
+      width: number
+    }
     homePath?: string
     menus?: {
       title: string
@@ -27,6 +33,7 @@ const props = withDefaults(
   {
     class: undefined,
     siteName: undefined,
+    logo: undefined,
     homePath: "/",
     menus: undefined,
     socials: undefined,
@@ -43,7 +50,17 @@ const props = withDefaults(
             class="text-xl font-medium max-sm:text-center"
             :href="props.homePath"
           >
-            {{ props.siteName }}
+            <Image
+              v-if="$props.logo"
+              :alt="$props.siteName ?? ''"
+              class="inline-block h-16 w-auto"
+              :height="$props.logo.height"
+              :src="$props.logo.src"
+              :title="$props.siteName"
+              :width="$props.logo.width"
+            />
+
+            <span v-else>{{ props.siteName }}</span>
           </Link>
 
           <div
@@ -88,8 +105,6 @@ const props = withDefaults(
           </p>
 
           <div class="flex items-center gap-4">
-            <slot />
-
             <a
               v-for="(social, index) of props.socials"
               :key="`${index}${social.title}${social.href}`"
@@ -103,6 +118,8 @@ const props = withDefaults(
                 ssr
               />
             </a>
+
+            <slot />
           </div>
         </div>
       </div>

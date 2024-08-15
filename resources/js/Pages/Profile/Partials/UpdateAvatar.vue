@@ -23,7 +23,7 @@ interface Form {
 const { locale, t } = useLocale()
 const toastStore = useToast()
 
-const profilePictureInput = ref<typeof FileUpload | null>(null)
+const avatarInput = ref<typeof FileUpload | null>(null)
 const modalRef = ref<typeof Modal | null>(null)
 
 const canDelete = ref(false)
@@ -34,12 +34,12 @@ const form = useForm<Form>({
   image: null,
 })
 
-function updateProfilePicture() {
-  form.post(route("profile_picture.update", { lang: locale }), {
+function updateAvatar() {
+  form.post(route("avatar.update", { lang: locale }), {
     preserveScroll: true,
     onSuccess: () => {
       toastStore.success(t("profile.update-avatar.submit.success").value)
-      profilePictureInput.value?.clear()
+      avatarInput.value?.clear()
       form.reset()
 
       rnd.value = Date.now()
@@ -48,12 +48,12 @@ function updateProfilePicture() {
   })
 }
 
-function deleteProfilePicture() {
-  form.delete(route("profile_picture.delete", { lang: locale }), {
+function deleteAvatar() {
+  form.delete(route("avatar.delete", { lang: locale }), {
     preserveScroll: true,
     onSuccess: () => {
       toastStore.success(t("profile.update-avatar.delete.success").value)
-      profilePictureInput.value?.clear()
+      avatarInput.value?.clear()
       closeModal()
 
       canDelete.value = false
@@ -74,7 +74,7 @@ function closeModal() {
 </script>
 
 <template>
-  <form @submit.prevent="updateProfilePicture">
+  <form @submit.prevent="updateAvatar">
     <Card>
       <Heading
         class="py-4 text-center"
@@ -107,15 +107,15 @@ function closeModal() {
 
       <InputGroup>
         <Label
-          for="profile-picture"
+          for="avatar"
           required
         >
           {{ t("profile.update-avatar.field.new-image.label") }}
         </Label>
 
         <FileUpload
-          id="profile-picture"
-          ref="profilePictureInput"
+          id="avatar"
+          ref="avatarInput"
           :button-text="t('profile.update-avatar.field.new-image.btn').value"
           name="image"
           :no-file-text="
@@ -167,7 +167,7 @@ function closeModal() {
             icon="mdi:bin-outline"
             :loading="form.processing"
             variant="danger"
-            @click="deleteProfilePicture"
+            @click="deleteAvatar"
           >
             {{ t("profile.update-avatar.delete.modal.submit") }}
           </Button>

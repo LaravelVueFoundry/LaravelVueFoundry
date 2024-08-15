@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\AvatarController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\ProfilePictureController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Middleware\Locale;
@@ -53,8 +53,8 @@ Route::prefix('{lang?}')->middleware(Locale::class)->group(function () {
             ->middleware('throttle:6,1')
             ->name('verification.send');
 
-        Route::post('profile-picture', [ProfilePictureController::class, 'update'])->name('profile_picture.update');
-        Route::delete('profile-picture', [ProfilePictureController::class, 'delete'])->name('profile_picture.delete');
+        Route::post('avatar', [AvatarController::class, 'update'])->name('avatar.update');
+        Route::delete('avatar', [AvatarController::class, 'delete'])->name('avatar.delete');
 
         Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
             ->name('password.confirm');
