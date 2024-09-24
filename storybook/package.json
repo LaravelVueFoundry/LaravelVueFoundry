@@ -67,6 +67,6 @@
     "vitest": "^2.0.4",
     "vue": "^3.4.34",
     "vue-component-type-helpers": "^2.0.29",
-    "vue-tsc": "^2.0.29"
+    "vue-tsc": "^2.1.6"
   }
 }
