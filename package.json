@@ -12,7 +12,7 @@
   "dependencies": {
     "@local/ui": "link:storybook",
     "laravel-vue-i18n": "^2.7.7",
-    "tailwind-merge": "^2.5.2"
+    "tailwind-merge": "^2.5.3"
   },
   "devDependencies": {
     "@iconify/vue": "^4.1.2",
