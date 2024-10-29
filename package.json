@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@local/ui": "link:storybook",
-    "laravel-vue-i18n": "^2.7.7",
+    "laravel-vue-i18n": "^2.7.8",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
