@@ -10,10 +10,10 @@ importers:
     devDependencies:
       '@iconify/vue':
         specifier: ^4.2.0
-        version: 4.2.0(vue@3.4.34(typescript@5.6.3))
+        version: 4.2.0(vue@3.4.34(typescript@5.7.2))
       '@inertiajs/vue3':
         specifier: ^1.2.0
-        version: 1.2.0(vue@3.4.34(typescript@5.6.3))
+        version: 1.2.0(vue@3.4.34(typescript@5.7.2))
       '@storybook/addon-a11y':
         specifier: ^8.2.6
         version: 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
@@ -40,13 +40,13 @@ importers:
         version: 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vitest@2.0.4(@types/node@20.14.12)(@vitest/ui@2.0.4)(happy-dom@14.12.3))
       '@storybook/vue3':
         specifier: ^8.2.6
-        version: 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vue@3.4.34(typescript@5.6.3))
+        version: 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vue@3.4.34(typescript@5.7.2))
       '@storybook/vue3-vite':
         specifier: ^8.2.6
-        version: 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vite@5.4.11(@types/node@20.14.12))(vue@3.4.34(typescript@5.6.3))
+        version: 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vite@5.4.11(@types/node@20.14.12))(vue@3.4.34(typescript@5.7.2))
       '@vitejs/plugin-vue':
         specifier: ^5.2.0
-        version: 5.2.0(vite@5.4.11(@types/node@20.14.12))(vue@3.4.34(typescript@5.6.3))
+        version: 5.2.0(vite@5.4.11(@types/node@20.14.12))(vue@3.4.34(typescript@5.7.2))
       '@vitest/coverage-v8':
         specifier: ^2.0.4
         version: 2.0.4(vitest@2.0.4(@types/node@20.14.12)(@vitest/ui@2.0.4)(happy-dom@14.12.3))
@@ -58,10 +58,10 @@ importers:
         version: 2.4.6
       '@vueuse/core':
         specifier: ^10.11.0
-        version: 10.11.0(vue@3.4.34(typescript@5.6.3))
+        version: 10.11.0(vue@3.4.34(typescript@5.7.2))
       '@vueuse/integrations':
         specifier: ^10.11.0
-        version: 10.11.0(axios@1.7.7)(focus-trap@7.5.4)(nprogress@0.2.0)(vue@3.4.34(typescript@5.6.3))
+        version: 10.11.0(axios@1.7.7)(focus-trap@7.5.4)(nprogress@0.2.0)(vue@3.4.34(typescript@5.7.2))
       focus-trap:
         specifier: ^7.5.4
         version: 7.5.4
@@ -81,29 +81,29 @@ importers:
         specifier: ^3.4.16
         version: 3.4.16
       typescript:
-        specifier: ^5.6.3
-        version: 5.6.3
+        specifier: ^5.7.2
+        version: 5.7.2
       vite:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@20.14.12)
       vite-plugin-dts:
         specifier: ^4.3.0
-        version: 4.3.0(@types/node@20.14.12)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.11(@types/node@20.14.12))
+        version: 4.3.0(@types/node@20.14.12)(rollup@4.24.0)(typescript@5.7.2)(vite@5.4.11(@types/node@20.14.12))
       vite-tsconfig-paths:
         specifier: ^4.3.2
-        version: 4.3.2(typescript@5.6.3)(vite@5.4.11(@types/node@20.14.12))
+        version: 4.3.2(typescript@5.7.2)(vite@5.4.11(@types/node@20.14.12))
       vitest:
         specifier: ^2.0.4
         version: 2.0.4(@types/node@20.14.12)(@vitest/ui@2.0.4)(happy-dom@14.12.3)
       vue:
         specifier: ^3.4.34
-        version: 3.4.34(typescript@5.6.3)
+        version: 3.4.34(typescript@5.7.2)
       vue-component-type-helpers:
         specifier: ^2.0.29
         version: 2.0.29
       vue-tsc:
         specifier: ^2.1.10
-        version: 2.1.10(typescript@5.6.3)
+        version: 2.1.10(typescript@5.7.2)
 
 packages:
 
@@ -3537,8 +3537,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.6.3:
-    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+  typescript@5.7.2:
+    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3721,8 +3721,8 @@ packages:
   vue-component-type-helpers@2.0.29:
     resolution: {integrity: sha512-58i+ZhUAUpwQ+9h5Hck0D+jr1qbYl4voRt5KffBx8qzELViQ4XdT/Tuo+mzq8u63teAG8K0lLaOiL5ofqW38rg==}
 
-  vue-component-type-helpers@2.1.10:
-    resolution: {integrity: sha512-lfgdSLQKrUmADiSV6PbBvYgQ33KF3Ztv6gP85MfGaGaSGMTXORVaHT1EHfsqCgzRNBstPKYDmvAV9Do5CmJ07A==}
+  vue-component-type-helpers@2.2.0:
+    resolution: {integrity: sha512-cYrAnv2me7bPDcg9kIcGwjJiSB6Qyi08+jLDo9yuvoFQjzHiPTzML7RnkJB1+3P6KMsX/KbCD4QE3Tv/knEllw==}
 
   vue-demi@0.14.9:
     resolution: {integrity: sha512-dC1TJMODGM8lxhP6wLToncaDPPNB3biVxxRDuNCYpuXwi70ou7NsGd97KVTJ2omepGId429JZt8oaZKeXbqxwg==}
@@ -4762,10 +4762,10 @@ snapshots:
 
   '@iconify/types@2.0.0': {}
 
-  '@iconify/vue@4.2.0(vue@3.4.34(typescript@5.6.3))':
+  '@iconify/vue@4.2.0(vue@3.4.34(typescript@5.7.2))':
     dependencies:
       '@iconify/types': 2.0.0
-      vue: 3.4.34(typescript@5.6.3)
+      vue: 3.4.34(typescript@5.7.2)
 
   '@inertiajs/core@1.2.0':
     dependencies:
@@ -4776,12 +4776,12 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@inertiajs/vue3@1.2.0(vue@3.4.34(typescript@5.6.3))':
+  '@inertiajs/vue3@1.2.0(vue@3.4.34(typescript@5.7.2))':
     dependencies:
       '@inertiajs/core': 1.2.0
       lodash.clonedeep: 4.5.0
       lodash.isequal: 4.5.0
-      vue: 3.4.34(typescript@5.6.3)
+      vue: 3.4.34(typescript@5.7.2)
     transitivePeerDependencies:
       - debug
 
@@ -5144,7 +5144,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.6.3)(vite@5.4.11(@types/node@20.14.12))':
+  '@storybook/builder-vite@8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.7.2)(vite@5.4.11(@types/node@20.14.12))':
     dependencies:
       '@storybook/csf-plugin': 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@types/find-cache-dir': 3.2.1
@@ -5158,7 +5158,7 @@ snapshots:
       ts-dedent: 2.2.0
       vite: 5.4.11(@types/node@20.14.12)
     optionalDependencies:
-      typescript: 5.6.3
+      typescript: 5.7.2
     transitivePeerDependencies:
       - supports-color
 
@@ -5293,24 +5293,24 @@ snapshots:
     dependencies:
       storybook: 8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9))
 
-  '@storybook/vue3-vite@8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vite@5.4.11(@types/node@20.14.12))(vue@3.4.34(typescript@5.6.3))':
+  '@storybook/vue3-vite@8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vite@5.4.11(@types/node@20.14.12))(vue@3.4.34(typescript@5.7.2))':
     dependencies:
-      '@storybook/builder-vite': 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.6.3)(vite@5.4.11(@types/node@20.14.12))
-      '@storybook/vue3': 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vue@3.4.34(typescript@5.6.3))
+      '@storybook/builder-vite': 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(typescript@5.7.2)(vite@5.4.11(@types/node@20.14.12))
+      '@storybook/vue3': 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vue@3.4.34(typescript@5.7.2))
       find-package-json: 1.2.0
       magic-string: 0.30.10
       storybook: 8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9))
-      typescript: 5.6.3
+      typescript: 5.7.2
       vite: 5.4.11(@types/node@20.14.12)
-      vue-component-meta: 2.0.29(typescript@5.6.3)
-      vue-docgen-api: 4.79.1(vue@3.4.34(typescript@5.6.3))
+      vue-component-meta: 2.0.29(typescript@5.7.2)
+      vue-docgen-api: 4.79.1(vue@3.4.34(typescript@5.7.2))
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - supports-color
       - vite-plugin-glimmerx
       - vue
 
-  '@storybook/vue3@8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vue@3.4.34(typescript@5.6.3))':
+  '@storybook/vue3@8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(vue@3.4.34(typescript@5.7.2))':
     dependencies:
       '@storybook/components': 8.2.6(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/global': 5.0.0
@@ -5322,8 +5322,8 @@ snapshots:
       storybook: 8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9))
       ts-dedent: 2.2.0
       type-fest: 2.19.0
-      vue: 3.4.34(typescript@5.6.3)
-      vue-component-type-helpers: 2.1.10
+      vue: 3.4.34(typescript@5.7.2)
+      vue-component-type-helpers: 2.2.0
 
   '@testing-library/dom@10.1.0':
     dependencies:
@@ -5442,10 +5442,10 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-vue@5.2.0(vite@5.4.11(@types/node@20.14.12))(vue@3.4.34(typescript@5.6.3))':
+  '@vitejs/plugin-vue@5.2.0(vite@5.4.11(@types/node@20.14.12))(vue@3.4.34(typescript@5.7.2))':
     dependencies:
       vite: 5.4.11(@types/node@20.14.12)
-      vue: 3.4.34(typescript@5.6.3)
+      vue: 3.4.34(typescript@5.7.2)
 
   '@vitest/coverage-v8@2.0.4(vitest@2.0.4(@types/node@20.14.12)(@vitest/ui@2.0.4)(happy-dom@14.12.3))':
     dependencies:
@@ -5586,7 +5586,7 @@ snapshots:
       de-indent: 1.0.2
       he: 1.2.0
 
-  '@vue/language-core@2.0.29(typescript@5.6.3)':
+  '@vue/language-core@2.0.29(typescript@5.7.2)':
     dependencies:
       '@volar/language-core': 2.4.8
       '@vue/compiler-dom': 3.5.12
@@ -5597,9 +5597,9 @@ snapshots:
       muggle-string: 0.4.1
       path-browserify: 1.0.1
     optionalDependencies:
-      typescript: 5.6.3
+      typescript: 5.7.2
 
-  '@vue/language-core@2.1.10(typescript@5.6.3)':
+  '@vue/language-core@2.1.10(typescript@5.7.2)':
     dependencies:
       '@volar/language-core': 2.4.8
       '@vue/compiler-dom': 3.5.12
@@ -5610,9 +5610,9 @@ snapshots:
       muggle-string: 0.4.1
       path-browserify: 1.0.1
     optionalDependencies:
-      typescript: 5.6.3
+      typescript: 5.7.2
 
-  '@vue/language-core@2.1.6(typescript@5.6.3)':
+  '@vue/language-core@2.1.6(typescript@5.7.2)':
     dependencies:
       '@volar/language-core': 2.4.8
       '@vue/compiler-dom': 3.5.12
@@ -5623,7 +5623,7 @@ snapshots:
       muggle-string: 0.4.1
       path-browserify: 1.0.1
     optionalDependencies:
-      typescript: 5.6.3
+      typescript: 5.7.2
 
   '@vue/reactivity@3.4.34':
     dependencies:
@@ -5641,11 +5641,11 @@ snapshots:
       '@vue/shared': 3.4.34
       csstype: 3.1.3
 
-  '@vue/server-renderer@3.4.34(vue@3.4.34(typescript@5.6.3))':
+  '@vue/server-renderer@3.4.34(vue@3.4.34(typescript@5.7.2))':
     dependencies:
       '@vue/compiler-ssr': 3.4.34
       '@vue/shared': 3.4.34
-      vue: 3.4.34(typescript@5.6.3)
+      vue: 3.4.34(typescript@5.7.2)
 
   '@vue/shared@3.4.34': {}
 
@@ -5656,21 +5656,21 @@ snapshots:
       js-beautify: 1.15.1
       vue-component-type-helpers: 2.0.29
 
-  '@vueuse/core@10.11.0(vue@3.4.34(typescript@5.6.3))':
+  '@vueuse/core@10.11.0(vue@3.4.34(typescript@5.7.2))':
     dependencies:
       '@types/web-bluetooth': 0.0.20
       '@vueuse/metadata': 10.11.0
-      '@vueuse/shared': 10.11.0(vue@3.4.34(typescript@5.6.3))
-      vue-demi: 0.14.9(vue@3.4.34(typescript@5.6.3))
+      '@vueuse/shared': 10.11.0(vue@3.4.34(typescript@5.7.2))
+      vue-demi: 0.14.9(vue@3.4.34(typescript@5.7.2))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@10.11.0(axios@1.7.7)(focus-trap@7.5.4)(nprogress@0.2.0)(vue@3.4.34(typescript@5.6.3))':
+  '@vueuse/integrations@10.11.0(axios@1.7.7)(focus-trap@7.5.4)(nprogress@0.2.0)(vue@3.4.34(typescript@5.7.2))':
     dependencies:
-      '@vueuse/core': 10.11.0(vue@3.4.34(typescript@5.6.3))
-      '@vueuse/shared': 10.11.0(vue@3.4.34(typescript@5.6.3))
-      vue-demi: 0.14.9(vue@3.4.34(typescript@5.6.3))
+      '@vueuse/core': 10.11.0(vue@3.4.34(typescript@5.7.2))
+      '@vueuse/shared': 10.11.0(vue@3.4.34(typescript@5.7.2))
+      vue-demi: 0.14.9(vue@3.4.34(typescript@5.7.2))
     optionalDependencies:
       axios: 1.7.7
       focus-trap: 7.5.4
@@ -5681,9 +5681,9 @@ snapshots:
 
   '@vueuse/metadata@10.11.0': {}
 
-  '@vueuse/shared@10.11.0(vue@3.4.34(typescript@5.6.3))':
+  '@vueuse/shared@10.11.0(vue@3.4.34(typescript@5.7.2))':
     dependencies:
-      vue-demi: 0.14.9(vue@3.4.34(typescript@5.6.3))
+      vue-demi: 0.14.9(vue@3.4.34(typescript@5.7.2))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -7650,9 +7650,9 @@ snapshots:
 
   ts-map@1.0.3: {}
 
-  tsconfck@3.1.1(typescript@5.6.3):
+  tsconfck@3.1.1(typescript@5.7.2):
     optionalDependencies:
-      typescript: 5.6.3
+      typescript: 5.7.2
 
   tslib@1.14.1: {}
 
@@ -7671,7 +7671,7 @@ snapshots:
 
   typescript@5.4.2: {}
 
-  typescript@5.6.3: {}
+  typescript@5.7.2: {}
 
   ufo@1.5.4: {}
 
@@ -7766,18 +7766,18 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-dts@4.3.0(@types/node@20.14.12)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.11(@types/node@20.14.12)):
+  vite-plugin-dts@4.3.0(@types/node@20.14.12)(rollup@4.24.0)(typescript@5.7.2)(vite@5.4.11(@types/node@20.14.12)):
     dependencies:
       '@microsoft/api-extractor': 7.47.11(@types/node@20.14.12)
       '@rollup/pluginutils': 5.1.0(rollup@4.24.0)
       '@volar/typescript': 2.4.8
-      '@vue/language-core': 2.1.6(typescript@5.6.3)
+      '@vue/language-core': 2.1.6(typescript@5.7.2)
       compare-versions: 6.1.1
       debug: 4.3.7
       kolorist: 1.8.0
       local-pkg: 0.5.0
       magic-string: 0.30.12
-      typescript: 5.6.3
+      typescript: 5.7.2
     optionalDependencies:
       vite: 5.4.11(@types/node@20.14.12)
     transitivePeerDependencies:
@@ -7785,11 +7785,11 @@ snapshots:
       - rollup
       - supports-color
 
-  vite-tsconfig-paths@4.3.2(typescript@5.6.3)(vite@5.4.11(@types/node@20.14.12)):
+  vite-tsconfig-paths@4.3.2(typescript@5.7.2)(vite@5.4.11(@types/node@20.14.12)):
     dependencies:
       debug: 4.3.5
       globrex: 0.1.2
-      tsconfck: 3.1.1(typescript@5.6.3)
+      tsconfck: 3.1.1(typescript@5.7.2)
     optionalDependencies:
       vite: 5.4.11(@types/node@20.14.12)
     transitivePeerDependencies:
@@ -7844,24 +7844,24 @@ snapshots:
 
   vscode-uri@3.0.8: {}
 
-  vue-component-meta@2.0.29(typescript@5.6.3):
+  vue-component-meta@2.0.29(typescript@5.7.2):
     dependencies:
       '@volar/typescript': 2.4.8
-      '@vue/language-core': 2.0.29(typescript@5.6.3)
+      '@vue/language-core': 2.0.29(typescript@5.7.2)
       path-browserify: 1.0.1
       vue-component-type-helpers: 2.0.29
     optionalDependencies:
-      typescript: 5.6.3
+      typescript: 5.7.2
 
   vue-component-type-helpers@2.0.29: {}
 
-  vue-component-type-helpers@2.1.10: {}
+  vue-component-type-helpers@2.2.0: {}
 
-  vue-demi@0.14.9(vue@3.4.34(typescript@5.6.3)):
+  vue-demi@0.14.9(vue@3.4.34(typescript@5.7.2)):
     dependencies:
-      vue: 3.4.34(typescript@5.6.3)
+      vue: 3.4.34(typescript@5.7.2)
 
-  vue-docgen-api@4.79.1(vue@3.4.34(typescript@5.6.3)):
+  vue-docgen-api@4.79.1(vue@3.4.34(typescript@5.7.2)):
     dependencies:
       '@babel/parser': 7.24.8
       '@babel/types': 7.24.9
@@ -7874,29 +7874,29 @@ snapshots:
       pug: 3.0.3
       recast: 0.23.9
       ts-map: 1.0.3
-      vue: 3.4.34(typescript@5.6.3)
-      vue-inbrowser-compiler-independent-utils: 4.71.1(vue@3.4.34(typescript@5.6.3))
+      vue: 3.4.34(typescript@5.7.2)
+      vue-inbrowser-compiler-independent-utils: 4.71.1(vue@3.4.34(typescript@5.7.2))
 
-  vue-inbrowser-compiler-independent-utils@4.71.1(vue@3.4.34(typescript@5.6.3)):
+  vue-inbrowser-compiler-independent-utils@4.71.1(vue@3.4.34(typescript@5.7.2)):
     dependencies:
-      vue: 3.4.34(typescript@5.6.3)
+      vue: 3.4.34(typescript@5.7.2)
 
-  vue-tsc@2.1.10(typescript@5.6.3):
+  vue-tsc@2.1.10(typescript@5.7.2):
     dependencies:
       '@volar/typescript': 2.4.8
-      '@vue/language-core': 2.1.10(typescript@5.6.3)
+      '@vue/language-core': 2.1.10(typescript@5.7.2)
       semver: 7.6.3
-      typescript: 5.6.3
+      typescript: 5.7.2
 
-  vue@3.4.34(typescript@5.6.3):
+  vue@3.4.34(typescript@5.7.2):
     dependencies:
       '@vue/compiler-dom': 3.4.34
       '@vue/compiler-sfc': 3.4.34
       '@vue/runtime-dom': 3.4.34
-      '@vue/server-renderer': 3.4.34(vue@3.4.34(typescript@5.6.3))
+      '@vue/server-renderer': 3.4.34(vue@3.4.34(typescript@5.7.2))
       '@vue/shared': 3.4.34
     optionalDependencies:
-      typescript: 5.6.3
+      typescript: 5.7.2
 
   walk-up-path@3.0.1: {}
 
