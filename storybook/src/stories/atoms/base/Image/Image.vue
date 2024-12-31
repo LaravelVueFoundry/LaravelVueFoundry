@@ -66,7 +66,7 @@ defineExpose({ hasError, isLoaded })
     :height="height && `${height}px`"
     :loading="loading"
     :onerror="onImgLoadError"
-    :onload="(isLoaded = true)"
+    :onload="isLoaded = true"
     :sizes="sizes"
     :src="imgSrc"
     :srcset="srcset"
